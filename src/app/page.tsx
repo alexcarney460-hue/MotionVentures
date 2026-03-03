@@ -1,65 +1,336 @@
-import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
+import { orgJsonLd } from "./schema";
+
+function Container({ children }: { children: React.ReactNode }) {
+  return <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">{children}</div>;
+}
+
+function Section({
+  children,
+  className = "",
+  id,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+}) {
+  return (
+    <section id={id} className={`py-12 sm:py-16 ${className}`}>
+      {children}
+    </section>
+  );
+}
+
+function Button({
+  href,
+  children,
+  variant = "primary",
+}: {
+  href: string;
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+}) {
+  const base =
+    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 active:translate-y-px";
+  const styles =
+    variant === "primary"
+      ? "bg-[var(--mv-primary)] text-white shadow-sm shadow-slate-900/10 hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] hover:shadow-md hover:shadow-slate-900/10 focus:ring-[var(--mv-accent)]"
+      : "border border-[var(--mv-border)] bg-white text-[var(--mv-primary)] shadow-sm shadow-slate-900/5 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:ring-[var(--mv-accent)]";
+  return (
+    <Link href={href} className={`${base} ${styles}`}>
+      {children}
+    </Link>
+  );
+}
+
+function Card({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-7 shadow-sm shadow-slate-900/5">
+      <div className="text-base font-bold tracking-tight text-slate-950">{title}</div>
+      <p className="mt-2 text-sm text-slate-600">{description}</p>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="min-h-screen">
+      <Script
+        id="org-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd()) }}
+      />
+      <header className="sticky top-0 z-40 border-b border-[var(--mv-border)] bg-[color:var(--mv-canvas)]/80 backdrop-blur">
+        <Container>
+          <div className="flex h-16 items-center justify-between">
+            <Link href="/" className="font-semibold tracking-tight text-slate-950">
+              Motion Ventures
+            </Link>
+            <nav className="hidden items-center gap-6 text-sm text-slate-700 sm:flex">
+              <Link href="#services" className="hover:text-slate-950">
+                What we implement
+              </Link>
+              <Link href="#process" className="hover:text-slate-950">
+                Process
+              </Link>
+              <Link href="#faq" className="hover:text-slate-950">
+                FAQ
+              </Link>
+              <Button href="/contact" variant="primary">
+                Get a plan
+              </Button>
+            </nav>
+            <div className="sm:hidden">
+              <Button href="/contact" variant="primary">
+                Get a plan
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </header>
+
+      {/* Hero */}
+      <Section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--mv-mist),var(--mv-canvas)_65%)]" />
+        <Container>
+          <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mv-border)] bg-white/80 px-3 py-1 text-xs font-semibold text-slate-800">
+                For non‑technical business owners
+                <span className="text-slate-300">|</span>
+                Calm, practical implementation
+              </div>
+              <h1 className="mt-6 text-balance text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-ink)] sm:text-4xl md:text-6xl">
+                Practical AI, fully implemented.
+              </h1>
+              <p className="mt-5 max-w-xl text-pretty text-base text-slate-600 sm:text-lg">
+                No‑hassle AI business integration for small teams. We implement workflows,
+                assistants, and reporting systems end‑to‑end—so you get leverage without adding
+                complexity.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <div className="w-full sm:w-auto">
+                  <Button href="/contact" variant="primary">
+                    Get a plan
+                  </Button>
+                </div>
+                <div className="w-full sm:w-auto">
+                  <Button href="#examples" variant="secondary">
+                    See examples
+                  </Button>
+                </div>
+              </div>
+              <div className="mt-4 text-sm text-slate-700">
+                Minimal tooling. Clear handoff. Monitoring included.
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
+              <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                Common starting points
+              </div>
+              <ul className="mt-4 grid gap-3 text-sm text-slate-700">
+                <li>
+                  <span className="font-semibold text-slate-950">Lead intake → follow‑up</span>
+                  <div className="text-slate-600">Route, qualify, schedule, and confirm.</div>
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-950">Inbox triage</span>
+                  <div className="text-slate-600">Draft replies, tag urgency, assign owners.</div>
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-950">Ops reporting</span>
+                  <div className="text-slate-600">Weekly summaries, exceptions, and alerts.</div>
+                </li>
+              </ul>
+              <div className="mt-6 rounded-2xl bg-[var(--mv-mist)] p-4 text-sm text-slate-700">
+                <span className="font-semibold text-slate-950">You stay in control:</span> guardrails,
+                approvals, and audit trails.
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Services */}
+      <Section id="services">
+        <Container>
+          <div className="max-w-2xl">
+            <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
+              What we implement
+            </h2>
+            <p className="mt-3 text-sm text-slate-600">
+              We focus on a small set of proven systems that make businesses faster, calmer, and
+              more consistent.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <Card
+              title="Workflow automation"
+              description="Intake, routing, follow‑ups, reminders, and documentation—connected end‑to‑end."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <Card
+              title="Role-based assistants"
+              description="Sales, scheduling, support, and admin assistants with approvals and guardrails."
+            />
+            <Card
+              title="Measurement + reliability"
+              description="Dashboards, alerts, and weekly tuning so it stays working when you’re busy."
+            />
+          </div>
+        </Container>
+      </Section>
+
+      {/* Examples */}
+      <Section id="examples" className="bg-[var(--mv-mist)]">
+        <Container>
+          <div className="grid gap-10 md:grid-cols-2 md:items-start">
+            <div>
+              <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
+                Examples (simple + effective)
+              </h2>
+              <p className="mt-3 text-sm text-slate-600">
+                These are the kinds of integrations that create leverage quickly.
+              </p>
+            </div>
+            <ul className="grid gap-3 rounded-3xl border border-[var(--mv-border)] bg-white p-8 text-sm text-slate-700 shadow-sm">
+              <li>
+                <span className="font-semibold text-slate-950">Website form → CRM → text follow‑up</span>
+                <div className="text-slate-600">Instant routing, next steps, and appointment offers.</div>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-950">Support inbox triage</span>
+                <div className="text-slate-600">Auto-tag, draft replies, escalate urgent issues.</div>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-950">Weekly owner report</span>
+                <div className="text-slate-600">Leads, response time, bookings, exceptions.</div>
+              </li>
+            </ul>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Process */}
+      <Section id="process">
+        <Container>
+          <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
+            Process
+          </h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-[var(--mv-border)] bg-white p-6">
+              <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 1</div>
+              <div className="mt-2 text-base font-bold text-slate-950">Audit</div>
+              <p className="mt-2 text-sm text-slate-600">
+                We map your current workflow and pick the highest-leverage integration.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--mv-border)] bg-white p-6">
+              <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 2</div>
+              <div className="mt-2 text-base font-bold text-slate-950">Build</div>
+              <p className="mt-2 text-sm text-slate-600">
+                We implement the system with clear rules, approvals, and a handoff.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--mv-border)] bg-white p-6">
+              <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 3</div>
+              <div className="mt-2 text-base font-bold text-slate-950">Monitor</div>
+              <p className="mt-2 text-sm text-slate-600">
+                We add alerts + logging and tune weekly so it stays reliable.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* CTA */}
+      <Section className="bg-[linear-gradient(180deg,var(--mv-canvas),var(--mv-mist))]">
+        <Container>
+          <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-10 shadow-sm">
+            <div className="grid gap-6 md:grid-cols-2 md:items-center">
+              <div>
+                <div className="text-sm font-semibold text-[color:var(--mv-primary)]">Get a plan</div>
+                <div className="mt-2 text-2xl font-extrabold tracking-tight text-slate-950">
+                  Tell us what you want to automate.
+                </div>
+                <p className="mt-2 text-sm text-slate-600">
+                  We’ll reply with a simple plan: what to integrate, what it connects to, and what
+                  “done” looks like.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
+                <Button href="/contact" variant="primary">
+                  Contact
+                </Button>
+                <Button href="#faq" variant="secondary">
+                  Read FAQ
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FAQ */}
+      <Section id="faq">
+        <Container>
+          <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
+            FAQ
+          </h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-7">
+              <div className="text-base font-bold text-slate-950">Do I need new tools?</div>
+              <p className="mt-2 text-sm text-slate-600">
+                Usually no. We integrate with what you already use, then add only what’s needed.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-7">
+              <div className="text-base font-bold text-slate-950">Is it safe / controlled?</div>
+              <p className="mt-2 text-sm text-slate-600">
+                Yes—approvals, guardrails, and audit trails. You decide what can act automatically.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-7">
+              <div className="text-base font-bold text-slate-950">How fast can we start?</div>
+              <p className="mt-2 text-sm text-slate-600">
+                After a short intake, we can usually implement a first workflow quickly.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-7">
+              <div className="text-base font-bold text-slate-950">What do you need from me?</div>
+              <p className="mt-2 text-sm text-slate-600">
+                Access to the tools involved and one point person for decisions.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <footer className="border-t border-[var(--mv-border)] bg-[color:var(--mv-canvas)]">
+        <Container>
+          <div className="flex flex-col gap-3 py-10 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="font-semibold text-slate-950">Motion Ventures</div>
+              <div className="mt-1">Practical AI, fully implemented.</div>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link href="/contact" className="hover:text-slate-950">
+                Contact
+              </Link>
+              <Link href="#" className="hover:text-slate-950">
+                Privacy
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </footer>
     </div>
   );
 }
