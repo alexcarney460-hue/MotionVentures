@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
+import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+});
+
 export const metadata: Metadata = {
-  // Placeholder until domain is purchased; used for absolute OG URLs.
   metadataBase: new URL("https://motionventures.vercel.app"),
   title: {
-    default: "Motion Ventures — Practical AI, fully implemented",
+    default: "Motion Ventures — AI Venture Studio",
     template: "%s — Motion Ventures",
   },
   description:
-    "No‑hassle AI business integration for non‑technical owners. We implement practical workflows, assistants, and reporting systems—end‑to‑end.",
+    "Motion Ventures is an AI venture studio building ventures and deploying proven systems for existing businesses.",
   openGraph: {
-    title: "Motion Ventures — Practical AI, fully implemented",
+    title: "Motion Ventures — AI Venture Studio",
     description:
-      "No‑hassle AI business integration for non‑technical owners. Practical workflows, assistants, and reporting—implemented.",
+      "An AI venture studio: we build ventures—and we deploy proven systems for existing businesses.",
     type: "website",
   },
   robots: { index: true, follow: true },
@@ -25,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
