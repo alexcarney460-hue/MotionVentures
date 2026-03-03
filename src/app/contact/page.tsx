@@ -55,10 +55,11 @@ export default function ContactPage() {
               No‑hassle intake
             </div>
             <h1 className="mt-5 text-balance text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-ink)] sm:text-4xl">
-              Get an assessment
+              Free AI business assessment
             </h1>
             <p className="mt-3 text-sm text-slate-600">
-              Tell us a little about your business. We’ll reply with a clear offer and a simple plan.
+              Tell us a little about your business. We’ll reply with a clear, non-technical assessment
+              and an offer (modernization + optional add-ons).
             </p>
 
             {/* MVP: HTML form (no backend yet). Wire to email/CRM later. */}

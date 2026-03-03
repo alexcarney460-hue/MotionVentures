@@ -74,8 +74,8 @@ export default function Home() {
               Motion Ventures
             </Link>
             <nav className="hidden items-center gap-6 text-sm text-slate-700 sm:flex">
-              <Link href="#services" className="hover:text-slate-950">
-                What we implement
+              <Link href="#packages" className="hover:text-slate-950">
+                What we do
               </Link>
               <Link href="#process" className="hover:text-slate-950">
                 Process
@@ -84,12 +84,12 @@ export default function Home() {
                 FAQ
               </Link>
               <Button href="/contact" variant="primary">
-                Get a plan
+                Free AI assessment
               </Button>
             </nav>
             <div className="sm:hidden">
               <Button href="/contact" variant="primary">
-                Get a plan
+                Free AI assessment
               </Button>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Home() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <div className="w-full sm:w-auto">
                   <Button href="/contact" variant="primary">
-                    Get an assessment
+                    Get a free AI business assessment
                   </Button>
                 </div>
                 <div className="w-full sm:w-auto">
@@ -193,7 +193,7 @@ export default function Home() {
               </ul>
               <div className="mt-6">
                 <Button href="/contact" variant="primary">
-                  Get an assessment
+                  Get a free AI business assessment
                 </Button>
               </div>
             </div>
