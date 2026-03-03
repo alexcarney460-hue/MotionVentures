@@ -200,24 +200,28 @@ export default function Home() {
 
             <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
               <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                Premium Growth System
+                Backloop (Premium)
               </div>
               <div className="mt-2 text-xl font-bold tracking-tight text-slate-950">
-                Always‑on marketing + lead follow‑up.
+                24/7 marketing that improves itself.
               </div>
               <p className="mt-2 text-sm text-slate-600">
-                For owners who want a system that keeps improving: content creation, posting,
-                lead capture, and follow‑up running day and night.
+                A steady system for free traffic: social posting + local SEO pages—measured,
+                improved, and repeated every week.
               </p>
+              <div className="mt-5 rounded-2xl bg-[var(--mv-mist)] p-4 text-sm text-slate-700">
+                <span className="font-semibold text-slate-950">The loop:</span> Create → Publish → Track
+                results → Learn → Improve.
+              </div>
               <ul className="mt-5 grid gap-2 text-sm text-slate-700">
-                <li>Content pipeline (pages + posts)</li>
-                <li>Social posting cadence (with approvals if needed)</li>
-                <li>Lead capture + fast response workflows</li>
-                <li>Weekly reporting + continuous improvement</li>
+                <li>Social posts generated and scheduled (approval optional)</li>
+                <li>Local SEO pages that capture demand over time</li>
+                <li>Lead capture + fast follow‑up workflows</li>
+                <li>Weekly scorecard + continuous improvement</li>
               </ul>
               <div className="mt-6">
                 <Button href="/contact" variant="secondary">
-                  Ask about premium
+                  Ask about Backloop
                 </Button>
               </div>
             </div>
@@ -229,6 +233,10 @@ export default function Home() {
               Custom agent workflows for reception, spreadsheets, admin tasks, handoffs, and
               business organization—built around your exact bottlenecks.
             </p>
+            <div className="mt-3 text-xs text-slate-500">
+              Note: Backloop is built to reduce reliance on ad spend by compounding free traffic over
+              time.
+            </div>
           </div>
         </Container>
       </Section>
