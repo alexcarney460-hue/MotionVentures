@@ -200,7 +200,7 @@ export default function Home() {
 
             <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
               <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                Backloop (Premium)
+                Premium Growth System
               </div>
               <div className="mt-2 text-xl font-bold tracking-tight text-slate-950">
                 24/7 marketing that improves itself.
@@ -221,7 +221,7 @@ export default function Home() {
               </ul>
               <div className="mt-6">
                 <Button href="/contact" variant="secondary">
-                  Ask about Backloop
+                  Ask about premium
                 </Button>
               </div>
             </div>
