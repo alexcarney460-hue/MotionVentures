@@ -108,12 +108,11 @@ export default function Home() {
                 Calm, practical implementation
               </div>
               <h1 className="mt-6 text-balance text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-ink)] sm:text-4xl md:text-6xl">
-                Practical AI, fully implemented.
+                Self‑improving teams. Fully implemented.
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-base text-slate-600 sm:text-lg">
-                No‑hassle AI business integration for small teams. We implement workflows,
-                assistants, and reporting systems end‑to‑end—so you get leverage without adding
-                complexity.
+                We implement AI systems across ops and marketing: workflows, assistants, follow‑up,
+                and reporting—with guardrails and weekly iteration.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <div className="w-full sm:w-auto">
@@ -128,7 +127,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-4 text-sm text-slate-700">
-                Minimal tooling. Clear handoff. Monitoring included.
+                Minimal tooling. Clear handoff. Monitoring included. No hype.
               </div>
             </div>
 
@@ -142,8 +141,8 @@ export default function Home() {
                   <div className="text-slate-600">Route, qualify, schedule, and confirm.</div>
                 </li>
                 <li>
-                  <span className="font-semibold text-slate-950">Inbox triage</span>
-                  <div className="text-slate-600">Draft replies, tag urgency, assign owners.</div>
+                  <span className="font-semibold text-slate-950">Marketing production loop</span>
+                  <div className="text-slate-600">Pages, posts, offers—measured and iterated weekly.</div>
                 </li>
                 <li>
                   <span className="font-semibold text-slate-950">Ops reporting</span>
@@ -167,29 +166,72 @@ export default function Home() {
               What we implement
             </h2>
             <p className="mt-3 text-sm text-slate-600">
-              We focus on a small set of proven systems that make businesses faster, calmer, and
-              more consistent.
+              We build the same way a strong operator thinks: systems first, guardrails always,
+              measurement baked in.
             </p>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             <Card
-              title="Workflow automation"
-              description="Intake, routing, follow‑ups, reminders, and documentation—connected end‑to‑end."
+              title="Ops automation"
+              description="Intake, routing, reminders, and documentation—connected end‑to‑end."
             />
             <Card
-              title="Role-based assistants"
-              description="Sales, scheduling, support, and admin assistants with approvals and guardrails."
+              title="Marketing systems"
+              description="A production loop that creates assets, captures demand, and improves every week."
             />
             <Card
-              title="Measurement + reliability"
-              description="Dashboards, alerts, and weekly tuning so it stays working when you’re busy."
+              title="Assistants + follow‑up"
+              description="Role-based assistants for sales/support with approvals, logs, and escalation paths."
             />
           </div>
         </Container>
       </Section>
 
+      {/* Marketing Team */}
+      <Section id="marketing-team" className="bg-[var(--mv-mist)]">
+        <Container>
+          <div className="grid gap-10 md:grid-cols-2 md:items-start">
+            <div>
+              <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
+                The marketing team (deployed)
+              </h2>
+              <p className="mt-3 text-sm text-slate-600">
+                Not “tools.” A working system: strategy → production → distribution → follow‑up →
+                measurement.
+              </p>
+              <div className="mt-6 rounded-2xl border border-[var(--mv-border)] bg-white p-5 text-sm text-slate-700">
+                <span className="font-semibold text-slate-950">Principle:</span> early implementers
+                compound attention while everyone else debates.
+              </div>
+            </div>
+            <ul className="grid gap-3 rounded-3xl border border-[var(--mv-border)] bg-white p-8 text-sm text-slate-700 shadow-sm">
+              <li>
+                <span className="font-semibold text-slate-950">Strategist</span>
+                <div className="text-slate-600">Offer, positioning, page structure, constraints.</div>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-950">Creator</span>
+                <div className="text-slate-600">Pages, posts, scripts, ads—on brand, on spec.</div>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-950">Optimizer</span>
+                <div className="text-slate-600">Tests, analytics, iteration cadence.</div>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-950">Follow‑up system</span>
+                <div className="text-slate-600">Permissioned outreach, nurturing, handoff to humans.</div>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-950">Guardian</span>
+                <div className="text-slate-600">Compliance, guardrails, and “don’t get banned” rules.</div>
+              </li>
+            </ul>
+          </div>
+        </Container>
+      </Section>
+
       {/* Examples */}
-      <Section id="examples" className="bg-[var(--mv-mist)]">
+      <Section id="examples">
         <Container>
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div>
