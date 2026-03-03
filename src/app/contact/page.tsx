@@ -55,10 +55,10 @@ export default function ContactPage() {
               No‑hassle intake
             </div>
             <h1 className="mt-5 text-balance text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-ink)] sm:text-4xl">
-              Get a plan
+              Get an assessment
             </h1>
             <p className="mt-3 text-sm text-slate-600">
-              Tell us what you want to automate. We’ll reply with a simple implementation plan.
+              Tell us a little about your business. We’ll reply with a clear offer and a simple plan.
             </p>
 
             {/* MVP: HTML form (no backend yet). Wire to email/CRM later. */}
@@ -93,13 +93,32 @@ export default function ContactPage() {
                 />
               </label>
               <label className="grid gap-2 text-sm">
-                <span className="font-semibold text-slate-800">What do you want to automate?</span>
-                <textarea
-                  name="message"
+                <span className="font-semibold text-slate-800">Type of business</span>
+                <input
+                  name="businessType"
                   required
-                  rows={5}
+                  className="h-11 rounded-xl border border-[var(--mv-border)] bg-white px-3 text-slate-900 outline-none ring-[var(--mv-accent)] focus:ring-2"
+                  placeholder="Example: home services, local retail, professional services"
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
+                <span className="font-semibold text-slate-800">What’s the main problem right now?</span>
+                <textarea
+                  name="problem"
+                  required
+                  rows={4}
                   className="rounded-xl border border-[var(--mv-border)] bg-white px-3 py-3 text-slate-900 outline-none ring-[var(--mv-accent)] focus:ring-2"
-                  placeholder="Example: When a lead fills our form, we want to send a text within 60 seconds, book appointments, and track response time."
+                  placeholder="Example: website feels old, leads slowed down, we miss calls, follow-up is inconsistent"
+                />
+              </label>
+              <label className="grid gap-2 text-sm">
+                <span className="font-semibold text-slate-800">What would “better” look like in 60 days?</span>
+                <textarea
+                  name="outcome"
+                  required
+                  rows={3}
+                  className="rounded-xl border border-[var(--mv-border)] bg-white px-3 py-3 text-slate-900 outline-none ring-[var(--mv-accent)] focus:ring-2"
+                  placeholder="Example: more inquiries, faster response, more booked work, less admin chaos"
                 />
               </label>
 

@@ -108,21 +108,22 @@ export default function Home() {
                 Calm, practical implementation
               </div>
               <h1 className="mt-6 text-balance text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-ink)] sm:text-4xl md:text-6xl">
-                Self‑improving teams. Fully implemented.
+                Get your business back in motion.
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-base text-slate-600 sm:text-lg">
-                We implement AI systems across ops and marketing: workflows, assistants, follow‑up,
-                and reporting—with guardrails and weekly iteration.
+                If your website feels dated and your marketing isn’t working like it used to, we’ll
+                modernize the whole customer-facing system—so you get more inquiries, faster
+                follow‑up, and cleaner operations in 2026.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <div className="w-full sm:w-auto">
                   <Button href="/contact" variant="primary">
-                    Get a plan
+                    Get an assessment
                   </Button>
                 </div>
                 <div className="w-full sm:w-auto">
-                  <Button href="#examples" variant="secondary">
-                    See examples
+                  <Button href="#packages" variant="secondary">
+                    What’s included
                   </Button>
                 </div>
               </div>
@@ -133,105 +134,107 @@ export default function Home() {
 
             <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
               <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                Common starting points
+                What you’ll notice first
               </div>
               <ul className="mt-4 grid gap-3 text-sm text-slate-700">
                 <li>
-                  <span className="font-semibold text-slate-950">Lead intake → follow‑up</span>
-                  <div className="text-slate-600">Route, qualify, schedule, and confirm.</div>
+                  <span className="font-semibold text-slate-950">You look current</span>
+                  <div className="text-slate-600">A modern site + brand kit that builds trust fast.</div>
                 </li>
                 <li>
-                  <span className="font-semibold text-slate-950">Marketing production loop</span>
-                  <div className="text-slate-600">Pages, posts, offers—measured and iterated weekly.</div>
+                  <span className="font-semibold text-slate-950">You respond faster</span>
+                  <div className="text-slate-600">Leads routed, followed up, and tracked—automatically.</div>
                 </li>
                 <li>
-                  <span className="font-semibold text-slate-950">Ops reporting</span>
-                  <div className="text-slate-600">Weekly summaries, exceptions, and alerts.</div>
+                  <span className="font-semibold text-slate-950">You stop losing details</span>
+                  <div className="text-slate-600">CRM, notes, and weekly numbers stay organized.</div>
                 </li>
               </ul>
               <div className="mt-6 rounded-2xl bg-[var(--mv-mist)] p-4 text-sm text-slate-700">
-                <span className="font-semibold text-slate-950">You stay in control:</span> guardrails,
-                approvals, and audit trails.
+                <span className="font-semibold text-slate-950">No tech learning required:</span> we set it
+                up, then show your team the simple day-to-day.
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* Services */}
-      <Section id="services">
+      {/* Packages */}
+      <Section id="packages">
         <Container>
           <div className="max-w-2xl">
             <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
-              What we implement
+              What we do (in plain English)
             </h2>
             <p className="mt-3 text-sm text-slate-600">
-              We build the same way a strong operator thinks: systems first, guardrails always,
-              measurement baked in.
+              We analyze your business, then make a clear offer. Most local businesses start with
+              modernization (website + CRM + follow‑up). Then we add custom workflows where they
+              actually help.
             </p>
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <Card
-              title="Ops automation"
-              description="Intake, routing, reminders, and documentation—connected end‑to‑end."
-            />
-            <Card
-              title="Marketing systems"
-              description="A production loop that creates assets, captures demand, and improves every week."
-            />
-            <Card
-              title="Assistants + follow‑up"
-              description="Role-based assistants for sales/support with approvals, logs, and escalation paths."
-            />
-          </div>
-        </Container>
-      </Section>
 
-      {/* Marketing Team */}
-      <Section id="marketing-team" className="bg-[var(--mv-mist)]">
-        <Container>
-          <div className="grid gap-10 md:grid-cols-2 md:items-start">
-            <div>
-              <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
-                The marketing team (deployed)
-              </h2>
-              <p className="mt-3 text-sm text-slate-600">
-                Not “tools.” A working system: strategy → production → distribution → follow‑up →
-                measurement.
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
+              <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                Modernization Package
+              </div>
+              <div className="mt-2 text-xl font-bold tracking-tight text-slate-950">
+                Website + CRM + follow‑up, installed.
+              </div>
+              <p className="mt-2 text-sm text-slate-600">
+                A complete customer-facing setup so you look current, capture leads, and respond
+                fast—without you becoming technical.
               </p>
-              <div className="mt-6 rounded-2xl border border-[var(--mv-border)] bg-white p-5 text-sm text-slate-700">
-                <span className="font-semibold text-slate-950">Principle:</span> early implementers
-                compound attention while everyone else debates.
+              <ul className="mt-5 grid gap-2 text-sm text-slate-700">
+                <li>Branding toolkit (colors, fonts, simple guidelines)</li>
+                <li>Modern website (mobile-first, fast, clear CTA)</li>
+                <li>CRM setup (contacts, pipeline, notes)</li>
+                <li>Email campaigns (lead follow‑up + re‑engagement)</li>
+              </ul>
+              <div className="mt-6">
+                <Button href="/contact" variant="primary">
+                  Get an assessment
+                </Button>
               </div>
             </div>
-            <ul className="grid gap-3 rounded-3xl border border-[var(--mv-border)] bg-white p-8 text-sm text-slate-700 shadow-sm">
-              <li>
-                <span className="font-semibold text-slate-950">Strategist</span>
-                <div className="text-slate-600">Offer, positioning, page structure, constraints.</div>
-              </li>
-              <li>
-                <span className="font-semibold text-slate-950">Creator</span>
-                <div className="text-slate-600">Pages, posts, scripts, ads—on brand, on spec.</div>
-              </li>
-              <li>
-                <span className="font-semibold text-slate-950">Optimizer</span>
-                <div className="text-slate-600">Tests, analytics, iteration cadence.</div>
-              </li>
-              <li>
-                <span className="font-semibold text-slate-950">Follow‑up system</span>
-                <div className="text-slate-600">Permissioned outreach, nurturing, handoff to humans.</div>
-              </li>
-              <li>
-                <span className="font-semibold text-slate-950">Guardian</span>
-                <div className="text-slate-600">Compliance, guardrails, and “don’t get banned” rules.</div>
-              </li>
-            </ul>
+
+            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
+              <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                Premium Growth System
+              </div>
+              <div className="mt-2 text-xl font-bold tracking-tight text-slate-950">
+                Always‑on marketing + lead follow‑up.
+              </div>
+              <p className="mt-2 text-sm text-slate-600">
+                For owners who want a system that keeps improving: content creation, posting,
+                lead capture, and follow‑up running day and night.
+              </p>
+              <ul className="mt-5 grid gap-2 text-sm text-slate-700">
+                <li>Content pipeline (pages + posts)</li>
+                <li>Social posting cadence (with approvals if needed)</li>
+                <li>Lead capture + fast response workflows</li>
+                <li>Weekly reporting + continuous improvement</li>
+              </ul>
+              <div className="mt-6">
+                <Button href="/contact" variant="secondary">
+                  Ask about premium
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-3xl border border-[var(--mv-border)] bg-[var(--mv-mist)] p-8">
+            <div className="text-sm font-semibold text-slate-950">Add‑ons (quoted after assessment)</div>
+            <p className="mt-2 text-sm text-slate-600">
+              Custom agent workflows for reception, spreadsheets, admin tasks, handoffs, and
+              business organization—built around your exact bottlenecks.
+            </p>
           </div>
         </Container>
       </Section>
 
       {/* Examples */}
-      <Section id="examples">
+      <Section id="examples" className="bg-[var(--mv-mist)]">
         <Container>
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div>
@@ -261,7 +264,7 @@ export default function Home() {
       </Section>
 
       {/* Process */}
-      <Section id="process">
+      <Section id="process" className="bg-white">
         <Container>
           <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl">
             Process
