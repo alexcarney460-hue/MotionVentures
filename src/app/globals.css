@@ -90,4 +90,19 @@ body {
       transform: translateX(55%);
     }
   }
+
+  /* Macro-nature: subtle Ken Burns drift */
+  .mv-nature-kenburns {
+    animation: mv-kenburns 7.5s ease-in-out both;
+    will-change: transform;
+  }
+
+  @keyframes mv-kenburns {
+    0% {
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: scale(1.06) translate3d(-1.5%, -1%, 0);
+    }
+  }
 }

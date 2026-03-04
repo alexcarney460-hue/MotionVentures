@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import HeroVisual from "@/components/HeroVisual";
+import NatureReel from "@/components/NatureReel";
 import { Button, Card, Container, H1, H2, Lead, Section } from "@/components/ui";
 import { orgJsonLd } from "./schema";
 
@@ -76,6 +77,40 @@ export default function Home() {
             {/* right hero visual (no card) */}
             <div className="lg:col-span-6">
               <HeroVisual src="/brand/hero-dark.png" className="" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Macro-nature (intelligence from nature) */}
+      <Section className="py-14 md:py-20">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur">
+                Intelligence from nature
+                <span className="text-white/20">|</span>
+                macro studies
+              </div>
+              <div className="mt-5">
+                <H2>Design language with a pulse.</H2>
+              </div>
+              <p className="mt-3 text-sm text-[color:var(--mv-muted)]">
+                We favor visuals that feel alive—organic structure, minimal motion, and cinematic
+                restraint.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <NatureReel
+                images={[
+                  "/brand/nature/mv-macro-nature-1.png",
+                  "/brand/nature/mv-macro-nature-2.png",
+                  "/brand/nature/mv-macro-nature-3.png",
+                  "/brand/nature/mv-macro-nature-4.png",
+                  "/brand/nature/mv-macro-nature-5.png",
+                  "/brand/nature/mv-macro-nature-6.png",
+                ]}
+              />
             </div>
           </div>
         </Container>
