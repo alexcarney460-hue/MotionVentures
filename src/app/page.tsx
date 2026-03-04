@@ -162,6 +162,87 @@ export default function Home() {
         </Container>
       </Section>
 
+      {/* Mission Control preview (bottom) */}
+      <Section className="py-14 md:py-20">
+        <Container>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+              <div className="lg:col-span-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80">
+                  Mission Control
+                  <span className="text-white/20">|</span>
+                  agent workflows
+                </div>
+                <div className="mt-4 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-white/90 sm:text-3xl">
+                  A command center for content engines.
+                </div>
+                <p className="mt-3 text-sm text-white/55">
+                  Simulated pro-SaaS UI that mirrors real workflow orchestration: brief → draft →
+                  compliance → publish.
+                </p>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <Button href="/mission-control" variant="primary">
+                    Open Mission Control
+                  </Button>
+                  <Button href="/assessment" variant="secondary">
+                    Start with an assessment
+                  </Button>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6">
+                <div className="overflow-hidden rounded-3xl border border-white/10 bg-black/25">
+                  <div className="border-b border-white/10 px-4 py-3 text-xs font-semibold text-white/60">
+                    Live simulation snapshot
+                  </div>
+                  <div className="p-4">
+                    <div className="grid gap-3">
+                      <div className="grid grid-cols-3 gap-3">
+                        {[
+                          { k: "Workflows", v: "3" },
+                          { k: "Agents", v: "6" },
+                          { k: "Drafts", v: "12" },
+                        ].map((s) => (
+                          <div key={s.k} className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                            <div className="text-[10px] font-semibold text-white/45">{s.k}</div>
+                            <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">
+                              {s.v}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                        <div className="flex items-center justify-between">
+                          <div className="text-sm font-extrabold tracking-tight text-white/90">
+                            Daily Content Engine
+                          </div>
+                          <span className="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                            Running
+                          </span>
+                        </div>
+                        <div className="mt-1 text-xs text-white/45">
+                          Catalyst → Maven → Echo → Tags → Guardian → Publisher
+                        </div>
+                        <div className="mt-3 h-1.5 w-full rounded-full bg-white/5">
+                          <div className="h-1.5 w-[58%] rounded-full bg-[var(--mv-primary)]/70" />
+                        </div>
+                      </div>
+
+                      <div className="grid gap-2 font-mono text-[11px] leading-relaxed text-white/50">
+                        <div>23:45:12 Catalyst → angle selected</div>
+                        <div>23:45:18 Maven → brief generated</div>
+                        <div>23:45:31 Guardian → passed (0.18)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       <SiteFooter />
     </div>
   );
