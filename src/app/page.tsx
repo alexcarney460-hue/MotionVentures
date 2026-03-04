@@ -30,7 +30,7 @@ export default function Home() {
         </div>
 
         <Container>
-          <div className="relative grid gap-12 lg:grid-cols-12 lg:items-start">
+          <div className="relative grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* left copy */}
             <div className="lg:col-span-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur">
@@ -72,89 +72,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* right bento */}
+            {/* right hero visual (no card) */}
             <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-3xl border border-[var(--mv-border)] bg-white/70 p-3 shadow-sm shadow-slate-900/5 backdrop-blur">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[32px]">
                 <div
-                  className="absolute inset-0 opacity-[0.14]"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 1px 1px, rgba(15,23,42,0.10) 1px, transparent 0)",
-                    backgroundSize: "18px 18px",
-                  }}
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: "url(/brand/hero-dark.png)" }}
                 />
-
-                <div className="relative grid gap-3 md:grid-cols-6">
-                  {/* hero visual */}
-                  <div className="md:col-span-6">
-                    <div className="relative overflow-hidden rounded-2xl border border-[var(--mv-border)] bg-[color:var(--mv-canvas)]">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: "url(/brand/hero-dark.png)" }}
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.72),rgba(255,255,255,0.18)_45%,rgba(255,255,255,0))]" />
-                      <div className="relative p-6 md:p-7">
-                        <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                          What we do
-                        </div>
-                        <div className="mt-2 font-[var(--font-sora)] text-xl font-extrabold tracking-tight text-[color:var(--mv-ink)]">
-                          Studio work + services
-                        </div>
-                        <div className="mt-2 max-w-sm text-sm text-[color:var(--mv-muted)]">
-                          We design the system, build the product, wire the automations, and ship the
-                          experience.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* three bento tiles */}
-                  <div className="md:col-span-3">
-                    <div className="h-full rounded-2xl border border-[var(--mv-border)] bg-white/70 p-5 backdrop-blur">
-                      <div className="text-sm font-bold text-[color:var(--mv-ink)]">Assessment → plan</div>
-                      <div className="mt-1 text-sm text-[color:var(--mv-muted)]">
-                        A fast, honest teardown with a build-ready roadmap.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:col-span-3">
-                    <div className="h-full rounded-2xl border border-[var(--mv-border)] bg-white/70 p-5 backdrop-blur">
-                      <div className="text-sm font-bold text-[color:var(--mv-ink)]">Automate the follow-up</div>
-                      <div className="mt-1 text-sm text-[color:var(--mv-muted)]">
-                        Lead routing, scheduling, and messaging with guardrails.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:col-span-6">
-                    <div className="rounded-2xl border border-[var(--mv-border)] bg-white/70 p-5 backdrop-blur">
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                          <div className="text-sm font-bold text-[color:var(--mv-ink)]">
-                            Build a premium web experience
-                          </div>
-                          <div className="mt-1 text-sm text-[color:var(--mv-muted)]">
-                            High-trust design with performance + conversion baked in.
-                          </div>
-                        </div>
-                        <Link
-                          href="/assessment"
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--mv-primary)] hover:underline"
-                        >
-                          Start with the free assessment →
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between text-sm">
-                <Link href="/ventures" className="font-semibold text-[color:var(--mv-primary)] hover:underline">
-                  Explore ventures →
-                </Link>
-                <Link href="/studio" className="font-semibold text-[color:var(--mv-primary)] hover:underline">
-                  Studio process →
-                </Link>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,92,246,0.30),transparent_55%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(56,189,248,0.20),transparent_60%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,10,16,0.92),rgba(7,10,16,0.35)_55%,rgba(7,10,16,0.0))]" />
+                <div className="absolute inset-0 ring-1 ring-white/10" />
               </div>
             </div>
           </div>
