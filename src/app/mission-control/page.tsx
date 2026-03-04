@@ -155,7 +155,7 @@ export default function MissionControlPage() {
             </Card>
 
             <Card title="Workflow canvas">
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-4">
+              <div className="mv-canvas relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-4">
                 <div className="absolute inset-0 opacity-[0.18] [mask-image:radial-gradient(circle_at_30%_30%,black,transparent_70%)]">
                   <div className="absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-cyan-300 blur-3xl" />
                   <div className="absolute -bottom-28 right-0 h-[520px] w-[520px] rounded-full bg-violet-400 blur-3xl" />
@@ -191,7 +191,7 @@ export default function MissionControlPage() {
                     ].map((n) => (
                       <div
                         key={n.name}
-                        className={`rounded-2xl border border-white/10 bg-white/5 p-3 ring-1 ${n.ring}`}
+                        className={`mv-node rounded-2xl border border-white/10 bg-white/5 p-3 ring-1 ${n.ring}`}
                       >
                         <div className="flex items-center justify-between">
                           <div className="text-sm font-extrabold tracking-tight text-white/90">{n.name}</div>
@@ -302,8 +302,111 @@ export default function MissionControlPage() {
             </div>
             <div className="text-xs text-white/40">charts · funnels · realtime feed</div>
           </div>
-          <div className="pt-4">
+          <div className="pt-4 grid gap-5">
             <AnalyticsSim />
+
+            {/* Lead scraper results (simulated) */}
+            <div className="rounded-2xl border border-white/10 bg-black/25 p-4">
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold text-white/60">Lead scraper results (sim)</div>
+                <div className="text-xs text-white/40">enrichment · scoring · export</div>
+              </div>
+
+              <div className="mt-3 overflow-hidden rounded-2xl border border-white/10">
+                <div className="grid grid-cols-12 gap-2 bg-white/5 px-3 py-2 text-[10px] font-semibold text-white/45">
+                  <div className="col-span-4">Company</div>
+                  <div className="col-span-3">Niche</div>
+                  <div className="col-span-2">Email</div>
+                  <div className="col-span-2">Score</div>
+                  <div className="col-span-1 text-right">Status</div>
+                </div>
+
+                {[
+                  {
+                    company: "ClearSpring Dental",
+                    niche: "Dental",
+                    email: "verified",
+                    score: 92,
+                    status: "Queued",
+                    accent: "emerald",
+                  },
+                  {
+                    company: "Riverline Roofing",
+                    niche: "Home services",
+                    email: "risky",
+                    score: 71,
+                    status: "Review",
+                    accent: "coral",
+                  },
+                  {
+                    company: "Northwind Med Spa",
+                    niche: "Aesthetics",
+                    email: "verified",
+                    score: 88,
+                    status: "Enriched",
+                    accent: "cyan",
+                  },
+                  {
+                    company: "Summit HVAC",
+                    niche: "Home services",
+                    email: "verified",
+                    score: 95,
+                    status: "Ready",
+                    accent: "emerald",
+                  },
+                  {
+                    company: "Keystone Law Group",
+                    niche: "Legal",
+                    email: "risky",
+                    score: 64,
+                    status: "Hold",
+                    accent: "coral",
+                  },
+                ].map((r) => {
+                  const pill =
+                    r.accent === "emerald"
+                      ? "border-emerald-300/25 bg-emerald-300/10 text-emerald-200"
+                      : r.accent === "cyan"
+                        ? "border-cyan-300/25 bg-cyan-300/10 text-cyan-200"
+                        : "border-rose-300/25 bg-rose-300/10 text-rose-200";
+                  return (
+                    <div
+                      key={r.company}
+                      className="grid grid-cols-12 gap-2 border-t border-white/10 bg-black/20 px-3 py-2 text-xs text-white/65"
+                    >
+                      <div className="col-span-4 truncate font-semibold text-white/80">{r.company}</div>
+                      <div className="col-span-3 truncate text-white/55">{r.niche}</div>
+                      <div className="col-span-2 text-white/55">{r.email}</div>
+                      <div className="col-span-2">
+                        <div className="flex items-center gap-2">
+                          <div className="h-1.5 w-full rounded-full bg-white/5">
+                            <div
+                              className="h-1.5 rounded-full bg-[var(--mv-primary)]/70"
+                              style={{ width: `${r.score}%` }}
+                            />
+                          </div>
+                          <div className="w-8 text-right text-white/55">{r.score}</div>
+                        </div>
+                      </div>
+                      <div className="col-span-1 text-right">
+                        <span className={`rounded-full border px-2 py-0.5 text-[10px] font-extrabold ${pill}`}>
+                          {r.status}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-3 flex items-center justify-end gap-2">
+                <button className="inline-flex h-10 items-center justify-center rounded-xl bg-white/10 px-4 text-sm font-semibold text-white/80 transition hover:bg-white/15">
+                  Export CSV
+                </button>
+                <button className="inline-flex h-10 items-center justify-center rounded-xl bg-[var(--mv-primary)] px-4 text-sm font-semibold text-white shadow-sm shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)]">
+                  Scrape more
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

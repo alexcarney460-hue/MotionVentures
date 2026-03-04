@@ -97,6 +97,25 @@ body {
     will-change: transform;
   }
 
+  /* Mission Control: hover micro-interactions */
+  .mv-node {
+    transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 180ms ease;
+    will-change: transform;
+  }
+
+  .mv-node:hover {
+    transform: translate3d(0, -2px, 0);
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .mv-edge {
+    transition: opacity 180ms ease;
+  }
+
+  .mv-canvas:hover .mv-edge {
+    opacity: 1;
+  }
+
   @keyframes mv-kenburns {
     0% {
       transform: scale(1) translate3d(0, 0, 0);

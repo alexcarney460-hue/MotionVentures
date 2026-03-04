@@ -38,7 +38,7 @@ export default function NeonEdges({ edges, className }: { edges: Edge[]; classNa
         const mx = (e.from.x + e.to.x) / 2
         const path = `M ${e.from.x} ${e.from.y} C ${mx} ${e.from.y}, ${mx} ${e.to.y}, ${e.to.x} ${e.to.y}`
         return (
-          <g key={idx}>
+          <g key={idx} className="mv-edge">
             <path d={path} fill="none" stroke={c.glow} strokeWidth={6} opacity={0.55} filter="url(#mv-glow)" />
             <path d={path} fill="none" stroke={c.stroke} strokeWidth={1.8} opacity={0.9} />
           </g>
