@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button, Container } from "./ui";
 
@@ -12,8 +13,19 @@ export default function SiteHeader({
     <header className="sticky top-0 z-40 border-b border-[var(--mv-border)] bg-[color:var(--mv-canvas)]/75 backdrop-blur">
       <Container>
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="font-[var(--font-sora)] font-semibold tracking-tight text-[color:var(--mv-ink)]">
-            Motion Ventures
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-[var(--font-sora)] font-semibold tracking-tight text-[color:var(--mv-ink)]"
+          >
+            <Image
+              src="/brand/logo-mark.png"
+              alt="Motion Ventures"
+              width={28}
+              height={28}
+              className="rounded-md"
+              priority
+            />
+            <span>Motion Ventures</span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm text-[color:var(--mv-muted)] sm:flex">
             <Link href="/ventures" className="hover:text-[color:var(--mv-ink)]">
