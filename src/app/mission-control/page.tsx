@@ -1,5 +1,7 @@
 import Link from "next/link";
 import MissionControlSim from "./MissionControlSim";
+import AnalyticsSim from "./AnalyticsSim";
+import NeonEdges from "@/components/NeonEdges";
 
 export const metadata = {
   title: "Mission Control",
@@ -159,21 +161,37 @@ export default function MissionControlPage() {
                   <div className="absolute -bottom-28 right-0 h-[520px] w-[520px] rounded-full bg-violet-400 blur-3xl" />
                 </div>
 
+                {/* neon edges overlay */}
+                <NeonEdges
+                  className="pointer-events-none absolute inset-0 opacity-80"
+                  edges={[
+                    { from: { x: 120, y: 118 }, to: { x: 500, y: 118 }, accent: "cyan" },
+                    { from: { x: 500, y: 118 }, to: { x: 880, y: 118 }, accent: "violet" },
+                    { from: { x: 120, y: 280 }, to: { x: 500, y: 280 }, accent: "emerald" },
+                    { from: { x: 500, y: 280 }, to: { x: 880, y: 280 }, accent: "cyan" },
+                    { from: { x: 120, y: 442 }, to: { x: 500, y: 442 }, accent: "coral" },
+                    { from: { x: 500, y: 442 }, to: { x: 880, y: 442 }, accent: "violet" },
+                  ]}
+                />
+
                 <div className="relative grid gap-3">
-                  <div className="text-xs font-semibold text-white/55">Daily Content Engine — graph</div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs font-semibold text-white/55">Daily Content Engine — graph</div>
+                    <div className="text-[11px] text-white/40">neon edges · node accents</div>
+                  </div>
 
                   <div className="grid gap-3 md:grid-cols-3">
                     {[
-                      { name: "Catalyst", desc: "Idea + angle" },
-                      { name: "Maven", desc: "Brief + outline" },
-                      { name: "Echo", desc: "Draft copy" },
-                      { name: "Tags", desc: "Metadata + SEO" },
-                      { name: "Guardian", desc: "Compliance" },
-                      { name: "Publisher", desc: "Schedule/post" },
+                      { name: "Catalyst", desc: "Idea + angle", ring: "ring-cyan-300/20" },
+                      { name: "Maven", desc: "Brief + outline", ring: "ring-violet-300/20" },
+                      { name: "Echo", desc: "Draft copy", ring: "ring-emerald-300/20" },
+                      { name: "Tags", desc: "Metadata + SEO", ring: "ring-cyan-300/20" },
+                      { name: "Guardian", desc: "Compliance", ring: "ring-rose-300/20" },
+                      { name: "Publisher", desc: "Schedule/post", ring: "ring-violet-300/20" },
                     ].map((n) => (
                       <div
                         key={n.name}
-                        className="rounded-2xl border border-white/10 bg-white/5 p-3"
+                        className={`rounded-2xl border border-white/10 bg-white/5 p-3 ring-1 ${n.ring}`}
                       >
                         <div className="flex items-center justify-between">
                           <div className="text-sm font-extrabold tracking-tight text-white/90">{n.name}</div>
@@ -194,7 +212,7 @@ export default function MissionControlPage() {
               </div>
             </Card>
 
-            <Card title="Realtime analytics + console">
+            <Card title="Console + agent telemetry">
               <MissionControlSim />
             </Card>
           </div>
@@ -272,8 +290,26 @@ export default function MissionControlPage() {
         </aside>
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-5 pb-10 text-xs text-white/35 sm:px-6">
-        This is a UI simulation (Mission Control). Next step: wire it to a real workflow runtime.
+      {/* Full-width analytics */}
+      <div className="mx-auto w-full max-w-7xl px-5 pb-10 sm:px-6">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+          <div className="flex items-center justify-between border-b border-white/10 px-1 pb-3">
+            <div>
+              <div className="text-xs font-semibold text-white/60">Analytics</div>
+              <div className="mt-1 text-sm font-extrabold tracking-tight text-white/90">
+                Realtime performance (simulated)
+              </div>
+            </div>
+            <div className="text-xs text-white/40">charts · funnels · realtime feed</div>
+          </div>
+          <div className="pt-4">
+            <AnalyticsSim />
+          </div>
+        </div>
+
+        <div className="mt-4 text-xs text-white/35">
+          This is a UI simulation (Mission Control). No integrations.
+        </div>
       </div>
     </div>
   );
