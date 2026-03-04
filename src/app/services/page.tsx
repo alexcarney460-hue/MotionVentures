@@ -37,17 +37,17 @@ export default function ServicesPage() {
       <Section id="packages">
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
                 Modernization Package
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-[color:var(--mv-ink)]">
+              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
                 The foundation: modern, organized, responsive.
               </div>
-              <p className="mt-2 text-sm text-[color:var(--mv-muted)]">
+              <p className="mt-2 text-sm text-white/55">
                 For local businesses who need to look current, capture leads, and follow up fast.
               </p>
-              <ul className="mt-5 grid gap-2 text-sm text-[color:var(--mv-muted)]">
+              <ul className="mt-5 grid gap-2 text-sm text-white/55">
                 <li>Branding toolkit (logo cleanup, colors, fonts, simple guidelines)</li>
                 <li>Modern website (mobile-first, fast, clear call-to-action)</li>
                 <li>CRM setup (contacts, pipeline, notes)</li>
@@ -55,22 +55,22 @@ export default function ServicesPage() {
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
                 Premium Growth System
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-[color:var(--mv-ink)]">
+              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
                 Always-on content + distribution + improvement.
               </div>
-              <p className="mt-2 text-sm text-[color:var(--mv-muted)]">
+              <p className="mt-2 text-sm text-white/55">
                 A compounding engine for free traffic: social posting + local SEO pages—tracked and
                 improved weekly.
               </p>
-              <div className="mt-5 rounded-2xl bg-[var(--mv-mist)] p-4 text-sm text-[color:var(--mv-muted)]">
-                <span className="font-semibold text-[color:var(--mv-ink)]">The loop:</span> Create →
+              <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/55">
+                <span className="font-semibold text-white/85">The loop:</span> Create →
                 Publish → Track results → Learn → Improve.
               </div>
-              <ul className="mt-5 grid gap-2 text-sm text-[color:var(--mv-muted)]">
+              <ul className="mt-5 grid gap-2 text-sm text-white/55">
                 <li>Social posts generated and scheduled (approval optional)</li>
                 <li>Local SEO pages that capture demand over time</li>
                 <li>Lead capture + fast follow-up workflows</li>
@@ -79,9 +79,9 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="mt-6 rounded-3xl border border-[var(--mv-border)] bg-[var(--mv-mist)] p-8">
-            <div className="text-sm font-semibold text-[color:var(--mv-ink)]">Add-ons (quoted)</div>
-            <p className="mt-2 text-sm text-[color:var(--mv-muted)]">
+          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="text-sm font-semibold text-white/90">Add-ons (quoted)</div>
+            <p className="mt-2 text-sm text-white/55">
               Custom agentic workflows for reception, spreadsheets, admin tasks, scheduling,
               handoffs, and business organization—built around your bottlenecks.
             </p>
@@ -99,20 +99,20 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-[var(--mv-border)] bg-white p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 1</div>
-              <div className="mt-2 font-bold text-[color:var(--mv-ink)]">Assessment</div>
-              <p className="mt-2 text-sm text-[color:var(--mv-muted)]">Website, follow-up, ops, and gaps.</p>
+              <div className="mt-2 font-bold text-white/90">Assessment</div>
+              <p className="mt-2 text-sm text-white/55">Website, follow-up, ops, and gaps.</p>
             </div>
-            <div className="rounded-2xl border border-[var(--mv-border)] bg-white p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 2</div>
-              <div className="mt-2 font-bold text-[color:var(--mv-ink)]">Offer</div>
-              <p className="mt-2 text-sm text-[color:var(--mv-muted)]">Clear scope, timeline, and next steps.</p>
+              <div className="mt-2 font-bold text-white/90">Offer</div>
+              <p className="mt-2 text-sm text-white/55">Clear scope, timeline, and next steps.</p>
             </div>
-            <div className="rounded-2xl border border-[var(--mv-border)] bg-white p-6">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 3</div>
-              <div className="mt-2 font-bold text-[color:var(--mv-ink)]">Build + Improve</div>
-              <p className="mt-2 text-sm text-[color:var(--mv-muted)]">Implementation + weekly iteration.</p>
+              <div className="mt-2 font-bold text-white/90">Build + Improve</div>
+              <p className="mt-2 text-sm text-white/55">Implementation + weekly iteration.</p>
             </div>
           </div>
 

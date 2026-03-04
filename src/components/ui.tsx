@@ -41,7 +41,7 @@ export function H2({ children }: { children: React.ReactNode }) {
 }
 
 export function Lead({ children }: { children: React.ReactNode }) {
-  return <p className="text-pretty text-base text-[color:var(--mv-muted)] sm:text-lg">{children}</p>;
+  return <p className="text-pretty text-base text-white/60 sm:text-lg">{children}</p>;
 }
 
 export function Button({
@@ -58,7 +58,7 @@ export function Button({
   const styles =
     variant === "primary"
       ? "bg-[var(--mv-primary)] text-white shadow-sm shadow-slate-900/10 hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] hover:shadow-md hover:shadow-slate-900/10 focus:ring-[var(--mv-accent)]"
-      : "border border-[var(--mv-border)] bg-white text-[color:var(--mv-primary)] shadow-sm shadow-slate-900/5 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:ring-[var(--mv-accent)]";
+      : "border border-white/10 bg-white/5 text-white/85 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur hover:-translate-y-0.5 hover:bg-white/10 focus:ring-[var(--mv-primary)]";
   return (
     <Link href={href} className={`${base} ${styles}`}>
       {children}
@@ -78,12 +78,12 @@ export function Card({
   const inner = (
     <>
       <div className="text-base font-bold tracking-tight text-[color:var(--mv-primary)]">{title}</div>
-      <p className="mt-2 text-sm text-[color:var(--mv-muted)]">{description}</p>
+      <p className="mt-2 text-sm text-white/55">{description}</p>
     </>
   );
 
   const cls =
-    "rounded-3xl border border-[var(--mv-border)] bg-[var(--mv-surface)] p-7 shadow-sm shadow-slate-900/5";
+    "rounded-3xl border border-white/10 bg-white/5 p-7 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur";
 
   return href ? (
     <Link href={href} className={`${cls} transition hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-900/10`}>

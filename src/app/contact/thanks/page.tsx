@@ -13,18 +13,18 @@ export default function ThanksPage() {
     <div className="min-h-screen bg-[color:var(--mv-canvas)]">
       <main className="py-16">
         <Container>
-          <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-10 shadow-sm shadow-slate-900/5">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
             <div className="text-sm font-semibold text-[color:var(--mv-primary)]">Submitted</div>
             <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-[color:var(--mv-primary)]">
               Thanks — we’ll reply with a plan.
             </h1>
-            <p className="mt-3 text-sm text-slate-600">
+            <p className="mt-3 text-sm text-white/55">
               If it’s urgent, add “URGENT” to your email subject when you follow up.
             </p>
             <div className="mt-8 flex gap-3">
               <Link
                 href="/"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-[var(--mv-border)] bg-white px-5 text-sm font-semibold text-[color:var(--mv-primary)] shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:bg-slate-50"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 text-sm font-semibold text-white/85 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10"
               >
                 Back to home
               </Link>

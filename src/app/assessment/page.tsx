@@ -23,7 +23,7 @@ export default function AssessmentPage() {
               </Lead>
             </div>
 
-            <div className="mt-10 rounded-3xl border border-[var(--mv-border)] bg-white p-8 shadow-sm shadow-slate-900/5 sm:p-10">
+            <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:p-10">
               <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
                 Assessment intake
               </div>
@@ -36,7 +36,7 @@ export default function AssessmentPage() {
                     <input
                       name="name"
                       required
-                      className="h-11 rounded-xl border border-[var(--mv-border)] bg-white px-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
+                      className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
                       placeholder="Jane Doe"
                     />
                   </label>
@@ -46,7 +46,7 @@ export default function AssessmentPage() {
                       name="email"
                       type="email"
                       required
-                      className="h-11 rounded-xl border border-[var(--mv-border)] bg-white px-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
+                      className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
                       placeholder="jane@company.com"
                     />
                   </label>
@@ -56,7 +56,7 @@ export default function AssessmentPage() {
                   <span className="font-semibold text-[color:var(--mv-primary)]">Business website (if you have one)</span>
                   <input
                     name="website"
-                    className="h-11 rounded-xl border border-[var(--mv-border)] bg-white px-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
+                    className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
                     placeholder="https://yourbusiness.com"
                   />
                 </label>
@@ -66,7 +66,7 @@ export default function AssessmentPage() {
                   <input
                     name="businessType"
                     required
-                    className="h-11 rounded-xl border border-[var(--mv-border)] bg-white px-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
+                    className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
                     placeholder="Home services, local retail, professional services, etc."
                   />
                 </label>
@@ -77,7 +77,7 @@ export default function AssessmentPage() {
                     name="problem"
                     required
                     rows={4}
-                    className="rounded-xl border border-[var(--mv-border)] bg-white px-3 py-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
+                    className="rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
                     placeholder="Example: leads slowed down, website feels old, follow-up is inconsistent, scheduling is chaotic"
                   />
                 </label>
@@ -88,7 +88,7 @@ export default function AssessmentPage() {
                     name="outcome"
                     required
                     rows={3}
-                    className="rounded-xl border border-[var(--mv-border)] bg-white px-3 py-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
+                    className="rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
                     placeholder="More inquiries, faster response time, more booked work, less admin chaos"
                   />
                 </label>

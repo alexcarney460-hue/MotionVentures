@@ -44,17 +44,17 @@ export default function StudioPage() {
                 compound.
               </p>
             </div>
-            <ul className="grid gap-3 rounded-3xl border border-[var(--mv-border)] bg-white p-8 text-sm text-[color:var(--mv-muted)] shadow-sm">
+            <ul className="grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-8 text-sm text-white/55 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <li>
-                <span className="font-semibold text-[color:var(--mv-ink)]">Plain English</span>
+                <span className="font-semibold text-white/90">Plain English</span>
                 <div>Clear scope, clear outcomes, simple handoff.</div>
               </li>
               <li>
-                <span className="font-semibold text-[color:var(--mv-ink)]">Guardrails</span>
+                <span className="font-semibold text-white/90">Guardrails</span>
                 <div>Approvals, logs, and safe automation—no chaos.</div>
               </li>
               <li>
-                <span className="font-semibold text-[color:var(--mv-ink)]">Iteration</span>
+                <span className="font-semibold text-white/90">Iteration</span>
                 <div>Weekly scorecards and improvements.</div>
               </li>
             </ul>

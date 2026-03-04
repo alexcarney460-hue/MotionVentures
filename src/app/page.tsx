@@ -137,14 +137,14 @@ export default function Home() {
       {/* CTA */}
       <Section className="bg-[linear-gradient(180deg,var(--mv-canvas),var(--mv-mist))]">
         <Container>
-          <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-10 shadow-sm">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
             <div className="grid gap-6 md:grid-cols-2 md:items-center">
               <div>
                 <div className="text-sm font-semibold text-[color:var(--mv-primary)]">Start here</div>
-                <div className="mt-2 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-[color:var(--mv-ink)]">
+                <div className="mt-2 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-white/90">
                   Get a free AI business assessment.
                 </div>
-                <p className="mt-2 text-sm text-[color:var(--mv-muted)]">
+                <p className="mt-2 text-sm text-white/55">
                   We’ll review your website, follow-up, and operations—and send back a clear,
                   non-technical offer.
                 </p>
