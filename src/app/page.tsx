@@ -2,6 +2,7 @@ import Script from "next/script";
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import HeroVisual from "@/components/HeroVisual";
 import { Button, Card, Container, H1, H2, Lead, Section } from "@/components/ui";
 import { orgJsonLd } from "./schema";
 
@@ -74,16 +75,7 @@ export default function Home() {
 
             {/* right hero visual (no card) */}
             <div className="lg:col-span-6">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[32px]">
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: "url(/brand/hero-dark.png)" }}
-                />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,92,246,0.30),transparent_55%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(56,189,248,0.20),transparent_60%)]" />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,10,16,0.92),rgba(7,10,16,0.35)_55%,rgba(7,10,16,0.0))]" />
-                <div className="absolute inset-0 ring-1 ring-white/10" />
-              </div>
+              <HeroVisual src="/brand/hero-dark.png" className="" />
             </div>
           </div>
         </Container>
