@@ -10,7 +10,7 @@ export default function SiteHeader({
   ctaHref?: string;
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--mv-border)] bg-[color:var(--mv-canvas)]/75 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--mv-border)] bg-[color:var(--mv-canvas)]/70 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--mv-canvas)]/55">
       <Container>
         <div className="flex h-16 items-center justify-between">
           <Link

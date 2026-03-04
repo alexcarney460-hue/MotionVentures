@@ -33,14 +33,14 @@ export default function Home() {
           <div className="relative grid gap-12 lg:grid-cols-12 lg:items-start">
             {/* left copy */}
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mv-border)] bg-white/70 px-3 py-1 text-xs font-semibold text-[color:var(--mv-ink)] backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur">
                 AI studio
-                <span className="text-slate-300">|</span>
-                Build, automate, ship
+                <span className="text-white/20">|</span>
+                Automation + systems
               </div>
 
               <div className="mt-6">
-                <H1>AI systems that feel like leverage.</H1>
+                <H1>Your AI Studio for Automation.</H1>
               </div>
               <div className="mt-5 max-w-xl">
                 <Lead>
@@ -90,7 +90,7 @@ export default function Home() {
                     <div className="relative overflow-hidden rounded-2xl border border-[var(--mv-border)] bg-[color:var(--mv-canvas)]">
                       <div
                         className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: "url(/brand/hero-apple.png)" }}
+                        style={{ backgroundImage: "url(/brand/hero-dark.png)" }}
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.72),rgba(255,255,255,0.18)_45%,rgba(255,255,255,0))]" />
                       <div className="relative p-6 md:p-7">

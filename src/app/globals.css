@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Motion Ventures — light, premium, welcoming */
-  --background: #f7f7fb;
-  --foreground: #0b1020;
+  /* Motion Ventures — cinematic dark */
+  --background: #070a10;
+  --foreground: rgba(255, 255, 255, 0.92);
 
-  --mv-canvas: #f7f7fb;
-  --mv-surface: #ffffff;
-  --mv-ink: #0b1020;
-  --mv-muted: #4b5563;
-  --mv-border: #e6e8f0;
-  --mv-primary: #5b5af7;
-  --mv-primary-hover: #4746e6;
-  --mv-accent: #f4b36a;
-  --mv-mist: #eef2ff;
+  --mv-canvas: #070a10;
+  --mv-surface: rgba(255, 255, 255, 0.06);
+  --mv-ink: rgba(255, 255, 255, 0.92);
+  --mv-muted: rgba(255, 255, 255, 0.70);
+  --mv-border: rgba(255, 255, 255, 0.10);
+
+  --mv-primary: #8b5cf6; /* neon violet */
+  --mv-primary-hover: #a78bfa;
+  --mv-sapphire: #38bdf8;
+  --mv-emerald: #34d399;
+  --mv-coral: #ff4d6d;
+
+  --mv-mist: #0b1020;
 }
 
 @theme inline {
