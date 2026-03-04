@@ -90,7 +90,7 @@ export default function Home() {
                     <div className="relative overflow-hidden rounded-2xl border border-[var(--mv-border)] bg-[color:var(--mv-canvas)]">
                       <div
                         className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: "url(/brand/hero.png)" }}
+                        style={{ backgroundImage: "url(/brand/hero-apple.png)" }}
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.72),rgba(255,255,255,0.18)_45%,rgba(255,255,255,0))]" />
                       <div className="relative p-6 md:p-7">
