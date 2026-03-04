@@ -38,11 +38,19 @@ export default function ServicesPage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                Modernization Package
-              </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
-                The foundation: modern, organized, responsive.
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                    Foundation
+                  </div>
+                  <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                    Modernization package
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-[10px] font-semibold text-white/45">Starting at</div>
+                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">$2,000</div>
+                </div>
               </div>
               <p className="mt-2 text-sm text-white/55">
                 For local businesses who need to look current, capture leads, and follow up fast.
@@ -56,8 +64,19 @@ export default function ServicesPage() {
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                Premium Growth System
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                    Premium
+                  </div>
+                  <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                    Growth system
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-[10px] font-semibold text-white/45">Quoted</div>
+                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">Custom</div>
+                </div>
               </div>
               <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
                 Always-on content + distribution + improvement.
@@ -76,15 +95,50 @@ export default function ServicesPage() {
                 <li>Lead capture + fast follow-up workflows</li>
                 <li>Weekly scorecard + continuous improvement</li>
               </ul>
+
+              <div className="mt-6">
+                <Button href="/premium-growth-intake" variant="primary">
+                  Apply (questionnaire)
+                </Button>
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-            <div className="text-sm font-semibold text-white/90">Add-ons (quoted)</div>
-            <p className="mt-2 text-sm text-white/55">
-              Custom agentic workflows for reception, spreadsheets, admin tasks, scheduling,
-              handoffs, and business organization—built around your bottlenecks.
-            </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="text-sm font-semibold text-white/90">Add-ons (quoted)</div>
+              <p className="mt-2 text-sm text-white/55">
+                Custom agentic workflows for reception, spreadsheets, admin tasks, scheduling,
+                handoffs, and business organization—built around your bottlenecks.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                    DIY
+                  </div>
+                  <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                    Get the guide
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-[10px] font-semibold text-white/45">Price</div>
+                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">$199</div>
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-white/55">
+                A practical playbook to modernize your business using AI agents—what to automate,
+                what to measure, and how to roll it out safely.
+              </p>
+
+              <div className="mt-6">
+                <Button href="/guide" variant="primary">
+                  Get the guide ($199)
+                </Button>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
