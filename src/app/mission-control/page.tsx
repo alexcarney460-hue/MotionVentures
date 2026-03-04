@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MissionControlSim from "./MissionControlSim";
 
 export const metadata = {
   title: "Mission Control",
@@ -112,7 +113,7 @@ export default function MissionControlPage() {
           </Card>
         </aside>
 
-        {/* middle: workflows + canvas */}
+        {/* middle: workflows + canvas + neon analytics/console */}
         <main className="lg:col-span-6">
           <div className="grid gap-5">
             <Card title="Workflows">
@@ -191,6 +192,10 @@ export default function MissionControlPage() {
                   </div>
                 </div>
               </div>
+            </Card>
+
+            <Card title="Realtime analytics + console">
+              <MissionControlSim />
             </Card>
           </div>
         </main>
