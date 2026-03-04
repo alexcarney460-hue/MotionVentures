@@ -286,6 +286,86 @@ export default function MissionControlPage() {
                 ))}
               </div>
             </Card>
+
+            <Card title="Posts performance (simulated)">
+              <div className="grid gap-3">
+                {[
+                  {
+                    title: "How to build an AI content engine (without spam)",
+                    channel: "LinkedIn",
+                    status: "Live",
+                    impressions: "18.4k",
+                    ctr: "3.1%",
+                    saves: "214",
+                    accent: "cyan",
+                  },
+                  {
+                    title: "Why SOPs beat vibes: lab-grade operations",
+                    channel: "LinkedIn",
+                    status: "Live",
+                    impressions: "9.7k",
+                    ctr: "2.4%",
+                    saves: "106",
+                    accent: "violet",
+                  },
+                  {
+                    title: "Peptides for research — what quality looks like",
+                    channel: "Blog",
+                    status: "Indexed",
+                    impressions: "4.2k",
+                    ctr: "5.8%",
+                    saves: "—",
+                    accent: "emerald",
+                  },
+                ].map((p) => {
+                  const pill =
+                    p.accent === "emerald"
+                      ? "border-emerald-300/25 bg-emerald-300/10 text-emerald-200"
+                      : p.accent === "cyan"
+                        ? "border-cyan-300/25 bg-cyan-300/10 text-cyan-200"
+                        : "border-violet-300/25 bg-violet-300/10 text-violet-200";
+
+                  return (
+                    <div key={p.title} className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="truncate text-sm font-extrabold tracking-tight text-white/90">
+                            {p.title}
+                          </div>
+                          <div className="mt-1 text-xs text-white/45">
+                            Channel: {p.channel} · Window: 24h
+                          </div>
+                        </div>
+                        <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-extrabold ${pill}`}>
+                          {p.status}
+                        </span>
+                      </div>
+
+                      <div className="mt-3 grid grid-cols-3 gap-3">
+                        <div className="rounded-xl border border-white/10 bg-black/20 p-2">
+                          <div className="text-[10px] font-semibold text-white/45">Impressions</div>
+                          <div className="mt-1 text-sm font-extrabold tracking-tight text-white/90">
+                            {p.impressions}
+                          </div>
+                        </div>
+                        <div className="rounded-xl border border-white/10 bg-black/20 p-2">
+                          <div className="text-[10px] font-semibold text-white/45">CTR</div>
+                          <div className="mt-1 text-sm font-extrabold tracking-tight text-white/90">{p.ctr}</div>
+                        </div>
+                        <div className="rounded-xl border border-white/10 bg-black/20 p-2">
+                          <div className="text-[10px] font-semibold text-white/45">Saves</div>
+                          <div className="mt-1 text-sm font-extrabold tracking-tight text-white/90">{p.saves}</div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+
+                <div className="text-[11px] text-white/40">
+                  Simulated metrics to show end-state reporting.
+                </div>
+              </div>
+            </Card>
           </div>
         </aside>
       </div>
