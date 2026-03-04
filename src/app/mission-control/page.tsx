@@ -1,6 +1,7 @@
 import Link from "next/link";
 import MissionControlSim from "./MissionControlSim";
 import AnalyticsSim from "./AnalyticsSim";
+import DmQueueSim from "./DmQueueSim";
 import NeonEdges from "@/components/NeonEdges";
 
 export const metadata = {
@@ -129,6 +130,16 @@ export default function MissionControlPage() {
                   </div>
                   <div className="mt-1 text-xs text-white/45">
                     Catalyst → Maven → Echo → Tags → Guardian → Publisher
+                  </div>
+                </button>
+
+                <button className="w-full rounded-xl border border-white/10 bg-black/10 px-4 py-3 text-left transition hover:bg-white/5">
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-extrabold tracking-tight text-white/80">DM Outreach Engine</div>
+                    <span className="text-xs font-semibold text-emerald-300">Running</span>
+                  </div>
+                  <div className="mt-1 text-xs text-white/45">
+                    Scrape → personalize → DM → follow-up → book
                   </div>
                 </button>
 
@@ -336,7 +347,9 @@ export default function MissionControlPage() {
                             Channel: {p.channel} · Window: 24h
                           </div>
                         </div>
-                        <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-extrabold ${pill}`}>
+                        <span
+                          className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-extrabold ${pill}`}
+                        >
                           {p.status}
                         </span>
                       </div>
@@ -361,10 +374,12 @@ export default function MissionControlPage() {
                   );
                 })}
 
-                <div className="text-[11px] text-white/40">
-                  Simulated metrics to show end-state reporting.
-                </div>
+                <div className="text-[11px] text-white/40">Simulated metrics to show end-state reporting.</div>
               </div>
+            </Card>
+
+            <Card title="DM Queue — Courier (sales, simulated)">
+              <DmQueueSim />
             </Card>
           </div>
         </aside>

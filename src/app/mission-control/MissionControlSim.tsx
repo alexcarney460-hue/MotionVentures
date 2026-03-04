@@ -24,6 +24,7 @@ const AGENTS: Agent[] = [
   { name: 'Tags', role: 'SEO', accent: 'cyan', status: 'Idle' },
   { name: 'Guardian', role: 'Compliance', accent: 'coral', status: 'Review' },
   { name: 'Publisher', role: 'Schedule', accent: 'violet', status: 'Idle' },
+  { name: 'Courier', role: 'Sales DMs', accent: 'emerald', status: 'Running' },
 ]
 
 function pad2(n: number) {
@@ -134,6 +135,9 @@ export default function MissionControlSim() {
       'Analytics → 1 new order event',
       'Echo → draft finalized (2/3)',
       'Queue → job acknowledged',
+      'Courier → drafted 1st-touch DM (personalized)',
+      'Courier → queued follow-up (T+48h)',
+      'Courier → enriched profile + extracted hook',
     ]
 
     const stream = window.setInterval(() => {
