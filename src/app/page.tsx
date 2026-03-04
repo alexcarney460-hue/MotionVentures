@@ -107,12 +107,42 @@ export default function Home() {
         </Container>
       </Section>
 
+      {/* Current projects */}
+      <Section>
+        <Container>
+          <div className="max-w-2xl">
+            <H2>Current projects</H2>
+            <p className="mt-3 text-sm text-white/55">
+              Active builds and operators we’re shipping for right now.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <Card
+              title="Viking Labs"
+              description="Cinematic e-commerce + marketing automation system."
+              href="https://vikinglabs.co"
+            />
+            <Card
+              title="BlueLabel Wholesale"
+              description="Wholesale storefront rebuild + product catalog foundations."
+              href="https://bluelabelwholesale.com"
+            />
+            <Card
+              title="Fresno Pool Care"
+              description="Local services site + lead capture and follow-up system."
+              href="https://fresnopoolcare.com"
+            />
+          </div>
+        </Container>
+      </Section>
+
       {/* Capabilities */}
       <Section>
         <Container>
           <div className="max-w-2xl">
             <H2>What we ship</H2>
-            <p className="mt-3 text-sm text-[color:var(--mv-muted)]">
+            <p className="mt-3 text-sm text-white/55">
               The studio builds ventures; the services arm deploys the same core primitives for
               businesses that want results without complexity.
             </p>

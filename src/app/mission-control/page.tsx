@@ -2,6 +2,7 @@ import Link from "next/link";
 import MissionControlSim from "./MissionControlSim";
 import AnalyticsSim from "./AnalyticsSim";
 import DmQueueSim from "./DmQueueSim";
+import ProjectsPanel from "./ProjectsPanel";
 import NeonEdges from "@/components/NeonEdges";
 
 export const metadata = {
@@ -276,6 +277,10 @@ export default function MissionControlPage() {
                   </button>
                 </div>
               </div>
+            </Card>
+
+            <Card title="Projects">
+              <ProjectsPanel />
             </Card>
 
             <Card title="Drafts (simulated)">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { Button, Container, H1, H2, Lead, Section } from "@/components/ui";
@@ -39,7 +40,7 @@ export default function StudioPage() {
           <div className="grid gap-10 md:grid-cols-2">
             <div>
               <H2>How we work</H2>
-              <p className="mt-3 text-sm text-[color:var(--mv-muted)]">
+              <p className="mt-3 text-sm text-white/55">
                 We prefer small, fast builds with measurement baked in. We focus on systems that can
                 compound.
               </p>
@@ -58,6 +59,40 @@ export default function StudioPage() {
                 <div>Weekly scorecards and improvements.</div>
               </li>
             </ul>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-7 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="text-xs font-semibold text-white/60">Internal</div>
+              <div className="mt-2 text-lg font-extrabold tracking-tight text-white/90">SkynetX</div>
+              <p className="mt-2 text-sm text-white/55">
+                Agent performance infrastructure—gates, telemetry, and stability systems.
+              </p>
+              <Link
+                href="https://skynetx.io"
+                className="mt-4 inline-flex text-sm font-semibold text-[color:var(--mv-primary)] hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                skynetx.io →
+              </Link>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-7 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="text-xs font-semibold text-white/60">Internal</div>
+              <div className="mt-2 text-lg font-extrabold tracking-tight text-white/90">Claw for Life</div>
+              <p className="mt-2 text-sm text-white/55">
+                Community + experiments around agent workflows and utility software.
+              </p>
+              <Link
+                href="https://clawforlife.com"
+                className="mt-4 inline-flex text-sm font-semibold text-[color:var(--mv-primary)] hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                clawforlife.com →
+              </Link>
+            </div>
           </div>
         </Container>
       </Section>
