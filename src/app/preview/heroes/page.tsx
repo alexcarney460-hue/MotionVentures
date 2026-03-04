@@ -5,17 +5,17 @@ const heroes = [
   {
     id: "dark-1",
     label: "Dark hero 1",
-    src: "/nanobanana2-output/mv-hero-apple-dark-1.png",
+    src: "/brand/previews/hero-dark-1.png",
   },
   {
     id: "dark-2",
     label: "Dark hero 2",
-    src: "/nanobanana2-output/mv-hero-apple-dark-2.png",
+    src: "/brand/previews/hero-dark-2.png",
   },
   {
     id: "dark-3",
     label: "Dark hero 3",
-    src: "/nanobanana2-output/mv-hero-apple-dark-3.png",
+    src: "/brand/previews/hero-dark-3.png",
   },
 ];
 
