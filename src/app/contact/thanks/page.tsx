@@ -15,7 +15,7 @@ export default function ThanksPage() {
         <Container>
           <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-10 shadow-sm shadow-slate-900/5">
             <div className="text-sm font-semibold text-[color:var(--mv-primary)]">Submitted</div>
-            <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-950">
+            <h1 className="mt-2 text-2xl font-extrabold tracking-tight text-[color:var(--mv-primary)]">
               Thanks — we’ll reply with a plan.
             </h1>
             <p className="mt-3 text-sm text-slate-600">

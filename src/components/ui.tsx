@@ -23,7 +23,7 @@ export function Section({
 export function H1({ children }: { children: React.ReactNode }) {
   return (
     <h1
-      className="text-balance font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-ink)] sm:text-5xl md:text-6xl"
+      className="text-balance font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-primary)] sm:text-5xl md:text-6xl"
     >
       {children}
     </h1>
@@ -33,7 +33,7 @@ export function H1({ children }: { children: React.ReactNode }) {
 export function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
-      className="text-balance font-[var(--font-sora)] text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-ink)] md:text-3xl"
+      className="text-balance font-[var(--font-sora)] text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-primary)] md:text-3xl"
     >
       {children}
     </h2>
@@ -58,7 +58,7 @@ export function Button({
   const styles =
     variant === "primary"
       ? "bg-[var(--mv-primary)] text-white shadow-sm shadow-slate-900/10 hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] hover:shadow-md hover:shadow-slate-900/10 focus:ring-[var(--mv-accent)]"
-      : "border border-[var(--mv-border)] bg-white text-[color:var(--mv-ink)] shadow-sm shadow-slate-900/5 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:ring-[var(--mv-accent)]";
+      : "border border-[var(--mv-border)] bg-white text-[color:var(--mv-primary)] shadow-sm shadow-slate-900/5 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:ring-[var(--mv-accent)]";
   return (
     <Link href={href} className={`${base} ${styles}`}>
       {children}
@@ -77,7 +77,7 @@ export function Card({
 }) {
   const inner = (
     <>
-      <div className="text-base font-bold tracking-tight text-[color:var(--mv-ink)]">{title}</div>
+      <div className="text-base font-bold tracking-tight text-[color:var(--mv-primary)]">{title}</div>
       <p className="mt-2 text-sm text-[color:var(--mv-muted)]">{description}</p>
     </>
   );

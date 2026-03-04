@@ -32,7 +32,7 @@ export default function AssessmentPage() {
               <form className="mt-6 grid gap-4" action="/assessment/thanks" method="get">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="grid gap-2 text-sm">
-                    <span className="font-semibold text-[color:var(--mv-ink)]">Name</span>
+                    <span className="font-semibold text-[color:var(--mv-primary)]">Name</span>
                     <input
                       name="name"
                       required
@@ -41,7 +41,7 @@ export default function AssessmentPage() {
                     />
                   </label>
                   <label className="grid gap-2 text-sm">
-                    <span className="font-semibold text-[color:var(--mv-ink)]">Email</span>
+                    <span className="font-semibold text-[color:var(--mv-primary)]">Email</span>
                     <input
                       name="email"
                       type="email"
@@ -53,7 +53,7 @@ export default function AssessmentPage() {
                 </div>
 
                 <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-ink)]">Business website (if you have one)</span>
+                  <span className="font-semibold text-[color:var(--mv-primary)]">Business website (if you have one)</span>
                   <input
                     name="website"
                     className="h-11 rounded-xl border border-[var(--mv-border)] bg-white px-3 text-[color:var(--mv-ink)] outline-none ring-[var(--mv-accent)] focus:ring-2"
@@ -62,7 +62,7 @@ export default function AssessmentPage() {
                 </label>
 
                 <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-ink)]">Type of business</span>
+                  <span className="font-semibold text-[color:var(--mv-primary)]">Type of business</span>
                   <input
                     name="businessType"
                     required
@@ -72,7 +72,7 @@ export default function AssessmentPage() {
                 </label>
 
                 <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-ink)]">What’s the main issue right now?</span>
+                  <span className="font-semibold text-[color:var(--mv-primary)]">What’s the main issue right now?</span>
                   <textarea
                     name="problem"
                     required
@@ -83,7 +83,7 @@ export default function AssessmentPage() {
                 </label>
 
                 <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-ink)]">What would ‘better’ look like in 60 days?</span>
+                  <span className="font-semibold text-[color:var(--mv-primary)]">What would ‘better’ look like in 60 days?</span>
                   <textarea
                     name="outcome"
                     required

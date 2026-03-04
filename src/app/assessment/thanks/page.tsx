@@ -16,7 +16,7 @@ export default function ThanksPage() {
         <Container>
           <div className="rounded-3xl border border-[var(--mv-border)] bg-white p-10 shadow-sm shadow-slate-900/5">
             <div className="text-sm font-semibold text-[color:var(--mv-primary)]">Submitted</div>
-            <div className="mt-2 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-[color:var(--mv-ink)]">
+            <div className="mt-2 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-[color:var(--mv-primary)]">
               Thanks — we’ll reply with your assessment.
             </div>
             <p className="mt-3 text-sm text-[color:var(--mv-muted)]">
@@ -25,7 +25,7 @@ export default function ThanksPage() {
             <div className="mt-8 flex gap-3">
               <Link
                 href="/"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-[var(--mv-border)] bg-white px-5 text-sm font-semibold text-[color:var(--mv-ink)] shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:bg-slate-50"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-[var(--mv-border)] bg-white px-5 text-sm font-semibold text-[color:var(--mv-primary)] shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:bg-slate-50"
               >
                 Back to home
               </Link>
