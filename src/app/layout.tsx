@@ -13,18 +13,35 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://motionventures.vercel.app"),
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : new URL("http://localhost:3020"),
   title: {
-    default: "Motion Ventures — AI Venture Studio",
+    default: "Motion Ventures — AI Studio",
     template: "%s — Motion Ventures",
   },
   description:
-    "Motion Ventures is an AI venture studio building ventures and deploying proven systems for existing businesses.",
+    "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
   openGraph: {
-    title: "Motion Ventures — AI Venture Studio",
+    title: "Motion Ventures — AI Studio",
     description:
-      "An AI venture studio: we build ventures—and we deploy proven systems for existing businesses.",
+      "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
     type: "website",
+    images: [
+      {
+        url: "/brand/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Motion Ventures",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Motion Ventures — AI Studio",
+    description:
+      "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
+    images: ["/brand/og.png"],
   },
   robots: { index: true, follow: true },
 };
