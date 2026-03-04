@@ -101,16 +101,7 @@ export default function Home() {
               </p>
             </div>
             <div className="lg:col-span-7">
-              <NatureReel
-                images={[
-                  "/brand/nature/mv-macro-nature-1.png",
-                  "/brand/nature/mv-macro-nature-2.png",
-                  "/brand/nature/mv-macro-nature-3.png",
-                  "/brand/nature/mv-macro-nature-4.png",
-                  "/brand/nature/mv-macro-nature-5.png",
-                  "/brand/nature/mv-macro-nature-6.png",
-                ]}
-              />
+              <NatureReel images={["/brand/nature/mv-macro-nature-6.png"]} />
             </div>
           </div>
         </Container>
