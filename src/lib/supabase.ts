@@ -9,12 +9,11 @@ export function getSupabase(): SupabaseClient {
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
   if (!url || !key) {
-    // Return a dummy client that won't crash but won't work either
-    // This prevents the site from breaking when env vars aren't set
-    _client = createClient('https://placeholder.supabase.co', 'placeholder', {
+    // Don't cache a broken client — return fresh each time so it works
+    // once env vars become available after a redeploy
+    return createClient('https://placeholder.supabase.co', 'placeholder', {
       auth: { persistSession: false, autoRefreshToken: false },
     });
-    return _client;
   }
 
   _client = createClient(url, key);

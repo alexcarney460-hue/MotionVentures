@@ -26,15 +26,30 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     (async () => {
-      const supabase = getSupabase();
-      const { data } = await supabase.auth.getUser();
-      if (data.user?.email?.toLowerCase() === ADMIN_EMAIL) {
-        setAuthorized(true);
-        // Auto-set the API token if not already set
-        if (!getAdminToken()) {
-          setAdminToken('mv-admin-2026-secure');
-          setToken('mv-admin-2026-secure');
+      try {
+        const supabase = getSupabase();
+        const { data } = await supabase.auth.getUser();
+        const email = data.user?.email?.toLowerCase();
+        if (email === ADMIN_EMAIL) {
+          setAuthorized(true);
+          if (!getAdminToken()) {
+            setAdminToken('mv-admin-2026-secure');
+            setToken('mv-admin-2026-secure');
+          }
         }
+        // Also check session (getUser can fail if token expired but session exists)
+        if (!data.user) {
+          const { data: sessionData } = await supabase.auth.getSession();
+          if (sessionData.session?.user?.email?.toLowerCase() === ADMIN_EMAIL) {
+            setAuthorized(true);
+            if (!getAdminToken()) {
+              setAdminToken('mv-admin-2026-secure');
+              setToken('mv-admin-2026-secure');
+            }
+          }
+        }
+      } catch {
+        // Supabase not configured — fall through to token auth
       }
       setChecking(false);
     })();
