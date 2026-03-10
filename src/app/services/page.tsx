@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { Button, Container, H1, H2, Lead, Section } from "@/components/ui";
@@ -11,6 +12,7 @@ export default function ServicesPage() {
     <div className="min-h-screen">
       <SiteHeader />
 
+      {/* Hero */}
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--mv-mist),var(--mv-canvas)_65%)]" />
         <Container>
@@ -18,8 +20,8 @@ export default function ServicesPage() {
             <H1>Services for existing businesses</H1>
             <div className="mt-5">
               <Lead>
-                A complete customer-facing solution: brand toolkit, website, CRM, email campaigns,
-                and optional agentic workflows—quoted after assessment.
+                A complete customer-facing solution: brand toolkit, website, CRM,
+                email campaigns, and specialized AI agents—quoted after assessment.
               </Lead>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -34,89 +36,209 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
+      {/* Specialized Agents — featured, full-bleed */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/brand/nature/mv-macro-nature-1.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-35"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--mv-canvas)] via-[var(--mv-canvas)]/80 to-[var(--mv-canvas)]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--mv-canvas)] via-transparent to-[var(--mv-canvas)]/60" />
+        </div>
+        <Container>
+          <div className="relative py-24 md:py-32">
+            <div className="max-w-2xl">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--mv-emerald)]/25 bg-[var(--mv-emerald)]/5 px-3 py-1 text-xs font-semibold text-[var(--mv-emerald)]">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-emerald)]" />
+                Featured service
+              </div>
+              <h2 className="font-[var(--font-sora)] text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-white/95 sm:text-5xl">
+                Specialized AI agents<br />
+                <span className="text-[var(--mv-primary)]">built for your industry.</span>
+              </h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/50">
+                We develop AI agents custom-built for your specific industry—not
+                generic, off-the-shelf tools. Each agent is designed around your
+                workflows, your customers, and your operational context.
+              </p>
+
+              <div className="mt-8 grid max-w-md grid-cols-2 gap-3">
+                {[
+                  "Reception + scheduling",
+                  "Lead qualification",
+                  "Inventory management",
+                  "Content generation",
+                  "Customer support",
+                  "Compliance + review",
+                  "Reporting + analytics",
+                  "Handoff + routing",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-sm text-white/50">
+                    <span className="h-px w-4 flex-shrink-0 rounded-full bg-[var(--mv-primary)]/50" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <Button href="/assessment" variant="primary">
+                  Get a free assessment →
+                </Button>
+                <Button href="#packages" variant="secondary">
+                  View all packages
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Packages */}
       <Section id="packages">
         <Container>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="mb-10">
+            <div className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
+              Packages
+            </div>
+            <H2>Choose your engagement</H2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Foundation */}
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                    Foundation
-                  </div>
-                  <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
-                    Modernization package
-                  </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wide text-[color:var(--mv-primary)]">
+                  Foundation
                 </div>
-                <div className="text-right">
-                  <div className="text-[10px] font-semibold text-white/45">Starting at</div>
-                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">$2,000</div>
+                <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                  Modernization package
+                </div>
+                <div className="mt-2">
+                  <span className="text-[10px] font-semibold text-white/45">Starting at </span>
+                  <span className="text-lg font-extrabold tracking-tight text-white/90">$2,000</span>
                 </div>
               </div>
-              <p className="mt-2 text-sm text-white/55">
-                For local businesses who need to look current, capture leads, and follow up fast.
+              <p className="mt-3 text-sm text-white/55">
+                For local businesses who need to look current, capture leads, and follow
+                up fast.
               </p>
               <ul className="mt-5 grid gap-2 text-sm text-white/55">
-                <li>Branding toolkit (logo cleanup, colors, fonts, simple guidelines)</li>
-                <li>Modern website (mobile-first, fast, clear call-to-action)</li>
+                <li>Branding toolkit (logo, colors, fonts, guidelines)</li>
+                <li>Modern website (mobile-first, fast, SEO-ready)</li>
                 <li>CRM setup (contacts, pipeline, notes)</li>
-                <li>Email campaigns (new lead follow-up + re-engagement)</li>
+                <li>Email campaigns (lead follow-up + re-engagement)</li>
               </ul>
+              <div className="mt-6">
+                <Button href="/assessment" variant="secondary">
+                  Start with assessment
+                </Button>
+              </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
-                    Premium
-                  </div>
-                  <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
-                    Growth system
-                  </div>
+            {/* Premium */}
+            <div className="relative rounded-3xl border border-[var(--mv-primary)]/30 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="absolute -top-3 left-6 rounded-full bg-[var(--mv-primary)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                Most popular
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wide text-[color:var(--mv-primary)]">
+                  Premium
                 </div>
-                <div className="text-right">
-                  <div className="text-[10px] font-semibold text-white/45">Quoted</div>
-                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">Custom</div>
+                <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                  Growth system
+                </div>
+                <div className="mt-2">
+                  <span className="text-[10px] font-semibold text-white/45">Quoted </span>
+                  <span className="text-lg font-extrabold tracking-tight text-white/90">Custom</span>
                 </div>
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
-                Always-on content + distribution + improvement.
-              </div>
-              <p className="mt-2 text-sm text-white/55">
-                A compounding engine for free traffic: social posting + local SEO pages—tracked and
-                improved weekly.
+              <p className="mt-3 text-sm text-white/55">
+                Always-on content + distribution + improvement. A compounding engine for
+                free traffic.
               </p>
-              <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/55">
+              <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-3 text-xs text-white/55">
                 <span className="font-semibold text-white/85">The loop:</span> Create →
-                Publish → Track results → Learn → Improve.
+                Publish → Track → Learn → Improve
               </div>
-              <ul className="mt-5 grid gap-2 text-sm text-white/55">
-                <li>Social posts generated and scheduled (approval optional)</li>
-                <li>Local SEO pages that capture demand over time</li>
+              <ul className="mt-4 grid gap-2 text-sm text-white/55">
+                <li>Social posts generated and scheduled</li>
+                <li>Local SEO pages that compound over time</li>
                 <li>Lead capture + fast follow-up workflows</li>
                 <li>Weekly scorecard + continuous improvement</li>
               </ul>
-
               <div className="mt-6">
                 <Button href="/premium-growth-intake" variant="primary">
                   Apply (questionnaire)
                 </Button>
               </div>
             </div>
+
+            {/* Enterprise */}
+            <div className="rounded-3xl border border-[var(--mv-emerald)]/20 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-emerald)]">
+                  Enterprise
+                </div>
+                <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                  Full AI transformation
+                </div>
+                <div className="mt-2">
+                  <span className="text-[10px] font-semibold text-white/45">Starting at </span>
+                  <span className="text-lg font-extrabold tracking-tight text-white/90">$10,000</span>
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-white/55">
+                For businesses ready for a complete AI-powered operational overhaul with
+                dedicated support.
+              </p>
+              <ul className="mt-5 grid gap-2 text-sm text-white/55">
+                <li>Everything in Foundation + Premium</li>
+                <li>Custom AI agents (reception, scheduling, support)</li>
+                <li>Multi-channel automation (email, SMS, chat)</li>
+                <li>Dedicated account manager</li>
+                <li>Priority development + weekly strategy calls</li>
+                <li>Custom integrations (POS, ERP, APIs)</li>
+                <li>90-day optimization sprint included</li>
+              </ul>
+              <div className="mt-6">
+                <Button href="/contact" variant="primary">
+                  Contact us
+                </Button>
+              </div>
+            </div>
           </div>
 
+          {/* Add-ons row */}
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="text-sm font-semibold text-white/90">Add-ons (quoted)</div>
+            {/* Agents add-on */}
+            <div className="rounded-3xl border border-[var(--mv-emerald)]/20 bg-[var(--mv-emerald)]/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-emerald)]">
+                Add-on · Agents
+              </div>
+              <div className="mt-2 font-[var(--font-sora)] text-lg font-bold tracking-tight text-white/90">
+                Specialized AI agents (quoted)
+              </div>
               <p className="mt-2 text-sm text-white/55">
-                Custom agentic workflows for reception, spreadsheets, admin tasks, scheduling,
-                handoffs, and business organization—built around your bottlenecks.
+                Custom AI agents built specifically for your industry and operational
+                bottlenecks—reception, lead qualification, content, scheduling, admin
+                tasks, handoffs, and more.
               </p>
+              <div className="mt-4">
+                <Button href="/assessment" variant="primary">
+                  Get a free assessment →
+                </Button>
+              </div>
             </div>
 
+            {/* DIY Guide */}
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-xs font-semibold tracking-wide text-[color:var(--mv-primary)]">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-[color:var(--mv-primary)]">
                     DIY
                   </div>
                   <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
@@ -125,49 +247,65 @@ export default function ServicesPage() {
                 </div>
                 <div className="text-right">
                   <div className="text-[10px] font-semibold text-white/45">Price</div>
-                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">$199</div>
+                  <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">
+                    $199
+                  </div>
                 </div>
               </div>
               <p className="mt-3 text-sm text-white/55">
-                A practical playbook to modernize your business using AI agents—what to automate,
-                what to measure, and how to roll it out safely.
+                A practical playbook to modernize your business using AI agents—what to
+                automate, what to measure, and how to roll it out safely.
               </p>
-
-              <div className="mt-6">
-                <Button href="/guide" variant="primary">
-                  Get the guide ($199)
+              <div className="mt-6 flex flex-col gap-2">
+                <Button href="https://venmo.com/u/alexablaze559?txn=pay&note=AI+Business+Guide&amount=199" variant="primary">
+                  Pay $199 via Venmo →
                 </Button>
+                <div className="text-[11px] text-white/35">Reply to the Venmo transaction with your email — guide delivered within 24 hrs.</div>
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
+      {/* How we engage */}
       <Section>
         <Container>
           <div className="max-w-2xl">
             <H2>How we engage</H2>
             <p className="mt-3 text-sm text-[color:var(--mv-muted)]">
-              We analyze your business first. Then we send a clear offer with a recommended package
-              and optional upgrades.
+              We analyze your business first. Then we send a clear offer with a
+              recommended package and optional upgrades.
             </p>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 1</div>
-              <div className="mt-2 font-bold text-white/90">Assessment</div>
-              <p className="mt-2 text-sm text-white/55">Website, follow-up, ops, and gaps.</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 2</div>
-              <div className="mt-2 font-bold text-white/90">Offer</div>
-              <p className="mt-2 text-sm text-white/55">Clear scope, timeline, and next steps.</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-              <div className="text-xs font-bold text-[color:var(--mv-primary)]">Step 3</div>
-              <div className="mt-2 font-bold text-white/90">Build + Improve</div>
-              <p className="mt-2 text-sm text-white/55">Implementation + weekly iteration.</p>
-            </div>
+            {[
+              {
+                step: "Step 1",
+                title: "Assessment",
+                desc: "Website, follow-up, ops, and gaps.",
+              },
+              {
+                step: "Step 2",
+                title: "Offer",
+                desc: "Clear scope, timeline, and next steps.",
+              },
+              {
+                step: "Step 3",
+                title: "Build + Improve",
+                desc: "Implementation + weekly iteration.",
+              },
+            ].map((s) => (
+              <div
+                key={s.step}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur"
+              >
+                <div className="text-xs font-bold text-[color:var(--mv-primary)]">
+                  {s.step}
+                </div>
+                <div className="mt-2 font-bold text-white/90">{s.title}</div>
+                <p className="mt-2 text-sm text-white/55">{s.desc}</p>
+              </div>
+            ))}
           </div>
 
           <div className="mt-10">
