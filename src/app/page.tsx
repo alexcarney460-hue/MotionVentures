@@ -341,6 +341,101 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* ── EARLY ADOPTER — the AI opportunity ── */}
+      <Section>
+        <Container>
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur md:p-16">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_30%_50%,rgba(56,189,248,0.06),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_70%_50%,rgba(139,92,246,0.06),transparent)]" />
+
+            <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--mv-coral)]/25 bg-[var(--mv-coral)]/5 px-4 py-1.5 text-xs font-semibold text-[var(--mv-coral)]">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-coral)]" />
+                  The window is open — now
+                </div>
+                <h2 className="font-[var(--font-sora)] text-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-white/95 sm:text-4xl md:text-[2.75rem]">
+                  Adding AI to your business today is like buying
+                  <span className="text-[var(--mv-sapphire)]"> Bitcoin in 2013.</span>
+                </h2>
+                <p className="mt-6 max-w-lg text-base leading-relaxed text-white/55">
+                  The businesses that moved early on the internet dominated their industries
+                  for decades. The ones that adopted crypto infrastructure early built
+                  billion-dollar ecosystems. AI is that same inflection point — except
+                  the curve is steeper and the window is shorter.
+                </p>
+                <p className="mt-4 max-w-lg text-base leading-relaxed text-white/55">
+                  Right now, less than 5% of small and mid-size businesses use AI in any
+                  meaningful way. That means early movers don&apos;t just get an edge — they
+                  get a <span className="font-semibold text-white/80">structural advantage</span> that
+                  compounds every month their competitors wait.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    year: "2010–2015",
+                    event: "Early internet adopters",
+                    result: "Built the brands that still dominate search, social, and e-commerce today",
+                    color: "var(--mv-sapphire)",
+                  },
+                  {
+                    year: "2015–2020",
+                    event: "Early crypto adopters",
+                    result: "Created new financial infrastructure, DeFi protocols, and trillion-dollar ecosystems",
+                    color: "var(--mv-primary)",
+                  },
+                  {
+                    year: "2024–2027",
+                    event: "Early AI adopters",
+                    result: "Automating operations, outpacing competitors, and building defensible moats — right now",
+                    color: "var(--mv-emerald)",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.year}
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="h-2 w-2 rounded-full"
+                        style={{ background: item.color }}
+                      />
+                      <span
+                        className="text-xs font-bold uppercase tracking-widest"
+                        style={{ color: item.color }}
+                      >
+                        {item.year}
+                      </span>
+                    </div>
+                    <div className="mt-2 text-sm font-semibold text-white/85">{item.event}</div>
+                    <p className="mt-1 text-xs leading-relaxed text-white/45">{item.result}</p>
+                  </div>
+                ))}
+
+                <div className="mt-2 rounded-2xl border border-[var(--mv-emerald)]/20 bg-[var(--mv-emerald)]/5 p-5">
+                  <p className="text-sm font-semibold text-[var(--mv-emerald)]">
+                    The question isn&apos;t whether AI will transform your industry.
+                    It&apos;s whether you&apos;ll be the one leading that transformation — or
+                    reacting to it.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button href="/assessment" variant="primary">
+                Get your free AI assessment →
+              </Button>
+              <Button href="/services" variant="secondary">
+                See how we help
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* ── CTA ── */}
       <Section className="bg-[linear-gradient(180deg,var(--mv-canvas),var(--mv-mist))]">
         <Container>
