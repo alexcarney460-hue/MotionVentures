@@ -24,11 +24,11 @@ export default function SiteHeader({
             className="flex items-center gap-2 font-[var(--font-sora)] font-semibold tracking-tight text-[color:var(--mv-ink)]"
           >
             <Image
-              src="/brand/logo-mark.png"
+              src="/brand/logo-mv-192.png"
               alt="Motion Ventures"
-              width={28}
-              height={28}
-              className="rounded-md"
+              width={32}
+              height={32}
+              className="rounded-lg"
               priority
             />
             <span>Motion Ventures</span>

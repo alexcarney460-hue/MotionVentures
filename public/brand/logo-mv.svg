@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="40%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background with subtle border -->
+  <rect width="512" height="512" rx="96" fill="#0a0c14"/>
+  <rect x="1" y="1" width="510" height="510" rx="95" fill="none" stroke="url(#brand)" stroke-width="2" opacity="0.2"/>
+
+  <!-- MV monogram — clean geometric letterforms -->
+  <g filter="url(#glow)">
+    <!-- M: Left vertical -->
+    <rect x="96" y="144" width="36" height="224" rx="4" fill="url(#brand)"/>
+
+    <!-- M: Left diagonal to center peak -->
+    <polygon points="96,144 140,144 264,292 240,320" fill="url(#brand)"/>
+
+    <!-- M: Right diagonal from center peak -->
+    <polygon points="272,320 248,292 372,144 416,144" fill="url(#brand)"/>
+
+    <!-- M: Right vertical -->
+    <rect x="380" y="144" width="36" height="224" rx="4" fill="url(#brand)"/>
+
+    <!-- V: Overlapping chevron that integrates into the M -->
+    <polygon points="196,144 256,344 316,144 280,144 256,280 232,144" fill="url(#brand)" opacity="0.55"/>
+  </g>
+</svg>

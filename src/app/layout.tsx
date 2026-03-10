@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   },
   description:
     "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
+  icons: {
+    icon: [
+      { url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/logo-mv-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/brand/logo-mv-192.png",
+  },
   openGraph: {
     title: "Motion Ventures — AI Studio",
     description:
