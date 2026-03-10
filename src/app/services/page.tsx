@@ -109,7 +109,7 @@ export default function ServicesPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {/* Foundation */}
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:rounded-3xl sm:p-8">
               <div>
                 <div className="text-xs font-semibold uppercase tracking-wide text-[color:var(--mv-primary)]">
                   Foundation
@@ -140,7 +140,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Premium */}
-            <div className="relative rounded-3xl border border-[var(--mv-primary)]/30 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="relative rounded-2xl border border-[var(--mv-primary)]/30 bg-white/5 p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:rounded-3xl sm:p-8">
               <div className="absolute -top-3 left-6 rounded-full bg-[var(--mv-primary)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                 Most popular
               </div>
@@ -178,7 +178,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Enterprise */}
-            <div className="rounded-3xl border border-[var(--mv-emerald)]/20 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="rounded-2xl border border-[var(--mv-emerald)]/20 bg-white/5 p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:rounded-3xl sm:p-8">
               <div>
                 <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-emerald)]">
                   Enterprise
@@ -215,7 +215,7 @@ export default function ServicesPage() {
           {/* Add-ons row */}
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {/* Agents add-on */}
-            <div className="rounded-3xl border border-[var(--mv-emerald)]/20 bg-[var(--mv-emerald)]/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="rounded-2xl border border-[var(--mv-emerald)]/20 bg-[var(--mv-emerald)]/5 p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:rounded-3xl sm:p-8">
               <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-emerald)]">
                 Add-on · Agents
               </div>
@@ -235,7 +235,7 @@ export default function ServicesPage() {
             </div>
 
             {/* DIY Guide */}
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:rounded-3xl sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wide text-[color:var(--mv-primary)]">
@@ -297,7 +297,7 @@ export default function ServicesPage() {
             ].map((s) => (
               <div
                 key={s.step}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur"
+                className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:p-6"
               >
                 <div className="text-xs font-bold text-[color:var(--mv-primary)]">
                   {s.step}

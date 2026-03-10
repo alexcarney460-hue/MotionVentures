@@ -24,7 +24,7 @@ export default function Home() {
         <HeroSceneLoader />
 
         <Container>
-          <div className="relative flex min-h-screen flex-col justify-center py-28">
+          <div className="relative flex min-h-screen flex-col justify-center py-20 sm:py-28">
             <div className="max-w-2xl">
               <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/60 backdrop-blur">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-primary)]" />
@@ -68,7 +68,7 @@ export default function Home() {
         </Container>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-white/20">
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-white/20 sm:bottom-10">
           <div className="h-10 w-px bg-gradient-to-b from-transparent to-white/20" />
           <span className="text-[9px] tracking-[0.2em] uppercase">Scroll</span>
         </div>
@@ -109,7 +109,7 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.num}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] sm:rounded-3xl sm:p-8"
               >
                 <div
                   className="text-xs font-bold uppercase tracking-widest opacity-40"
@@ -149,9 +149,9 @@ export default function Home() {
         </div>
 
         <Container>
-          <div className="relative py-32 md:py-44">
+          <div className="relative py-20 sm:py-32 md:py-44">
             <div className="max-w-2xl">
-              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[var(--mv-emerald)]/25 bg-[var(--mv-emerald)]/5 px-3 py-1 text-xs font-semibold text-[var(--mv-emerald)]">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--mv-emerald)]/25 bg-[var(--mv-emerald)]/5 px-3 py-1 text-xs font-semibold text-[var(--mv-emerald)] sm:mb-8">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-emerald)]" />
                 Specialized AI Agents
               </div>
@@ -253,7 +253,7 @@ export default function Home() {
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20 sm:rounded-3xl sm:p-7"
               >
                 <div
                   className="text-[10px] font-bold uppercase tracking-widest"
@@ -304,7 +304,7 @@ export default function Home() {
         </div>
 
         <Container>
-          <div className="relative flex justify-end py-32 md:py-44">
+          <div className="relative py-20 sm:py-32 md:flex md:justify-end md:py-44">
             <div className="max-w-xl">
               <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-sapphire)]">
                 Design philosophy
@@ -344,7 +344,7 @@ export default function Home() {
       {/* ── EARLY ADOPTER — the AI opportunity ── */}
       <Section>
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur md:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur sm:rounded-3xl sm:p-10 md:p-16">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_30%_50%,rgba(56,189,248,0.06),transparent)]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_70%_50%,rgba(139,92,246,0.06),transparent)]" />
 
@@ -439,7 +439,7 @@ export default function Home() {
       {/* ── CTA ── */}
       <Section className="bg-[linear-gradient(180deg,var(--mv-canvas),var(--mv-mist))]">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-12 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur md:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur sm:rounded-3xl sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_110%,rgba(139,92,246,0.12),transparent)]" />
             <div className="relative mx-auto max-w-2xl text-center">
               <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
@@ -468,7 +468,7 @@ export default function Home() {
       {/* ── MISSION CONTROL TEASER ── */}
       <Section className="py-14 md:py-20">
         <Container>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:p-10">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:rounded-3xl sm:p-8 md:p-10">
             <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80">

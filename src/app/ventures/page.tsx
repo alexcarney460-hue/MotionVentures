@@ -125,7 +125,7 @@ export default function VenturesPage() {
         </div>
 
         <Container>
-          <div className="relative py-28">
+          <div className="relative py-20 sm:py-28">
             <div className="max-w-2xl">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/60 backdrop-blur">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-sapphire)]" />
@@ -177,7 +177,7 @@ export default function VenturesPage() {
                   <div className="absolute inset-0 bg-[var(--mv-canvas)]/20" />
                 </div>
 
-                <div className="p-8 md:p-10">
+                <div className="p-5 sm:p-8 md:p-10">
                 {/* Top row */}
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -265,7 +265,7 @@ export default function VenturesPage() {
         </div>
 
         <Container>
-          <div className="relative py-28 md:py-36">
+          <div className="relative py-20 sm:py-28 md:py-36">
             <div className="max-w-xl">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/50">
                 <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
@@ -292,7 +292,7 @@ export default function VenturesPage() {
       {/* ── CTA ── */}
       <Section className="bg-[linear-gradient(180deg,var(--mv-canvas),var(--mv-mist))]">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-12 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur md:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur sm:rounded-3xl sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_110%,rgba(139,92,246,0.12),transparent)]" />
             <div className="relative mx-auto max-w-2xl text-center">
               <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">

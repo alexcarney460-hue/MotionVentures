@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export function Container({ children }: { children: React.ReactNode }) {
-  return <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">{children}</div>;
+  return <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">{children}</div>;
 }
 
 export function Section({
@@ -54,7 +54,7 @@ export function Button({
   variant?: "primary" | "secondary";
 }) {
   const base =
-    "inline-flex h-11 items-center justify-center rounded-xl px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 active:translate-y-px";
+    "inline-flex h-12 items-center justify-center rounded-xl px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 active:translate-y-px sm:h-11";
   const styles =
     variant === "primary"
       ? "bg-[var(--mv-primary)] text-white shadow-sm shadow-slate-900/10 hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] hover:shadow-md hover:shadow-slate-900/10 focus:ring-[var(--mv-accent)]"
