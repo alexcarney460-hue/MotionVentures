@@ -11,13 +11,13 @@
   --mv-muted: rgba(255, 255, 255, 0.70);
   --mv-border: rgba(255, 255, 255, 0.10);
 
-  --mv-primary: #8b5cf6; /* neon violet */
-  --mv-primary-hover: #a78bfa;
-  --mv-sapphire: #38bdf8;
+  --mv-primary: #a855f7; /* neon violet-magenta — matches logo glow */
+  --mv-primary-hover: #c084fc;
+  --mv-sapphire: #22d3ee; /* cyan-teal — matches logo left glow */
   --mv-emerald: #34d399;
-  --mv-coral: #ff4d6d;
+  --mv-coral: #f472b6; /* pink — matches logo right glow */
 
-  --mv-mist: #0b1020;
+  --mv-mist: #080c1a;
 }
 
 @theme inline {
