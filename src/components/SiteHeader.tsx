@@ -19,12 +19,16 @@ export default function SiteHeader({
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   useEffect(() => {
-    const supabase = getSupabase();
-    supabase.auth.getUser().then(({ data }) => setUser(data.user));
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    return () => subscription.unsubscribe();
+    try {
+      const supabase = getSupabase();
+      supabase.auth.getUser().then(({ data }) => setUser(data.user)).catch(() => {});
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user ?? null);
+      });
+      return () => subscription.unsubscribe();
+    } catch {
+      // Supabase not configured — auth buttons will show logged-out state
+    }
   }, []);
 
   async function handleSignOut() {
