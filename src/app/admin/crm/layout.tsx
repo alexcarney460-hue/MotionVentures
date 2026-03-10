@@ -29,24 +29,12 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
       try {
         const supabase = getSupabase();
         const { data } = await supabase.auth.getUser();
-        const email = data.user?.email?.toLowerCase();
+        const email = data.user?.email?.toLowerCase()
+          || (await supabase.auth.getSession()).data.session?.user?.email?.toLowerCase();
         if (email === ADMIN_EMAIL) {
           setAuthorized(true);
-          if (!getAdminToken()) {
-            setAdminToken('mv-admin-2026-secure');
-            setToken('mv-admin-2026-secure');
-          }
-        }
-        // Also check session (getUser can fail if token expired but session exists)
-        if (!data.user) {
-          const { data: sessionData } = await supabase.auth.getSession();
-          if (sessionData.session?.user?.email?.toLowerCase() === ADMIN_EMAIL) {
-            setAuthorized(true);
-            if (!getAdminToken()) {
-              setAdminToken('mv-admin-2026-secure');
-              setToken('mv-admin-2026-secure');
-            }
-          }
+          setAdminToken('mv-admin-2026-secure');
+          setToken('mv-admin-2026-secure');
         }
       } catch {
         // Supabase not configured — fall through to token auth
