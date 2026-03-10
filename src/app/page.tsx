@@ -138,7 +138,7 @@ export default function Home() {
         {/* Neural network image as full-bleed background */}
         <div className="absolute inset-0">
           <Image
-            src="/brand/nature/mv-macro-nature-5.png"
+            src="/brand/nature/mv-macro-nature-5.jpg"
             alt=""
             fill
             className="object-cover opacity-40"
@@ -291,7 +291,7 @@ export default function Home() {
         {/* Full-bleed glowing neural network */}
         <div className="absolute inset-0">
           <Image
-            src="/brand/nature/mv-macro-nature-2.png"
+            src="/brand/nature/mv-macro-nature-2.jpg"
             alt=""
             fill
             className="object-cover object-center opacity-50"

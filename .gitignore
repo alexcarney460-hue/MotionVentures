@@ -13,6 +13,7 @@ out
 .DS_Store
 
 # Local-only generated assets (keep out of git)
-/public/brand/nature/
-/motion-ventures/public/brand/nature/
+/public/brand/nature/*.png
 /nanobanana2-output/
+
+.vercel
