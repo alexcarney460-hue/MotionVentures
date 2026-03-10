@@ -1,10 +1,10 @@
 import Script from "next/script";
+import Image from "next/image";
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
-import HeroVisual from "@/components/HeroVisual";
-import NatureReel from "@/components/NatureReel";
-import { Button, Card, Container, H1, H2, Lead, Section } from "@/components/ui";
+import HeroSceneLoader from "@/components/hero/HeroSceneLoader";
+import { Button, Container, Section } from "@/components/ui";
 import { orgJsonLd } from "./schema";
 
 export default function Home() {
@@ -18,173 +18,351 @@ export default function Home() {
 
       <SiteHeader />
 
-      {/* Hero (special) */}
-      <Section className="relative overflow-hidden py-16 md:py-24">
-        {/* background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--mv-mist),var(--mv-canvas)_70%)]" />
-          <div className="absolute inset-0 opacity-[0.18] mix-blend-multiply [mask-image:radial-gradient(circle_at_30%_20%,black,transparent_62%)]">
-            <div className="absolute -top-24 -left-24 h-[520px] w-[520px] rounded-full bg-cyan-300 blur-3xl" />
-            <div className="absolute -bottom-28 left-1/2 h-[540px] w-[540px] -translate-x-1/2 rounded-full bg-indigo-300 blur-3xl" />
-            <div className="absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-amber-200 blur-3xl" />
+      {/* ── HERO — full viewport, cinematic Three.js neural network ── */}
+      <section className="relative flex min-h-screen flex-col justify-center overflow-hidden">
+        {/* Three.js cinematic particle system */}
+        <HeroSceneLoader />
+
+        <Container>
+          <div className="relative flex min-h-screen flex-col justify-center py-28">
+            <div className="max-w-2xl">
+              <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/60 backdrop-blur">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-primary)]" />
+                AI Studio · Automations · Agents
+              </div>
+
+              <h1 className="font-[var(--font-sora)] text-[clamp(3rem,7vw,6rem)] font-extrabold leading-[0.92] tracking-[-0.04em] text-white/95">
+                Your<br />
+                <span className="text-[var(--mv-primary)]">AI Studio.</span>
+              </h1>
+
+              <p className="mt-8 max-w-md text-lg leading-relaxed text-white/55">
+                We build new ventures—and we help existing businesses deploy
+                practical AI workflows, premium web experiences, and
+                specialized agents custom-built for your industry.
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Button href="/assessment" variant="primary">
+                  Free AI Assessment →
+                </Button>
+                <Button href="/services" variant="secondary">
+                  View Services
+                </Button>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-2">
+                {["Strategy → Build", "AI Automations", "Premium Web", "Specialized Agents"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/40"
+                    >
+                      {tag}
+                    </span>
+                  )
+                )}
+              </div>
+            </div>
           </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.65)_0%,rgba(247,247,251,0.15)_58%,rgba(247,247,251,0)_74%)]" />
+        </Container>
+
+        {/* Scroll hint */}
+        <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-white/20">
+          <div className="h-10 w-px bg-gradient-to-b from-transparent to-white/20" />
+          <span className="text-[9px] tracking-[0.2em] uppercase">Scroll</span>
+        </div>
+      </section>
+
+      {/* ── WHAT WE BUILD — 3 pillars ── */}
+      <Section>
+        <Container>
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
+              What we ship
+            </div>
+            <h2 className="font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.03em] text-white/90 sm:text-4xl">
+              Studio-grade capabilities.<br />Built for real results.
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                num: "01",
+                title: "Brand + Website",
+                desc: "A modern, fast site and brand toolkit that builds trust instantly. Mobile-first, SEO-ready, conversion-focused.",
+                accent: "var(--mv-sapphire)",
+              },
+              {
+                num: "02",
+                title: "AI Automations",
+                desc: "Lead routing, scheduling, follow-up, content pipelines, and admin workflows—fully automated with guardrails.",
+                accent: "var(--mv-primary)",
+              },
+              {
+                num: "03",
+                title: "Specialized Agents",
+                desc: "Custom AI agents built for your specific industry. Not off-the-shelf tools—deeply contextualized systems that understand your operations.",
+                accent: "var(--mv-emerald)",
+              },
+            ].map((item) => (
+              <div
+                key={item.num}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]"
+              >
+                <div
+                  className="text-xs font-bold uppercase tracking-widest opacity-40"
+                  style={{ color: item.accent }}
+                >
+                  {item.num}
+                </div>
+                <div className="mt-4 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white/90">
+                  {item.title}
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-white/50">
+                  {item.desc}
+                </p>
+                <div
+                  className="mt-6 h-px w-10 rounded-full transition-all duration-300 group-hover:w-20"
+                  style={{ background: item.accent + "70" }}
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── SPECIALIZED AI AGENTS — full-bleed cinematic ── */}
+      <section className="relative overflow-hidden">
+        {/* Neural network image as full-bleed background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/brand/nature/mv-macro-nature-5.png"
+            alt=""
+            fill
+            className="object-cover opacity-40"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--mv-canvas)] via-[var(--mv-canvas)]/75 to-[var(--mv-canvas)]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--mv-canvas)] via-transparent to-[var(--mv-canvas)]/70" />
         </div>
 
         <Container>
-          <div className="relative grid gap-12 lg:grid-cols-12 lg:items-center">
-            {/* left copy */}
-            <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur">
-                AI studio
-                <span className="text-white/20">|</span>
-                Automation + systems
+          <div className="relative py-32 md:py-44">
+            <div className="max-w-2xl">
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[var(--mv-emerald)]/25 bg-[var(--mv-emerald)]/5 px-3 py-1 text-xs font-semibold text-[var(--mv-emerald)]">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--mv-emerald)]" />
+                Specialized AI Agents
               </div>
 
-              <div className="mt-6">
-                <H1>Your AI Studio for Automation.</H1>
-              </div>
-              <div className="mt-5 max-w-xl">
-                <Lead>
-                  Motion Ventures is a studio-first team. We build new ventures—and we help existing
-                  businesses deploy practical AI workflows, premium web experiences, and operational
-                  systems that compound.
-                </Lead>
+              <h2 className="font-[var(--font-sora)] text-4xl font-extrabold leading-[1] tracking-[-0.03em] text-white/95 sm:text-5xl md:text-[3.75rem]">
+                We develop agents<br />
+                <span className="text-[var(--mv-primary)]">
+                  built for your industry.
+                </span>
+              </h2>
+
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/50">
+                Not generic tools. We build AI agents custom-made for your specific
+                industry, workflows, and operational context—so they work the way
+                your business actually works.
+              </p>
+
+              <div className="mt-8 grid max-w-sm grid-cols-2 gap-y-3 gap-x-6">
+                {[
+                  "Reception + scheduling",
+                  "Lead qualification",
+                  "Inventory management",
+                  "Content generation",
+                  "Customer support",
+                  "Compliance + review",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-white/50"
+                  >
+                    <span className="h-px w-4 flex-shrink-0 rounded-full bg-[var(--mv-primary)]/50" />
+                    {item}
+                  </div>
+                ))}
               </div>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-10">
                 <Button href="/assessment" variant="primary">
-                  Free AI business assessment
-                </Button>
-                <Button href="/services" variant="secondary">
-                  See services
+                  Start with a free assessment →
                 </Button>
               </div>
-
-              <div className="mt-5 grid max-w-xl grid-cols-2 gap-3 text-xs text-[color:var(--mv-muted)] sm:grid-cols-3">
-                <div className="rounded-2xl border border-[var(--mv-border)] bg-white/70 px-3 py-2 backdrop-blur">
-                  Strategy → build plan
-                </div>
-                <div className="rounded-2xl border border-[var(--mv-border)] bg-white/70 px-3 py-2 backdrop-blur">
-                  Automations + agents
-                </div>
-                <div className="rounded-2xl border border-[var(--mv-border)] bg-white/70 px-3 py-2 backdrop-blur">
-                  Premium web + ops
-                </div>
-              </div>
-            </div>
-
-            {/* right hero visual (no card) */}
-            <div className="lg:col-span-6">
-              <HeroVisual src="/brand/hero-dark.png" className="" />
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* Macro-nature (intelligence from nature) */}
-      <Section className="py-14 md:py-20">
+      {/* ── CURRENT PROJECTS ── */}
+      <Section>
         <Container>
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80 backdrop-blur">
-                Intelligence from nature
-                <span className="text-white/20">|</span>
-                macro studies
+          <div className="mb-12 flex items-end justify-between">
+            <div>
+              <div className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
+                Portfolio
               </div>
-              <div className="mt-5">
-                <H2>Design language with a pulse.</H2>
-              </div>
-              <p className="mt-3 text-sm text-[color:var(--mv-muted)]">
-                We favor visuals that feel alive—organic structure, minimal motion, and cinematic
-                restraint.
+              <h2 className="font-[var(--font-sora)] text-2xl font-bold tracking-[-0.02em] text-white/90 sm:text-3xl">
+                Current projects
+              </h2>
+              <p className="mt-2 max-w-sm text-sm text-white/40">
+                Active builds and operators we&apos;re shipping for right now.
               </p>
             </div>
-            <div className="lg:col-span-7">
-              <NatureReel images={["/brand/nature/mv-macro-nature-6.png"]} />
+            <Link
+              href="/ventures"
+              className="hidden items-center gap-1 text-sm text-white/35 transition hover:text-white/65 sm:flex"
+            >
+              All ventures <span>→</span>
+            </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                title: "Viking Labs",
+                tag: "E-Commerce + AI",
+                description:
+                  "Cinematic e-commerce store with marketing automation system and AI content engine.",
+                href: "https://vikinglabs.co",
+                accent: "var(--mv-sapphire)",
+              },
+              {
+                title: "BlueLabel Wholesale",
+                tag: "Wholesale Platform",
+                description:
+                  "Wholesale storefront rebuild with full product catalog architecture and B2B flows.",
+                href: "https://bluelabelwholesale.com",
+                accent: "var(--mv-primary)",
+              },
+              {
+                title: "Fresno Pool Care",
+                tag: "Local Services",
+                description:
+                  "Local services site with lead capture, follow-up automation, and booking system.",
+                href: "https://fresnopoolcare.com",
+                accent: "var(--mv-emerald)",
+              },
+            ].map((p) => (
+              <Link
+                key={p.title}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20"
+              >
+                <div
+                  className="text-[10px] font-bold uppercase tracking-widest"
+                  style={{ color: p.accent, opacity: 0.65 }}
+                >
+                  {p.tag}
+                </div>
+                <div className="mt-3 font-[var(--font-sora)] text-lg font-bold tracking-tight text-white/90">
+                  {p.title}
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">
+                  {p.description}
+                </p>
+                <div
+                  className="mt-5 flex items-center gap-1 text-xs font-semibold transition-all duration-200 group-hover:gap-2"
+                  style={{ color: p.accent }}
+                >
+                  Visit site <span>→</span>
+                </div>
+                {/* Animated bottom line */}
+                <div
+                  className="absolute bottom-0 left-0 h-px w-0 transition-all duration-500 group-hover:w-full"
+                  style={{
+                    background: `linear-gradient(to right, ${p.accent}50, transparent)`,
+                  }}
+                />
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── DESIGN LANGUAGE — full-bleed cinematic ── */}
+      <section className="relative overflow-hidden">
+        {/* Full-bleed glowing neural network */}
+        <div className="absolute inset-0">
+          <Image
+            src="/brand/nature/mv-macro-nature-2.png"
+            alt=""
+            fill
+            className="object-cover object-center opacity-50"
+            sizes="100vw"
+          />
+          {/* Right-to-left: text on the right, image bleeds through left */}
+          <div className="absolute inset-0 bg-gradient-to-l from-[var(--mv-canvas)] via-[var(--mv-canvas)]/75 to-[var(--mv-canvas)]/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--mv-canvas)] via-transparent to-[var(--mv-canvas)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_20%_50%,rgba(56,189,248,0.08),transparent)]" />
+        </div>
+
+        <Container>
+          <div className="relative flex justify-end py-32 md:py-44">
+            <div className="max-w-xl">
+              <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-sapphire)]">
+                Design philosophy
+              </div>
+              <h2 className="font-[var(--font-sora)] text-4xl font-extrabold leading-[1] tracking-[-0.03em] text-white/95 sm:text-5xl md:text-[3.75rem]">
+                Intelligence<br />
+                <span className="text-[var(--mv-sapphire)]">from nature.</span>
+              </h2>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/50">
+                Every system we build draws from organic structure—self-organizing,
+                adaptive, and always evolving. The same patterns that govern
+                mycelial networks guide the agents we build.
+              </p>
+              <div className="mt-8 flex flex-col gap-3">
+                {[
+                  { label: "Emergent intelligence", color: "var(--mv-sapphire)" },
+                  { label: "Distributed reasoning", color: "var(--mv-primary)" },
+                  { label: "Continuous improvement", color: "var(--mv-emerald)" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 text-sm text-white/55"
+                  >
+                    <span
+                      className="h-px w-8 flex-shrink-0 rounded-full"
+                      style={{ background: item.color + "60" }}
+                    />
+                    {item.label}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* Current projects */}
-      <Section>
-        <Container>
-          <div className="max-w-2xl">
-            <H2>Current projects</H2>
-            <p className="mt-3 text-sm text-white/55">
-              Active builds and operators we’re shipping for right now.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <Card
-              title="Viking Labs"
-              description="Cinematic e-commerce + marketing automation system."
-              href="https://vikinglabs.co"
-            />
-            <Card
-              title="BlueLabel Wholesale"
-              description="Wholesale storefront rebuild + product catalog foundations."
-              href="https://bluelabelwholesale.com"
-            />
-            <Card
-              title="Fresno Pool Care"
-              description="Local services site + lead capture and follow-up system."
-              href="https://fresnopoolcare.com"
-            />
-          </div>
-        </Container>
-      </Section>
-
-      {/* Capabilities */}
-      <Section>
-        <Container>
-          <div className="max-w-2xl">
-            <H2>What we ship</H2>
-            <p className="mt-3 text-sm text-white/55">
-              The studio builds ventures; the services arm deploys the same core primitives for
-              businesses that want results without complexity.
-            </p>
-          </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <Card
-              title="Brand + website"
-              description="A modern, fast site and brand toolkit that builds trust instantly."
-            />
-            <Card
-              title="Operations + workflows"
-              description="Lead routing, scheduling, follow-up, and admin systems with guardrails."
-            />
-            <Card
-              title="Growth systems"
-              description="Premium loops for content, distribution, and measurement that compound over time."
-            />
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA */}
+      {/* ── CTA ── */}
       <Section className="bg-[linear-gradient(180deg,var(--mv-canvas),var(--mv-mist))]">
         <Container>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur">
-            <div className="grid gap-6 md:grid-cols-2 md:items-center">
-              <div>
-                <div className="text-sm font-semibold text-[color:var(--mv-primary)]">Start here</div>
-                <div className="mt-2 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-white/90">
-                  Get a free AI business assessment.
-                </div>
-                <p className="mt-2 text-sm text-white/55">
-                  We’ll review your website, follow-up, and operations—and send back a clear,
-                  non-technical offer.
-                </p>
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-12 shadow-[0_40px_100px_rgba(0,0,0,0.5)] backdrop-blur md:p-16">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_110%,rgba(139,92,246,0.12),transparent)]" />
+            <div className="relative mx-auto max-w-2xl text-center">
+              <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
+                Start here
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
+              <h2 className="font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.03em] text-white/90 sm:text-4xl md:text-5xl">
+                Get a free AI<br />business assessment.
+              </h2>
+              <p className="mx-auto mt-5 max-w-lg text-base text-white/45">
+                We&apos;ll review your website, workflows, and operations—then
+                send back a clear, non-technical plan with recommendations.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button href="/assessment" variant="primary">
-                  Get the free assessment
+                  Get the free assessment →
                 </Button>
                 <Button href="/services" variant="secondary">
-                  See services
+                  View all services
                 </Button>
               </div>
             </div>
@@ -192,10 +370,10 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Mission Control preview (bottom) */}
+      {/* ── MISSION CONTROL TEASER ── */}
       <Section className="py-14 md:py-20">
         <Container>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:p-10">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur sm:p-10">
             <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/80">
@@ -206,9 +384,9 @@ export default function Home() {
                 <div className="mt-4 font-[var(--font-sora)] text-2xl font-extrabold tracking-tight text-white/90 sm:text-3xl">
                   A command center for content engines.
                 </div>
-                <p className="mt-3 text-sm text-white/55">
-                  Simulated pro-SaaS UI that mirrors real workflow orchestration: brief → draft →
-                  compliance → publish.
+                <p className="mt-3 text-sm text-white/50">
+                  Simulated pro-SaaS UI that mirrors real workflow orchestration:
+                  brief → draft → compliance → publish.
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                   <Button href="/mission-control" variant="primary">
@@ -233,8 +411,13 @@ export default function Home() {
                           { k: "Agents", v: "6" },
                           { k: "Drafts", v: "12" },
                         ].map((s) => (
-                          <div key={s.k} className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                            <div className="text-[10px] font-semibold text-white/45">{s.k}</div>
+                          <div
+                            key={s.k}
+                            className="rounded-2xl border border-white/10 bg-white/5 p-3"
+                          >
+                            <div className="text-[10px] font-semibold text-white/45">
+                              {s.k}
+                            </div>
                             <div className="mt-1 text-lg font-extrabold tracking-tight text-white/90">
                               {s.v}
                             </div>
