@@ -25,10 +25,10 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     return NextResponse.json({ ok: false, error: 'Already published' }, { status: 400 });
   }
 
-  const mediaType = item.media_type || 'feed';
+  const mediaType = item.media_type || item.format || 'feed';
   const caption = item.caption || '';
-  const imageUrl = item.image_url || '';
-  const imageUrls: string[] = item.image_urls || [];
+  const imageUrl = item.image_url || (item.media_urls?.[0]) || '';
+  const imageUrls: string[] = item.media_urls || [];
   const videoUrl = item.video_url || '';
   const coverUrl = item.cover_url || '';
 
@@ -46,7 +46,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   if (!result.ok) {
     await supabase
       .from('marketing_content_queue')
-      .update({ status: 'failed', error_message: result.error, updated_at: new Date().toISOString() })
+      .update({ status: 'failed', publish_error: result.error, updated_at: new Date().toISOString() })
       .eq('id', id);
     return NextResponse.json({ ok: false, error: result.error }, { status: 502 });
   }
@@ -55,7 +55,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     .from('marketing_content_queue')
     .update({
       status: 'posted',
-      ig_media_id: result.igMediaId,
+      instagram_post_id: result.igMediaId,
       posted_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     })
