@@ -53,19 +53,24 @@ def get_client():
         return None, str(e)
 
 
-def download_file(url, suffix=".jpg"):
+def download_file(url_or_path, suffix=".jpg"):
+    # If it's a local file, just return the path
+    if os.path.isfile(url_or_path):
+        return url_or_path
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
-    urlretrieve(url, tmp.name)
+    urlretrieve(url_or_path, tmp.name)
     return tmp.name
 
 
 def post_feed(cl, image_url, caption):
+    is_local = os.path.isfile(image_url)
     path = download_file(image_url, ".jpg")
     try:
         media = cl.photo_upload(path, caption)
         return {"ok": True, "media_id": str(media.pk)}
     finally:
-        os.unlink(path)
+        if not is_local:
+            os.unlink(path)
 
 
 def post_carousel(cl, image_urls, caption):
