@@ -136,6 +136,11 @@ export default function MissionControlPage() {
   const [logs, setLogs] = useState<{ time: string; agent: string; msg: string; type: string }[]>([]);
   const [agentStatuses, setAgentStatuses] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const [analytics, setAnalytics] = useState<{
+    queue_stats: { draft: number; approved: number; posted: number; failed: number; total: number; approval_rate: number; posted_today: number; posted_week: number };
+    agent_logs: { id: string; agent_name: string; action: string; detail: string; created_at: string; status: string }[];
+    crm: { contacts: number; companies: number; scraped_contacts: number };
+  } | null>(null);
 
   const addLog = useCallback((agent: string, msg: string, type = 'info') => {
     const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
@@ -169,6 +174,15 @@ export default function MissionControlPage() {
         }
       } catch {}
 
+      // Fetch mission control analytics
+      try {
+        const aRes = await apiFetch(`${API_BASE}/mission-control/analytics`);
+        if (aRes.ok) {
+          const aJson = await aRes.json();
+          if (aJson.ok) setAnalytics(aJson.data);
+        }
+      } catch {}
+
       // Simulate agent statuses
       const statuses: Record<string, string> = {};
       AGENTS.forEach(a => {
@@ -182,7 +196,7 @@ export default function MissionControlPage() {
     load();
   }, []);
 
-  // Boot sequence logs
+  // Boot sequence logs + real agent activity
   useEffect(() => {
     if (loading) return;
     const bootMessages = [
@@ -199,7 +213,24 @@ export default function MissionControlPage() {
     bootMessages.forEach((m, i) => {
       setTimeout(() => addLog(m.agent, m.msg, m.type), i * 400);
     });
-  }, [loading, stats.contacts, stats.companies, queue.length, addLog]);
+
+    // Append real agent activity logs after boot completes
+    if (analytics?.agent_logs?.length) {
+      const bootDelay = bootMessages.length * 400 + 200;
+      setTimeout(() => {
+        addLog('SYSTEM', '> Loading agent activity history...', 'info');
+      }, bootDelay);
+      analytics.agent_logs.slice().reverse().forEach((log, i) => {
+        setTimeout(() => {
+          const logType = log.status === 'error' ? 'error' : log.status === 'success' ? 'success' : 'info';
+          const agentName = (log.agent_name || 'AGENT').toUpperCase();
+          const detail = log.detail ? ` — ${log.detail}` : '';
+          addLog(agentName, `${log.action}${detail}`, logType);
+        }, bootDelay + 300 + i * 150);
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading]);
 
   const handleApprove = async (id: string) => {
     addLog('GUARDIAN', `Approving content #${id.slice(0, 8)}...`, 'warn');
@@ -263,13 +294,29 @@ export default function MissionControlPage() {
         </div>
       </div>
 
-      {/* CRM Stats (RPG-style stat blocks) */}
+      {/* Queue Stats + CRM (RPG-style stat blocks) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {[
-          { label: 'CONTACTS', value: stats.contacts || 0, icon: '👤', color: '#4ade80' },
-          { label: 'COMPANIES', value: stats.companies || 0, icon: '🏢', color: '#60a5fa' },
+          { label: 'POSTS QUEUED', value: analytics?.queue_stats.draft ?? queue.length, icon: '📋', color: '#fbbf24' },
+          { label: 'POSTS PUBLISHED', value: analytics?.queue_stats.posted ?? 0, icon: '✅', color: '#4ade80' },
+          { label: 'POSTS FAILED', value: analytics?.queue_stats.failed ?? 0, icon: '❌', color: '#f87171' },
+          { label: 'APPROVAL RATE', value: `${analytics?.queue_stats.approval_rate ?? 0}%`, icon: '📊', color: '#60a5fa' },
+        ].map((s) => (
+          <div key={s.label} className="border border-green-900 bg-black/60 p-3 text-center hover:border-green-600 transition-colors">
+            <div className="text-lg mb-1">{s.icon}</div>
+            <div className="text-xl font-bold" style={{ color: s.color }}>{s.value}</div>
+            <div className="text-[9px] text-gray-600 tracking-wider">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* CRM + Pipeline Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        {[
+          { label: 'CONTACTS', value: analytics?.crm.contacts ?? stats.contacts ?? 0, icon: '👤', color: '#4ade80' },
+          { label: 'COMPANIES', value: analytics?.crm.companies ?? stats.companies ?? 0, icon: '🏢', color: '#60a5fa' },
+          { label: 'SCRAPED LEADS', value: analytics?.crm.scraped_contacts ?? 0, icon: '🕷️', color: '#e879f9' },
           { label: 'HOT LEADS', value: stats.hotLeads || 0, icon: '🔥', color: '#f87171' },
-          { label: 'QUEUE', value: queue.length, icon: '📋', color: '#fbbf24' },
         ].map((s) => (
           <div key={s.label} className="border border-green-900 bg-black/60 p-3 text-center hover:border-green-600 transition-colors">
             <div className="text-lg mb-1">{s.icon}</div>
@@ -334,6 +381,66 @@ export default function MissionControlPage() {
                   <QueueRow key={item.id} item={item} onPublish={handlePublish} onApprove={handleApprove} />
                 ))
               )}
+            </div>
+          </div>
+
+          {/* Analytics Section */}
+          <div className="border border-green-900 bg-black/80">
+            <div className="border-b border-green-900 px-3 py-1">
+              <span className="text-[10px] text-green-600 tracking-widest">{'>'} ANALYTICS — CONTENT PIPELINE</span>
+            </div>
+            <div className="p-3 space-y-3">
+              {/* Today / This Week */}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="border border-cyan-900/50 bg-cyan-950/10 p-2 text-center">
+                  <div className="text-[9px] text-cyan-700 tracking-wider">PUBLISHED TODAY</div>
+                  <div className="text-lg font-bold text-cyan-400">{analytics?.queue_stats.posted_today ?? 0}</div>
+                </div>
+                <div className="border border-cyan-900/50 bg-cyan-950/10 p-2 text-center">
+                  <div className="text-[9px] text-cyan-700 tracking-wider">PUBLISHED THIS WEEK</div>
+                  <div className="text-lg font-bold text-cyan-400">{analytics?.queue_stats.posted_week ?? 0}</div>
+                </div>
+              </div>
+
+              {/* Pipeline Breakdown */}
+              <div>
+                <div className="text-[9px] text-gray-600 tracking-wider mb-1">QUEUE PIPELINE</div>
+                <div className="flex items-center gap-1 text-[10px]">
+                  {(() => {
+                    const qs = analytics?.queue_stats;
+                    const total = qs?.total || 1;
+                    const segments = [
+                      { label: 'DRAFT', count: qs?.draft ?? 0, color: '#9ca3af' },
+                      { label: 'APPROVED', count: qs?.approved ?? 0, color: '#fbbf24' },
+                      { label: 'POSTED', count: qs?.posted ?? 0, color: '#4ade80' },
+                      { label: 'FAILED', count: qs?.failed ?? 0, color: '#f87171' },
+                    ];
+                    return (
+                      <div className="flex-1 space-y-1">
+                        <div className="flex h-3 overflow-hidden border border-gray-800">
+                          {segments.map(seg => (
+                            seg.count > 0 ? (
+                              <div
+                                key={seg.label}
+                                className="h-full transition-all duration-500"
+                                style={{ width: `${(seg.count / total) * 100}%`, backgroundColor: seg.color }}
+                                title={`${seg.label}: ${seg.count}`}
+                              />
+                            ) : null
+                          ))}
+                        </div>
+                        <div className="flex justify-between text-[9px]">
+                          {segments.map(seg => (
+                            <span key={seg.label} style={{ color: seg.color }}>
+                              {seg.label}: {seg.count}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+              </div>
             </div>
           </div>
 
