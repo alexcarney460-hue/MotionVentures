@@ -14,6 +14,7 @@ const NAV = [
   { label: 'Companies', href: '/admin/crm/companies' },
   { label: 'Deals', href: '/admin/crm/deals' },
   { label: 'Lists', href: '/admin/crm/lists' },
+  { label: 'Mission Control', href: '/admin/mission-control' },
 ];
 
 export default function CRMLayout({ children }: { children: React.ReactNode }) {
