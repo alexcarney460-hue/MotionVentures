@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Sora, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,16 +12,22 @@ const sora = Sora({
   variable: "--font-sora",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+  variable: "--font-playfair",
+});
+
 export const metadata: Metadata = {
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
     : new URL("http://localhost:3020"),
   title: {
-    default: "Motion Ventures — AI Studio",
+    default: "Motion Ventures — Synthetic Advisory",
     template: "%s — Motion Ventures",
   },
   description:
-    "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
+    "Synthetic Advisory — CrowdTest & Think Tank. AI studio building ventures and shipping practical automations, premium web, and operational systems.",
   icons: {
     icon: [
       { url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -30,9 +36,9 @@ export const metadata: Metadata = {
     apple: "/brand/logo-mv-192.png",
   },
   openGraph: {
-    title: "Motion Ventures — AI Studio",
+    title: "Motion Ventures — Synthetic Advisory",
     description:
-      "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
+      "Synthetic Advisory — CrowdTest & Think Tank. AI studio building ventures and shipping practical automations, premium web, and operational systems.",
     type: "website",
     images: [
       {
@@ -45,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Motion Ventures — AI Studio",
+    title: "Motion Ventures — Synthetic Advisory",
     description:
-      "AI studio building ventures and shipping practical automations, premium web, and operational systems.",
+      "Synthetic Advisory — CrowdTest & Think Tank. AI studio building ventures and shipping practical automations, premium web, and operational systems.",
     images: ["/brand/og.png"],
   },
   robots: { index: true, follow: true },
@@ -59,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en" className={`${inter.variable} ${sora.variable} ${playfair.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

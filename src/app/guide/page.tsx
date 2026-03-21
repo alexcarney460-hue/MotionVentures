@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function GuidePage() {
   return (
-    <div className="min-h-screen">
+    <div className="light-page min-h-screen">
       <SiteHeader />
 
       <Section className="relative overflow-hidden">
@@ -55,15 +55,17 @@ export default function GuidePage() {
               </ul>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href="/guide/thanks" variant="primary">
-                  Get the guide ($199)
+                <Button href="https://venmo.com/u/alexablaze559?txn=pay&note=AI+Business+Guide&amount=199" variant="primary">
+                  Pay $199 via Venmo →
                 </Button>
                 <Button href="/services" variant="secondary">
                   Back to services
                 </Button>
               </div>
 
-              <div className="mt-3 text-[11px] text-white/40">Simulated purchase flow. No payment yet.</div>
+              <div className="mt-3 text-[11px] text-white/40">
+                After payment, reply to the Venmo transaction with your email and we&apos;ll send the guide within 24 hours.
+              </div>
             </div>
           </div>
         </Container>

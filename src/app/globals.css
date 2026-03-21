@@ -1,23 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* Motion Ventures — cinematic dark */
-  --background: #070a10;
-  --foreground: rgba(255, 255, 255, 0.92);
+  /* Motion Ventures — dark theme (Terminal-inspired) */
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
 
-  --mv-canvas: #070a10;
-  --mv-surface: rgba(255, 255, 255, 0.06);
-  --mv-ink: rgba(255, 255, 255, 0.92);
-  --mv-muted: rgba(255, 255, 255, 0.70);
-  --mv-border: rgba(255, 255, 255, 0.10);
+  --mv-canvas: #0a0a0a;
+  --mv-surface: #141414;
+  --mv-ink: #f5f5f5;
+  --mv-muted: #888888;
+  --mv-border: #222222;
 
-  --mv-primary: #a855f7; /* neon violet-magenta — matches logo glow */
-  --mv-primary-hover: #c084fc;
-  --mv-sapphire: #22d3ee; /* cyan-teal — matches logo left glow */
-  --mv-emerald: #34d399;
-  --mv-coral: #f472b6; /* pink — matches logo right glow */
+  --mv-primary: #6366f1;
+  --mv-primary-hover: #818cf8;
+  --mv-accent: #8b5cf6;
+  --mv-accent-hover: #a78bfa;
 
-  --mv-mist: #080c1a;
+  --mv-mist: #111111;
+
+  /* Legacy colors for intelligence pages */
+  --mv-sapphire: #22d3ee;
+  --mv-emerald: #10b981;
 }
 
 @theme inline {
@@ -33,6 +36,33 @@ body {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+}
+
+/* --- Custom scrollbar (dark theme) --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* --- Frosted glass nav (dark) --- */
+.glass-nav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* --- Motion Ventures: hero motion (GPU-friendly) --- */
@@ -72,12 +102,12 @@ body {
     background: linear-gradient(
       110deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.07) 35%,
-      rgba(0, 255, 209, 0.08) 45%,
-      rgba(255, 255, 255, 0.05) 55%,
+      rgba(0, 0, 0, 0.03) 35%,
+      rgba(99, 102, 241, 0.05) 45%,
+      rgba(0, 0, 0, 0.02) 55%,
       transparent 100%
     );
-    mix-blend-mode: screen;
+    mix-blend-mode: multiply;
     opacity: 0.55;
     transform: translateX(-35%);
     animation: mv-shimmer 7.5s linear infinite;
@@ -106,7 +136,7 @@ body {
 
   .mv-node:hover {
     transform: translate3d(0, -2px, 0);
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(0, 0, 0, 0.04);
   }
 
   .mv-edge {
@@ -128,14 +158,14 @@ body {
 
 }
 
-/* ── Hero fallback: animated gradient orbs (CSS-only, GPU-friendly) ── */
+/* ── Hero fallback: animated gradient orbs (light, muted) ── */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.55;
+  opacity: 0.25;
   will-change: transform, opacity;
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
 }
 
 .hero-orb-violet {
@@ -143,7 +173,7 @@ body {
   height: 55vmax;
   top: -15%;
   right: -10%;
-  background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+  background: radial-gradient(circle, #c4b5fd 0%, transparent 70%);
   animation: hero-orb-drift-1 14s ease-in-out infinite;
 }
 
@@ -152,7 +182,7 @@ body {
   height: 50vmax;
   bottom: -20%;
   left: -15%;
-  background: radial-gradient(circle, #22d3ee 0%, transparent 70%);
+  background: radial-gradient(circle, #a5f3fc 0%, transparent 70%);
   animation: hero-orb-drift-2 16s ease-in-out infinite;
 }
 
@@ -161,8 +191,8 @@ body {
   height: 40vmax;
   top: 30%;
   left: 25%;
-  background: radial-gradient(circle, #f472b6 0%, transparent 70%);
-  opacity: 0.35;
+  background: radial-gradient(circle, #fbcfe8 0%, transparent 70%);
+  opacity: 0.2;
   animation: hero-orb-drift-3 18s ease-in-out infinite;
 }
 
@@ -171,34 +201,132 @@ body {
   height: 35vmax;
   bottom: 5%;
   right: 15%;
-  background: radial-gradient(circle, #34d399 0%, transparent 70%);
-  opacity: 0.3;
+  background: radial-gradient(circle, #a7f3d0 0%, transparent 70%);
+  opacity: 0.15;
   animation: hero-orb-drift-4 20s ease-in-out infinite;
 }
 
 @keyframes hero-orb-drift-1 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
-  33% { transform: translate3d(-8%, 12%, 0) scale(1.08); opacity: 0.45; }
-  66% { transform: translate3d(5%, -6%, 0) scale(0.95); opacity: 0.6; }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.25; }
+  33% { transform: translate3d(-8%, 12%, 0) scale(1.08); opacity: 0.18; }
+  66% { transform: translate3d(5%, -6%, 0) scale(0.95); opacity: 0.28; }
 }
 
 @keyframes hero-orb-drift-2 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
-  40% { transform: translate3d(12%, -8%, 0) scale(1.1); opacity: 0.5; }
-  70% { transform: translate3d(-5%, 5%, 0) scale(0.92); opacity: 0.6; }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.25; }
+  40% { transform: translate3d(12%, -8%, 0) scale(1.1); opacity: 0.2; }
+  70% { transform: translate3d(-5%, 5%, 0) scale(0.92); opacity: 0.28; }
 }
 
 @keyframes hero-orb-drift-3 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.35; }
-  50% { transform: translate3d(-10%, 15%, 0) scale(1.15); opacity: 0.25; }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.2; }
+  50% { transform: translate3d(-10%, 15%, 0) scale(1.15); opacity: 0.12; }
 }
 
 @keyframes hero-orb-drift-4 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.3; }
-  35% { transform: translate3d(8%, -12%, 0) scale(1.1); opacity: 0.2; }
-  65% { transform: translate3d(-6%, 8%, 0) scale(0.9); opacity: 0.35; }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.15; }
+  35% { transform: translate3d(8%, -12%, 0) scale(1.1); opacity: 0.1; }
+  65% { transform: translate3d(-6%, 8%, 0) scale(0.9); opacity: 0.18; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-orb { animation: none !important; }
 }
+
+/* --- Dark landing page utility classes --- */
+.text-gradient-accent {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-accent {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.15), 0 0 80px rgba(139, 92, 246, 0.05);
+}
+
+.border-glow {
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.border-glow:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+}
+
+/* Frosted glass cards */
+.glass-card {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Radial gradient hover effect */
+.radial-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.radial-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.radial-hover:hover::before {
+  opacity: 1;
+}
+
+/* Animated gradient underline */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #a78bfa, #38bdf8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Light page override for product pages */
+.light-page {
+  --background: #ffffff;
+  --foreground: #121212;
+  --mv-canvas: #ffffff;
+  --mv-surface: #f9fafb;
+  --mv-ink: #121212;
+  --mv-muted: #6b7280;
+  --mv-border: #e5e7eb;
+  --mv-primary: #121212;
+  --mv-primary-hover: #374151;
+  --mv-accent: #6366f1;
+  --mv-accent-hover: #818cf8;
+  --mv-mist: #f3f4f6;
+}
+
+.light-page .glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+.light-page ::-webkit-scrollbar-track { background: #f9fafb; }
+.light-page ::-webkit-scrollbar-thumb { background: #d1d5db; }
+.light-page ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }

@@ -1,6 +1,7 @@
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { Container, H1, Lead, Section } from "@/components/ui";
+import AssessmentForm from "./AssessmentForm";
 
 export const metadata = {
   title: "Free AI Business Assessment",
@@ -8,7 +9,7 @@ export const metadata = {
 
 export default function AssessmentPage() {
   return (
-    <div className="min-h-screen">
+    <div className="light-page min-h-screen">
       <SiteHeader ctaLabel="Assessment" ctaHref="/assessment" />
 
       <Section className="relative overflow-hidden">
@@ -28,83 +29,7 @@ export default function AssessmentPage() {
                 Assessment intake
               </div>
 
-              {/* MVP: HTML form (no backend yet). Wire to CRM/email later. */}
-              <form className="mt-6 grid gap-4" action="/assessment/thanks" method="get">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="grid gap-2 text-sm">
-                    <span className="font-semibold text-[color:var(--mv-primary)]">Name</span>
-                    <input
-                      name="name"
-                      required
-                      className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
-                      placeholder="Jane Doe"
-                    />
-                  </label>
-                  <label className="grid gap-2 text-sm">
-                    <span className="font-semibold text-[color:var(--mv-primary)]">Email</span>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
-                      placeholder="jane@company.com"
-                    />
-                  </label>
-                </div>
-
-                <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-primary)]">Business website (if you have one)</span>
-                  <input
-                    name="website"
-                    className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
-                    placeholder="https://yourbusiness.com"
-                  />
-                </label>
-
-                <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-primary)]">Type of business</span>
-                  <input
-                    name="businessType"
-                    required
-                    className="h-11 rounded-xl border border-white/10 bg-black/20 px-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
-                    placeholder="Home services, local retail, professional services, etc."
-                  />
-                </label>
-
-                <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-primary)]">What’s the main issue right now?</span>
-                  <textarea
-                    name="problem"
-                    required
-                    rows={4}
-                    className="rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
-                    placeholder="Example: leads slowed down, website feels old, follow-up is inconsistent, scheduling is chaotic"
-                  />
-                </label>
-
-                <label className="grid gap-2 text-sm">
-                  <span className="font-semibold text-[color:var(--mv-primary)]">What would ‘better’ look like in 60 days?</span>
-                  <textarea
-                    name="outcome"
-                    required
-                    rows={3}
-                    className="rounded-xl border border-white/10 bg-black/20 px-3 py-3 text-white/90 outline-none placeholder:text-white/35 focus:ring-2 focus:ring-[var(--mv-primary)]"
-                    placeholder="More inquiries, faster response time, more booked work, less admin chaos"
-                  />
-                </label>
-
-                <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="text-xs text-[color:var(--mv-muted)]">
-                    By submitting, you agree we can email you back about this request.
-                  </div>
-                  <button
-                    type="submit"
-                    className="inline-flex h-11 items-center justify-center rounded-xl bg-[var(--mv-primary)] px-5 text-sm font-semibold text-white shadow-sm shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--mv-accent)] focus:ring-offset-2 active:translate-y-px"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
+              <AssessmentForm />
             </div>
           </div>
         </Container>

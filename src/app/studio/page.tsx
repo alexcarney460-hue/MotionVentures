@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function StudioPage() {
   return (
-    <div className="min-h-screen">
+    <div className="light-page min-h-screen">
       <SiteHeader />
 
       <Section className="relative overflow-hidden">

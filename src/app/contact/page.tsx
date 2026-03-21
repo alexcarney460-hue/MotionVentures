@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen">
+    <div className="light-page min-h-screen">
       <SiteHeader />
 
       <Section className="relative overflow-hidden py-14 md:py-20">
@@ -46,7 +46,7 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-6 text-xs text-white/45">
-              Prefer email? <span className="font-semibold text-white/70">hello@motionventures.ai</span> (placeholder)
+              Prefer to talk? Call <a href="tel:+18314359521" className="font-semibold text-white/70 hover:text-white">(831) 435-9521</a>
             </div>
           </div>
         </Container>

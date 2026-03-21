@@ -1,0 +1,161 @@
+"use client";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const PROJECTS = [
+  {
+    num: "01",
+    name: "Viking Labs",
+    domain: "vikinglabs.co",
+    tags: ["E-Commerce", "AI Content", "Automations"],
+    desc: "Cinematic DTC brand with AI-powered content engine, email/SMS automation, and affiliate program.",
+  },
+  {
+    num: "02",
+    name: "BlueLabel Wholesale",
+    domain: "bluelabelwholesale.com",
+    tags: ["B2B Platform", "Wholesale", "Catalog"],
+    desc: "B2B-optimized storefront with tiered pricing and wholesale distribution tools.",
+  },
+  {
+    num: "03",
+    name: "Empire8 Sales Direct",
+    domain: "empire8salesdirect.com",
+    tags: ["Cannabis Wholesale", "Payments", "Logistics"],
+    desc: "Licensed cannabis wholesale supplier with Square payments and auto-shipping via Shippo.",
+  },
+  {
+    num: "04",
+    name: "Fresno Pool Care",
+    domain: "fresnopoolcare.com",
+    tags: ["Local Services", "Lead Capture", "Automation"],
+    desc: "Services site with automated lead capture, SMS follow-up, and booking system.",
+  },
+  {
+    num: "05",
+    name: "SKYNETx",
+    domain: "skynetx.io",
+    tags: ["AI Infrastructure", "SaaS", "Skills Marketplace"],
+    desc: "Agent performance infrastructure — memory API, cognitive telemetry, and skills marketplace.",
+  },
+  {
+    num: "06",
+    name: "ValueSuppliers.co",
+    domain: "valuesuppliers.co",
+    tags: ["B2B Supply", "AI Chat", "Wholesale"],
+    desc: "B2B supply platform with AI chat assistant and tiered pricing.",
+  },
+] as const;
+
+export default function Projects() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !headingRef.current) return;
+
+    const cards = sectionRef.current.querySelectorAll("[data-project]");
+
+    gsap.from(headingRef.current.children, {
+      y: 40,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: { trigger: headingRef.current, start: "top 80%" },
+    });
+
+    gsap.from(cards, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: "power3.out",
+      scrollTrigger: { trigger: cards[0], start: "top 85%" },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative py-32 bg-[#0a0a0a]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
+
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.04)_0%,transparent_70%)] pointer-events-none" />
+
+      <div className="mx-auto max-w-6xl px-6">
+        <div ref={headingRef} className="mb-16">
+          <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
+            Portfolio
+          </div>
+          <h2 className="font-[var(--font-sora)] text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-5xl">
+            Live ventures.
+            <br />
+            <span className="text-[#888]">Real results.</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-base text-[#666] leading-relaxed">
+            Every project is built, launched, and operated by our studio. Not
+            mockups — live businesses generating revenue.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project) => (
+            <a
+              key={project.num}
+              href={`https://${project.domain}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-project
+              className="group relative rounded-2xl border border-white/[0.06] bg-[#111] p-6 transition-all duration-300 hover:border-[#8b5cf6]/30 hover:bg-[#141414] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(139,92,246,0.08)]"
+            >
+              {/* Number */}
+              <div className="flex items-start justify-between mb-4">
+                <span className="font-mono text-xs font-bold text-[#8b5cf6]/50 group-hover:text-[#8b5cf6] transition-colors">
+                  {project.num}
+                </span>
+                <span className="text-[#333] transition-all duration-300 group-hover:text-[#8b5cf6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  &#8599;
+                </span>
+              </div>
+
+              {/* Name + Domain */}
+              <h3 className="font-[var(--font-sora)] text-lg font-bold text-white">
+                {project.name}
+              </h3>
+              <div className="mt-1 text-xs text-[#8b5cf6]/60 font-mono">
+                {project.domain}
+              </div>
+
+              {/* Description */}
+              <p className="mt-3 text-sm leading-relaxed text-[#666]">
+                {project.desc}
+              </p>
+
+              {/* Tags */}
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/[0.06] bg-white/[0.03] px-2.5 py-0.5 text-[10px] font-medium text-[#888] uppercase tracking-wider"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom accent line */}
+              <div className="mt-5 h-px w-8 rounded-full bg-[#8b5cf6]/20 transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#a78bfa] group-hover:via-[#8b5cf6] group-hover:to-[#38bdf8]" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

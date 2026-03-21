@@ -23,7 +23,7 @@ export function Section({
 export function H1({ children }: { children: React.ReactNode }) {
   return (
     <h1
-      className="text-balance font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.04em] text-[color:var(--mv-primary)] sm:text-5xl md:text-6xl"
+      className="text-balance font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.04em] text-[var(--mv-ink)] sm:text-5xl md:text-6xl"
     >
       {children}
     </h1>
@@ -33,7 +33,7 @@ export function H1({ children }: { children: React.ReactNode }) {
 export function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
-      className="text-balance font-[var(--font-sora)] text-2xl font-bold tracking-[-0.02em] text-[color:var(--mv-primary)] md:text-3xl"
+      className="text-balance font-[var(--font-sora)] text-2xl font-bold tracking-[-0.02em] text-[var(--mv-ink)] md:text-3xl"
     >
       {children}
     </h2>
@@ -41,7 +41,7 @@ export function H2({ children }: { children: React.ReactNode }) {
 }
 
 export function Lead({ children }: { children: React.ReactNode }) {
-  return <p className="text-pretty text-base text-white/60 sm:text-lg">{children}</p>;
+  return <p className="text-pretty text-base text-[var(--mv-muted)] sm:text-lg">{children}</p>;
 }
 
 export function Button({
@@ -57,8 +57,8 @@ export function Button({
     "inline-flex h-12 items-center justify-center rounded-xl px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 active:translate-y-px sm:h-11";
   const styles =
     variant === "primary"
-      ? "bg-[var(--mv-primary)] text-white shadow-sm shadow-slate-900/10 hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] hover:shadow-md hover:shadow-slate-900/10 focus:ring-[var(--mv-accent)]"
-      : "border border-white/10 bg-white/5 text-white/85 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur hover:-translate-y-0.5 hover:bg-white/10 focus:ring-[var(--mv-primary)]";
+      ? "bg-gray-900 text-white shadow-sm hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-md focus:ring-gray-900"
+      : "border border-gray-200 bg-white text-gray-700 shadow-sm hover:-translate-y-0.5 hover:bg-gray-50 hover:text-gray-900 focus:ring-gray-400";
   return (
     <Link href={href} className={`${base} ${styles}`}>
       {children}
@@ -77,16 +77,16 @@ export function Card({
 }) {
   const inner = (
     <>
-      <div className="text-base font-bold tracking-tight text-[color:var(--mv-primary)]">{title}</div>
-      <p className="mt-2 text-sm text-white/55">{description}</p>
+      <div className="text-base font-bold tracking-tight text-[var(--mv-ink)]">{title}</div>
+      <p className="mt-2 text-sm text-[var(--mv-muted)]">{description}</p>
     </>
   );
 
   const cls =
-    "rounded-3xl border border-white/10 bg-white/5 p-7 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur";
+    "rounded-3xl border border-gray-100 bg-white p-7 shadow-sm";
 
   return href ? (
-    <Link href={href} className={`${cls} transition hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-900/10`}>
+    <Link href={href} className={`${cls} transition hover:-translate-y-0.5 hover:shadow-md hover:border-gray-200`}>
       {inner}
     </Link>
   ) : (

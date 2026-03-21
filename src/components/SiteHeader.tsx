@@ -8,7 +8,7 @@ import { getSupabase } from "@/lib/supabase";
 import type { User } from "@supabase/supabase-js";
 
 export default function SiteHeader({
-  ctaLabel = "Free AI Assessment",
+  ctaLabel = "Try Free",
   ctaHref = "/assessment",
 }: {
   ctaLabel?: string;
@@ -39,60 +39,75 @@ export default function SiteHeader({
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--mv-border)] bg-[color:var(--mv-canvas)]/70 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--mv-canvas)]/55">
-      <Container>
-        <div className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 w-full">
+      <div className="mx-auto mt-4 max-w-5xl px-4">
+        <nav
+          className="glass-nav flex items-center justify-between rounded-2xl px-5 py-3"
+          role="navigation"
+          aria-label="Main navigation"
+        >
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-[var(--font-sora)] font-semibold tracking-tight text-[color:var(--mv-ink)]"
+            className="flex items-center gap-2 font-[var(--font-sora)] font-semibold tracking-tight text-[var(--mv-ink)]"
           >
             <Image
               src="/brand/logo-mv-192.png"
               alt="Motion Ventures"
-              width={32}
-              height={32}
+              width={28}
+              height={28}
               className="rounded-lg"
               priority
             />
-            <span>Motion Ventures</span>
+            <span className="text-sm">Motion Ventures</span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-6 text-sm text-[color:var(--mv-muted)] sm:flex">
-            <Link href="/ventures" className="transition hover:text-[color:var(--mv-ink)]">
-              Ventures
+          <div className="hidden items-center gap-6 text-sm sm:flex">
+            <Link
+              href="/intelligence"
+              className="text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+            >
+              Intelligence
             </Link>
-            <Link href="/services" className="transition hover:text-[color:var(--mv-ink)]">
-              Services
+            <Link
+              href="/services"
+              className="text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+            >
+              Pricing
             </Link>
-            <Link href="/studio" className="transition hover:text-[color:var(--mv-ink)]">
-              Studio
+            <Link
+              href="/blog"
+              className="text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+            >
+              Docs
             </Link>
-            <Link href="/affiliates" className="transition hover:text-[color:var(--mv-ink)]">
-              Affiliates
-            </Link>
+          </div>
+
+          {/* Desktop right side */}
+          <div className="hidden items-center gap-3 sm:flex">
             {user ? (
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen((o) => !o)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--mv-primary)] text-xs font-bold text-white uppercase"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-xs font-bold text-white uppercase"
+                  aria-label="User menu"
                 >
                   {user.email?.[0] || '?'}
                 </button>
                 {userMenuOpen && (
-                  <div className="absolute right-0 top-11 z-50 w-48 rounded-xl border border-white/10 bg-[color:var(--mv-canvas)] p-1.5 shadow-2xl">
-                    <div className="px-3 py-2 text-xs text-white/40 truncate">{user.email}</div>
+                  <div className="absolute right-0 top-11 z-50 w-48 rounded-xl border border-gray-200 bg-white p-1.5 shadow-lg">
+                    <div className="px-3 py-2 text-xs text-gray-400 truncate">{user.email}</div>
                     <Link
                       href="/admin/crm"
                       onClick={() => setUserMenuOpen(false)}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/70 transition hover:bg-white/5 hover:text-white"
+                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
                     >
                       CRM Dashboard
                     </Link>
                     <button
                       onClick={handleSignOut}
-                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-red-400/80 transition hover:bg-red-500/10 hover:text-red-400"
+                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-red-500 transition hover:bg-red-50 hover:text-red-600"
                     >
                       Sign Out
                     </button>
@@ -100,26 +115,26 @@ export default function SiteHeader({
                 )}
               </div>
             ) : (
-              <div className="flex items-center gap-2">
+              <>
                 <Link
                   href="/auth/login"
-                  className="rounded-xl px-4 py-2 text-sm font-medium text-white/70 transition hover:text-white hover:bg-white/5"
+                  className="text-sm text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
                 >
-                  Log In
+                  Sign in
                 </Link>
                 <Link
-                  href="/auth/signup"
-                  className="rounded-xl bg-[var(--mv-primary)] px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)]"
+                  href={ctaHref}
+                  className="inline-flex items-center rounded-full bg-gray-900 px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
                 >
-                  Sign Up
+                  {ctaLabel} <span className="ml-1" aria-hidden="true">&rarr;</span>
                 </Link>
-              </div>
+              </>
             )}
-          </nav>
+          </div>
 
           {/* Mobile: hamburger */}
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition hover:bg-white/10 sm:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-500 transition hover:bg-gray-100 sm:hidden"
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((o) => !o)}
           >
@@ -133,66 +148,63 @@ export default function SiteHeader({
               </svg>
             )}
           </button>
-        </div>
-      </Container>
+        </nav>
+      </div>
 
       {/* Mobile nav drawer */}
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-[color:var(--mv-canvas)]/95 backdrop-blur sm:hidden">
-          <Container>
-            <nav className="flex flex-col gap-1 py-4">
-              {[
-                { href: "/ventures", label: "Ventures" },
-                { href: "/services", label: "Services" },
-                { href: "/studio", label: "Studio" },
-                { href: "/affiliates", label: "Affiliates" },
-              ].map((link) => (
+        <div className="mx-4 mt-2 rounded-2xl border border-gray-200 bg-white/95 shadow-lg backdrop-blur sm:hidden">
+          <nav className="flex flex-col gap-1 p-4">
+            {[
+              { href: "/intelligence", label: "Intelligence" },
+              { href: "/services", label: "Pricing" },
+              { href: "/blog", label: "Docs" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-900"
+              >
+                {link.label}
+              </Link>
+            ))}
+            {user ? (
+              <div className="mt-2 space-y-1 border-t border-gray-100 pt-2">
+                <div className="px-3 py-2 text-xs text-gray-400 truncate">{user.email}</div>
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  href="/admin/crm"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-xl px-3 py-2.5 text-sm font-medium text-white/65 transition hover:bg-white/5 hover:text-white/90"
+                  className="block rounded-xl px-3 py-2.5 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-900"
                 >
-                  {link.label}
+                  CRM Dashboard
                 </Link>
-              ))}
-              {user ? (
-                <div className="mt-2 space-y-1">
-                  <div className="px-3 py-2 text-xs text-white/40 truncate">{user.email}</div>
-                  <Link
-                    href="/admin/crm"
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-xl px-3 py-2.5 text-sm font-medium text-white/65 transition hover:bg-white/5 hover:text-white/90"
-                  >
-                    CRM Dashboard
-                  </Link>
-                  <button
-                    onClick={() => { handleSignOut(); setMobileOpen(false); }}
-                    className="w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium text-red-400/80 transition hover:bg-red-500/10"
-                  >
-                    Sign Out
-                  </button>
-                </div>
-              ) : (
-                <div className="mt-2 flex gap-2 px-1">
-                  <Link
-                    href="/auth/login"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex-1 rounded-xl border border-white/10 bg-white/5 py-2.5 text-center text-sm font-medium text-white/80 transition hover:bg-white/10"
-                  >
-                    Log In
-                  </Link>
-                  <Link
-                    href="/auth/signup"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex-1 rounded-xl bg-[var(--mv-primary)] py-2.5 text-center text-sm font-semibold text-white transition hover:bg-[var(--mv-primary-hover)]"
-                  >
-                    Sign Up
-                  </Link>
-                </div>
-              )}
-            </nav>
-          </Container>
+                <button
+                  onClick={() => { handleSignOut(); setMobileOpen(false); }}
+                  className="w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium text-red-500 transition hover:bg-red-50"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div className="mt-2 flex gap-2 border-t border-gray-100 pt-3">
+                <Link
+                  href="/auth/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex-1 rounded-xl border border-gray-200 bg-white py-2.5 text-center text-sm font-medium text-gray-600 transition hover:bg-gray-50"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  href={ctaHref}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex-1 rounded-full bg-gray-900 py-2.5 text-center text-sm font-medium text-white transition hover:bg-gray-800"
+                >
+                  {ctaLabel} &rarr;
+                </Link>
+              </div>
+            )}
+          </nav>
         </div>
       )}
     </header>

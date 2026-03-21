@@ -46,6 +46,7 @@ function InputShell({ children }: { children: React.ReactNode }) {
 export default function ContactFunnel({ action = '/contact/thanks' }: { action?: string }) {
   const [step, setStep] = React.useState<1 | 2>(1)
   const [data, setData] = React.useState<FormState>(initial)
+  const [submitting, setSubmitting] = React.useState(false)
 
   const update = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setData((d) => ({ ...d, [k]: e.target.value }))
@@ -154,12 +155,34 @@ export default function ContactFunnel({ action = '/contact/thanks' }: { action?:
           </div>
         </div>
       ) : (
-        <form className="grid gap-4" action={action} method="get">
-          {/* carry forward */}
-          <input type="hidden" name="businessType" value={data.businessType} />
-          <input type="hidden" name="website" value={data.website} />
-          <input type="hidden" name="problem" value={data.problem} />
-          <input type="hidden" name="outcome" value={data.outcome} />
+        <form className="grid gap-4" onSubmit={async (e) => {
+          e.preventDefault()
+          setSubmitting(true)
+          try {
+            const fd = new FormData(e.currentTarget)
+            await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                form: 'Contact',
+                name: data.name,
+                email: data.email,
+                company: data.company,
+                website: data.website,
+                businessType: data.businessType,
+                problem: data.problem,
+                outcome: data.outcome,
+                budget: data.budget,
+                timeline: data.timeline,
+                notes: fd.get('notes') as string || '',
+              }),
+            })
+            window.location.href = action
+          } catch {
+            setSubmitting(false)
+            alert('Something went wrong. Please try again.')
+          }
+        }}>
 
           <div className="grid gap-4 md:grid-cols-2">
             <div className="grid gap-2 text-sm">
@@ -287,9 +310,10 @@ export default function ContactFunnel({ action = '/contact/thanks' }: { action?:
             </button>
             <button
               type="submit"
-              className="inline-flex h-11 items-center justify-center rounded-xl bg-[var(--mv-primary)] px-5 text-sm font-semibold text-white shadow-sm shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)]"
+              disabled={submitting}
+              className="inline-flex h-11 items-center justify-center rounded-xl bg-[var(--mv-primary)] px-5 text-sm font-semibold text-white shadow-sm shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--mv-primary-hover)] disabled:opacity-50"
             >
-              Send request
+              {submitting ? 'Sending...' : 'Send request'}
             </button>
           </div>
 

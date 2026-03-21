@@ -1,0 +1,139 @@
+"use client";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const SERVICES = [
+  {
+    num: "01",
+    title: "Synthetic Advisory",
+    desc: "CrowdTest simulates your customers. Think Tank simulates expert advisors. Get consulting-grade intelligence at SaaS prices.",
+    href: "/intelligence",
+  },
+  {
+    num: "02",
+    title: "Premium Web",
+    desc: "Sites that convert. Dark themes, scroll animations, and interfaces that make your brand feel like the future.",
+    href: "/services",
+  },
+  {
+    num: "03",
+    title: "Automation Systems",
+    desc: "CRM pipelines, lead scrapers, content engines, and AI workflows that run your business while you sleep.",
+    href: "/services",
+  },
+  {
+    num: "04",
+    title: "Venture Building",
+    desc: "From idea to revenue. We build, launch, and operate digital ventures with AI at the core.",
+    href: "/contact",
+  },
+];
+
+export default function Services() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !headingRef.current) return;
+
+    const cards = sectionRef.current.querySelectorAll("[data-service-card]");
+
+    // Heading reveal
+    gsap.from(headingRef.current.children, {
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 80%",
+      },
+    });
+
+    // Cards stagger in
+    gsap.from(cards, {
+      y: 60,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: cards[0],
+        start: "top 85%",
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  // Mouse tracking for radial glow
+  function handleMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty(
+      "--mouse-x",
+      `${e.clientX - rect.left}px`,
+    );
+    e.currentTarget.style.setProperty(
+      "--mouse-y",
+      `${e.clientY - rect.top}px`,
+    );
+  }
+
+  return (
+    <section
+      ref={sectionRef}
+      id="services"
+      className="relative py-32 bg-[#0a0a0a]"
+    >
+      {/* Section divider line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
+
+      <div className="mx-auto max-w-6xl px-6">
+        <div ref={headingRef} className="mb-20">
+          <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
+            What we build
+          </div>
+          <h2 className="font-[var(--font-sora)] text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-5xl">
+            Four disciplines.
+            <br />
+            <span className="text-[#888]">One studio.</span>
+          </h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {SERVICES.map((service) => (
+            <a
+              key={service.num}
+              href={service.href}
+              data-service-card
+              onMouseMove={handleMouseMove}
+              className="radial-hover group relative rounded-2xl border border-white/[0.06] bg-[#111] p-8 transition-all duration-300 hover:border-[#8b5cf6]/20 hover:bg-[#141414] sm:p-10"
+            >
+              <div className="flex items-start justify-between">
+                <span className="font-mono text-sm font-bold text-[#8b5cf6]/60">
+                  {service.num}
+                </span>
+                <span className="text-[#333] transition-all duration-300 group-hover:text-[#8b5cf6] group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </div>
+              <h3 className="mt-6 font-[var(--font-sora)] text-2xl font-bold text-white">
+                {service.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#777]">
+                {service.desc}
+              </p>
+              <div className="mt-6 h-px w-12 rounded-full bg-[#8b5cf6]/20 transition-all duration-500 group-hover:w-24 group-hover:bg-[#8b5cf6]/50" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
