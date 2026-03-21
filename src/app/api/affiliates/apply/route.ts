@@ -1,6 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
+import nodemailer from 'nodemailer'
 
-// POST /api/affiliates/apply — affiliate signup
+const NOTIFY_EMAIL = 'gardenablaze@gmail.com'
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || 'yrvl ltjs wqga adtr'
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: NOTIFY_EMAIL,
+    pass: GMAIL_APP_PASSWORD,
+  },
+})
+
 export async function POST(request: NextRequest) {
   let body: {
     name?: string
@@ -24,7 +37,6 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Generate referral code from name
   const code = body.name
     .trim()
     .split(/\s+/)[0]
@@ -32,15 +44,34 @@ export async function POST(request: NextRequest) {
     .replace(/[^A-Z]/g, '')
     .slice(0, 6) + Math.floor(Math.random() * 900 + 100)
 
-  // TODO: Wire to Supabase once backend is configured
-  // For now, log the application and return success
+  // Send email notification
+  try {
+    await transporter.sendMail({
+      from: `Motion Ventures <${NOTIFY_EMAIL}>`,
+      to: NOTIFY_EMAIL,
+      replyTo: body.email,
+      subject: `New Affiliate Application: ${body.name}`,
+      text: [
+        `New affiliate application received:`,
+        ``,
+        `Name: ${body.name}`,
+        `Email: ${body.email}`,
+        `Phone: ${body.phone || 'Not provided'}`,
+        `Company: ${body.company || 'Not provided'}`,
+        `Experience: ${body.experience}`,
+        `How they heard about us: ${body.how_heard || 'Not specified'}`,
+        `Generated referral code: ${code}`,
+        ``,
+        `Submitted: ${new Date().toISOString()}`,
+      ].join('\n'),
+    })
+  } catch (err) {
+    console.error('[Affiliate Email Error]', err)
+  }
+
   console.log('[Affiliate Application]', {
     name: body.name,
     email: body.email,
-    phone: body.phone,
-    company: body.company,
-    experience: body.experience,
-    how_heard: body.how_heard,
     referral_code: code,
     timestamp: new Date().toISOString(),
   })
