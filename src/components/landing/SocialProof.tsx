@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import NatureImage from "./NatureImage";
+
 const FloatingBackground = dynamic(() => import("./FloatingBackground"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -77,6 +79,19 @@ export default function SocialProof() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mb-12 sm:mb-16 grid grid-cols-2 gap-3 sm:gap-4 h-48 sm:h-64">
+          <NatureImage
+            src="/brand/nature/mv-macro-nature-3.jpg"
+            alt="Organic network pattern"
+            className="h-full w-full"
+          />
+          <NatureImage
+            src="/brand/nature/mv-macro-nature-4.jpg"
+            alt="Neural pathways"
+            className="h-full w-full"
+          />
         </div>
 
         {/* Testimonials */}

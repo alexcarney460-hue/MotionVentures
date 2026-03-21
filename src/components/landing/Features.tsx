@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import NatureImage from "./NatureImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,6 +88,14 @@ export default function Features() {
             <br />
             <span className="text-gradient-accent">move faster.</span>
           </h2>
+        </div>
+
+        <div className="mb-12 sm:mb-16 h-48 sm:h-64 md:h-80">
+          <NatureImage
+            src="/brand/nature/mv-macro-nature-1.jpg"
+            alt="Mycelium intelligence network"
+            className="h-full w-full"
+          />
         </div>
 
         <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.06]">

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -34,6 +35,18 @@ export default function CtaBanner() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
 
       <FloatingBackground density="sparse" />
+
+      {/* Nature background image */}
+      <div className="absolute inset-0 z-[1]">
+        <Image
+          src="/brand/nature/mv-macro-nature-5.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-20"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <div data-cta-reveal className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">

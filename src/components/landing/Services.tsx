@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import NatureImage from "./NatureImage";
+
 const GlassShape = dynamic(() => import("./GlassShape"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
@@ -113,6 +115,14 @@ export default function Services() {
             <br />
             <span className="text-[#888]">One studio.</span>
           </h2>
+        </div>
+
+        <div className="mb-12 sm:mb-16 h-48 sm:h-64 md:h-80">
+          <NatureImage
+            src="/brand/nature/mv-macro-nature-2.jpg"
+            alt="Neural network organic structure"
+            className="h-full w-full"
+          />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
