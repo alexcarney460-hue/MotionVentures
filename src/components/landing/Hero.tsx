@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
-import HeroScene from "./HeroScene";
+
+const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
