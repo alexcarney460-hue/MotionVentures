@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     num: "03",
     name: "Empire8 Sales Direct",
-    domain: "empire8salesdirect.com",
+    domain: "empire8ny.com",
     tags: ["Cannabis Wholesale", "Payments", "Logistics"],
     desc: "Licensed cannabis wholesale supplier with Square payments and auto-shipping via Shippo.",
   },
