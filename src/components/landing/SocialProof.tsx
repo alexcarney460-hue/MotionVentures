@@ -64,7 +64,7 @@ export default function SocialProof() {
 
       <FloatingBackground density="sparse" />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         {/* Stats row */}
         <div className="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 mb-12 sm:mb-24">
           {STATS.map((stat) => (

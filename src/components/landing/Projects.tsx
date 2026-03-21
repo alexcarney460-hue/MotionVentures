@@ -94,7 +94,7 @@ export default function Projects() {
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.04)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div ref={headingRef} className="mb-10 sm:mb-16">
           <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
             Portfolio

@@ -99,7 +99,7 @@ export default function Services() {
 
       <GlassShape className="absolute right-0 top-1/4 w-64 h-64 sm:w-80 sm:h-80 opacity-50 hidden md:block" color="#8b5cf6" />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div ref={headingRef} className="mb-10 sm:mb-16 md:mb-20">
           <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
             What we build

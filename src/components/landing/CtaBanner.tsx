@@ -35,7 +35,7 @@ export default function CtaBanner() {
 
       <FloatingBackground density="sparse" />
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <div data-cta-reveal className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
           Ready to move?
         </div>
