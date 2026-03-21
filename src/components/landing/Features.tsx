@@ -43,36 +43,7 @@ export default function Features() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!sectionRef.current || !headingRef.current) return;
-
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) return;
-
-    const items = sectionRef.current.querySelectorAll("[data-feature]");
-
-    gsap.from(headingRef.current.children, {
-      y: 40,
-      opacity: 0,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: { trigger: headingRef.current, start: "top 85%" },
-    });
-
-    gsap.from(items, {
-      y: 30,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.7,
-      ease: "power3.out",
-      scrollTrigger: { trigger: sectionRef.current, start: "top 70%" },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
+  // No scroll animations — content shows immediately for reliability
 
   return (
     <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a]">
