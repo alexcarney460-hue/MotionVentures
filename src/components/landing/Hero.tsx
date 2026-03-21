@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import HeroScene from "./HeroScene";
 
 export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -74,24 +75,8 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#0a0a0a] pt-20 sm:pt-0">
-      {/* Background radial glow */}
-      <div className="absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.06)_0%,transparent_70%)]" />
-        <div className="absolute left-1/4 top-1/3 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.04)_0%,transparent_70%)]" />
-      </div>
-
-      {/* SVG decorative pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" aria-hidden="true">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid-crosses" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <line x1="28" y1="24" x2="32" y2="24" stroke="white" strokeWidth="0.5" />
-              <line x1="30" y1="22" x2="30" y2="26" stroke="white" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid-crosses)" />
-        </svg>
-      </div>
+      {/* 3D particle sphere background */}
+      <HeroScene />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 text-center">

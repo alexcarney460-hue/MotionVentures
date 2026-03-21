@@ -1,7 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const FloatingBackground = dynamic(() => import("./FloatingBackground"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,8 +59,10 @@ export default function SocialProof() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a]">
+    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
+
+      <FloatingBackground density="sparse" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Stats row */}

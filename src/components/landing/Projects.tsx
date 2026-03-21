@@ -1,7 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const GlassShape = dynamic(() => import("./GlassShape"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,8 +86,10 @@ export default function Projects() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a]">
+    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
+
+      <GlassShape className="absolute left-0 bottom-1/4 w-56 h-56 sm:w-72 sm:h-72 opacity-40 hidden lg:block" color="#38bdf8" />
 
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.04)_0%,transparent_70%)] pointer-events-none" />

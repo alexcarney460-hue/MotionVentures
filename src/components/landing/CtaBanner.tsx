@@ -1,8 +1,11 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const FloatingBackground = dynamic(() => import("./FloatingBackground"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,13 +33,7 @@ export default function CtaBanner() {
     <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
 
-      {/* Background glow */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.08)_0%,transparent_70%)]" />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.06)_0%,transparent_70%)]" />
-      </div>
+      <FloatingBackground density="sparse" />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <div data-cta-reveal className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
