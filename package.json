@@ -12,6 +12,8 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@react-three/postprocessing": "^3.0.4",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.70",
     "@studio-freight/lenis": "^1.0.42",
     "@supabase/supabase-js": "^2.99.0",
     "@types/nodemailer": "^7.0.11",
