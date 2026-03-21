@@ -71,27 +71,27 @@ export default function Features() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 bg-[#0a0a0a]">
+    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6">
-        <div ref={headingRef} className="mb-20 max-w-3xl">
+        <div ref={headingRef} className="mb-10 sm:mb-16 md:mb-20 max-w-3xl">
           <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#6366f1] uppercase">
             Capabilities
           </div>
-          <h2 className="font-[var(--font-sora)] text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-5xl">
+          <h2 className="font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl md:text-5xl">
             Everything you need to
             <br />
             <span className="text-gradient-accent">move faster.</span>
           </h2>
         </div>
 
-        <div className="grid gap-px md:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden border border-white/[0.06]">
+        <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.06]">
           {FEATURES.map((feature) => (
             <div
               key={feature.num}
               data-feature
-              className="group relative bg-[#0e0e0e] p-8 transition-colors duration-300 hover:bg-[#141414]"
+              className="group relative bg-[#0e0e0e] p-5 sm:p-8 transition-colors duration-300 hover:bg-[#141414]"
             >
               <span className="font-mono text-xs font-bold text-[#8b5cf6]/40 group-hover:text-[#8b5cf6]/80 transition-colors duration-300">
                 {feature.num}

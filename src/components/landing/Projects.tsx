@@ -83,18 +83,18 @@ export default function Projects() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 bg-[#0a0a0a]">
+    <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
 
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="mx-auto max-w-6xl px-6">
-        <div ref={headingRef} className="mb-16">
+        <div ref={headingRef} className="mb-10 sm:mb-16">
           <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
             Portfolio
           </div>
-          <h2 className="font-[var(--font-sora)] text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-5xl">
+          <h2 className="font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl md:text-5xl">
             Live ventures.
             <br />
             <span className="text-[#888]">Real results.</span>

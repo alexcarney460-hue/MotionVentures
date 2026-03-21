@@ -89,17 +89,17 @@ export default function Services() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative py-32 bg-[#0a0a0a]"
+      className="relative py-16 sm:py-24 md:py-32 bg-[#0a0a0a]"
     >
       {/* Section divider line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-[#222] to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6">
-        <div ref={headingRef} className="mb-20">
+        <div ref={headingRef} className="mb-10 sm:mb-16 md:mb-20">
           <div className="mb-4 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
             What we build
           </div>
-          <h2 className="font-[var(--font-sora)] text-4xl font-extrabold tracking-[-0.03em] text-white sm:text-5xl">
+          <h2 className="font-[var(--font-sora)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl md:text-5xl">
             Four disciplines.
             <br />
             <span className="text-[#888]">One studio.</span>
@@ -113,7 +113,7 @@ export default function Services() {
               href={service.href}
               data-service-card
               onMouseMove={handleMouseMove}
-              className="radial-hover group relative rounded-2xl border border-white/[0.06] bg-[#111] p-8 transition-all duration-300 hover:border-[#8b5cf6]/20 hover:bg-[#141414] sm:p-10"
+              className="radial-hover group relative rounded-xl sm:rounded-2xl border border-white/[0.06] bg-[#111] p-5 sm:p-8 transition-all duration-300 hover:border-[#8b5cf6]/20 hover:bg-[#141414] md:p-10"
             >
               <div className="flex items-start justify-between">
                 <span className="font-mono text-sm font-bold text-[#8b5cf6]/60">

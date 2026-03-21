@@ -73,7 +73,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a]">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#0a0a0a] pt-20 sm:pt-0">
       {/* Background radial glow */}
       <div className="absolute inset-0">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.06)_0%,transparent_70%)]" />
@@ -94,38 +94,38 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <div ref={eyebrowRef} className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 px-4 py-1.5 text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
+      <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 text-center">
+        <div ref={eyebrowRef} className="mb-5 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-[#8b5cf6] uppercase">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#8b5cf6]" />
           AI Venture Studio
         </div>
 
         <h1
           ref={headingRef}
-          className="font-[var(--font-sora)] text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white"
+          className="font-[var(--font-sora)] text-[clamp(2.25rem,8vw,7rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white"
         >
           We build what&apos;s next.
         </h1>
 
         <p
           ref={subtitleRef}
-          className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#888] sm:text-xl"
+          className="mx-auto mt-5 sm:mt-8 max-w-2xl text-base sm:text-lg leading-relaxed text-[#888] sm:text-xl"
         >
           Strategy. Intelligence. Automation. We&apos;re an AI studio that builds
           ventures and ships the systems to run them.
         </p>
 
-        <div ref={ctaRef} className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div ref={ctaRef} className="mt-8 sm:mt-12 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row">
           <Link
             href="#services"
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#38bdf8] px-8 py-3.5 text-sm font-bold text-white uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:scale-[1.02]"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#38bdf8] px-8 py-3.5 text-sm font-bold text-white uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:scale-[1.02]"
           >
             See our work
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-3.5 text-sm font-bold text-white uppercase tracking-wider backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-3.5 text-sm font-bold text-white uppercase tracking-wider backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10"
           >
             Book a call
           </Link>
