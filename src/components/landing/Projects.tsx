@@ -72,12 +72,12 @@ export default function Projects() {
     });
 
     gsap.from(cards, {
-      y: 50,
+      y: 30,
       opacity: 0,
-      stagger: 0.1,
-      duration: 0.7,
+      stagger: 0.08,
+      duration: 0.6,
       ease: "power3.out",
-      scrollTrigger: { trigger: cards[0], start: "top 85%" },
+      scrollTrigger: { trigger: sectionRef.current, start: "top 60%" },
     });
 
     return () => {
@@ -110,7 +110,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <a
               key={project.num}
@@ -118,7 +118,7 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               data-project
-              className="group relative rounded-2xl border border-white/[0.06] bg-[#111] p-6 transition-all duration-300 hover:border-[#8b5cf6]/30 hover:bg-[#141414] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(139,92,246,0.08)]"
+              className="group relative rounded-xl sm:rounded-2xl border border-white/[0.06] bg-[#111] p-4 sm:p-6 transition-all duration-300 hover:border-[#8b5cf6]/30 hover:bg-[#141414] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(139,92,246,0.08)]"
             >
               {/* Number */}
               <div className="flex items-start justify-between mb-4">
@@ -131,7 +131,7 @@ export default function Projects() {
               </div>
 
               {/* Name + Domain */}
-              <h3 className="font-[var(--font-sora)] text-lg font-bold text-white">
+              <h3 className="font-[var(--font-sora)] text-sm sm:text-lg font-bold text-white">
                 {project.name}
               </h3>
               <div className="mt-1 text-xs text-[#8b5cf6]/60 font-mono">
@@ -139,12 +139,12 @@ export default function Projects() {
               </div>
 
               {/* Description */}
-              <p className="mt-3 text-sm leading-relaxed text-[#666]">
+              <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-[#666] hidden sm:block">
                 {project.desc}
               </p>
 
               {/* Tags */}
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              <div className="mt-2 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
