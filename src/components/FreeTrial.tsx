@@ -50,12 +50,12 @@ export default function FreeTrial() {
   return (
     <main className="mx-auto max-w-xl px-4 py-16 sm:py-24">
       {/* Headline */}
-      <h1 className="font-[var(--font-playfair)] text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+      <h1 className="font-[var(--font-playfair)] text-4xl font-bold tracking-tight text-white sm:text-5xl">
         Test your idea. Free.
       </h1>
 
       {/* Subtitle */}
-      <p className="mt-4 text-lg leading-relaxed text-gray-500">
+      <p className="mt-4 text-lg leading-relaxed text-[#888]">
         10 synthetic personas will react to your concept in under 60 seconds.
         No signup required.
       </p>
@@ -66,7 +66,7 @@ export default function FreeTrial() {
         <div>
           <label
             htmlFor="question"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-[#ccc]"
           >
             What are you testing?
           </label>
@@ -76,7 +76,7 @@ export default function FreeTrial() {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Describe your product idea, ad copy, landing page concept, or business question..."
-            className="mt-2 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-gray-400 focus:outline-none focus:ring-0"
+            className="mt-2 w-full rounded-xl border border-white/[0.06] bg-[#111] px-4 py-3 text-white placeholder-[#666] transition focus:border-white/20 focus:outline-none focus:ring-0"
             disabled={loading}
           />
         </div>
@@ -85,7 +85,7 @@ export default function FreeTrial() {
         <div>
           <label
             htmlFor="audience"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-[#ccc]"
           >
             Who is your target audience?
           </label>
@@ -95,7 +95,7 @@ export default function FreeTrial() {
             value={audience}
             onChange={(e) => setAudience(e.target.value)}
             placeholder="e.g. US women 25-45 who shop online"
-            className="mt-2 w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-gray-400 focus:outline-none focus:ring-0"
+            className="mt-2 w-full rounded-xl border border-white/[0.06] bg-[#111] px-4 py-3 text-white placeholder-[#666] transition focus:border-white/20 focus:outline-none focus:ring-0"
             disabled={loading}
           />
         </div>
@@ -111,7 +111,7 @@ export default function FreeTrial() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-full bg-gray-900 px-8 py-3 text-lg font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full rounded-full bg-[var(--mv-primary)] px-8 py-3 text-lg font-medium text-white transition hover:bg-[var(--mv-primary-hover)] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? (
             <span className="inline-flex items-center gap-2">
@@ -143,15 +143,15 @@ export default function FreeTrial() {
       </form>
 
       {/* Want more? */}
-      <div className="mt-16 rounded-2xl border border-gray-100 bg-gray-50 px-6 py-5">
-        <p className="text-sm leading-relaxed text-gray-500">
-          <span className="font-medium text-gray-700">Want more?</span>{" "}
+      <div className="mt-16 rounded-2xl border border-white/[0.04] bg-[#111] px-6 py-5">
+        <p className="text-sm leading-relaxed text-[#888]">
+          <span className="font-medium text-[#ccc]">Want more?</span>{" "}
           Free gives you 10 personas. Pro gives you 50 + Think Tank + customer
           data grounding.
         </p>
         <Link
           href="/services"
-          className="mt-2 inline-block text-sm font-medium text-gray-900 transition hover:text-gray-600"
+          className="mt-2 inline-block text-sm font-medium text-white transition hover:text-[#999]"
         >
           See plans &rarr;
         </Link>

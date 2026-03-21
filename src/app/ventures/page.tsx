@@ -105,7 +105,7 @@ const ventures = [
 
 export default function VenturesPage() {
   return (
-    <div className="light-page min-h-screen">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <SiteHeader />
 
       {/* ── HERO — full-bleed cinematic ── */}

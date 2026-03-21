@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="light-page min-h-screen">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <SiteHeader />
 
       {/* Hero */}

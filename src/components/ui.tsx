@@ -57,8 +57,8 @@ export function Button({
     "inline-flex h-12 items-center justify-center rounded-xl px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 active:translate-y-px sm:h-11";
   const styles =
     variant === "primary"
-      ? "bg-gray-900 text-white shadow-sm hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-md focus:ring-gray-900"
-      : "border border-gray-200 bg-white text-gray-700 shadow-sm hover:-translate-y-0.5 hover:bg-gray-50 hover:text-gray-900 focus:ring-gray-400";
+      ? "bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#38bdf8] text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md focus:ring-[#8b5cf6]"
+      : "border border-white/[0.06] bg-[#111] text-[#ccc] shadow-sm hover:-translate-y-0.5 hover:bg-white/5 hover:text-white focus:ring-[#8b5cf6]";
   return (
     <Link href={href} className={`${base} ${styles}`}>
       {children}
@@ -83,10 +83,10 @@ export function Card({
   );
 
   const cls =
-    "rounded-3xl border border-gray-100 bg-white p-7 shadow-sm";
+    "rounded-3xl border border-white/[0.06] bg-[#111] p-7 shadow-sm";
 
   return href ? (
-    <Link href={href} className={`${cls} transition hover:-translate-y-0.5 hover:shadow-md hover:border-gray-200`}>
+    <Link href={href} className={`${cls} transition hover:-translate-y-0.5 hover:shadow-md hover:border-white/10`}>
       {inner}
     </Link>
   ) : (

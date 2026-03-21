@@ -128,12 +128,12 @@ const DATA_INPUTS = [
 
 export default function CrowdTestPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <SiteHeader />
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--mv-mist),white_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#111_0%,#0a0a0a_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_60%_25%,rgba(34,211,238,0.06),transparent)]" />
 
         <Container>
@@ -144,12 +144,12 @@ export default function CrowdTestPage() {
                 CrowdTest
               </div>
 
-              <h1 className="font-[var(--font-playfair)] text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-gray-900">
+              <h1 className="font-[var(--font-playfair)] text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white">
                 Test before<br />
                 <span className="text-[var(--mv-sapphire)]">you invest.</span>
               </h1>
 
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-gray-500">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#888]">
                 Simulate 50 to 500 customer personas grounded in your real audience
                 data. Get instant sentiment analysis, purchase intent scoring, and
                 the objections you need to address&mdash;before spending a dollar
@@ -176,10 +176,10 @@ export default function CrowdTestPage() {
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-sapphire)]">
               Live results
             </div>
-            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
               See a real CrowdTest.
             </h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm text-gray-500">
+            <p className="mx-auto mt-3 max-w-lg text-sm text-[#888]">
               We ran CrowdTest on itself. 50 AI personas evaluated whether
               they&rsquo;d buy a synthetic focus group SaaS. Here are the
               unedited results.
@@ -466,10 +466,10 @@ export default function CrowdTestPage() {
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-emerald)]">
               Data grounding
             </div>
-            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
               Your data makes it real.
             </h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm text-gray-500">
+            <p className="mx-auto mt-3 max-w-lg text-sm text-[#888]">
               Generic simulations give generic answers. CrowdTest builds personas
               from your actual customers&mdash;their language, their concerns,
               their buying patterns.
@@ -480,15 +480,15 @@ export default function CrowdTestPage() {
             {DATA_INPUTS.map((input) => (
               <div
                 key={input.title}
-                className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md sm:rounded-3xl"
+                className="group rounded-2xl border border-white/[0.06] bg-[#111] p-5 shadow-none transition duration-300 hover:-translate-y-1 hover:border-white/10 hover:shadow-none sm:rounded-3xl"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--mv-sapphire)]/20 bg-[var(--mv-sapphire)]/5 text-[var(--mv-sapphire)]">
                   {input.icon}
                 </div>
-                <div className="mt-4 font-[var(--font-sora)] text-base font-bold tracking-tight text-gray-900">
+                <div className="mt-4 font-[var(--font-sora)] text-base font-bold tracking-tight text-white">
                   {input.title}
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                <p className="mt-2 text-sm leading-relaxed text-[#888]">
                   {input.desc}
                 </p>
               </div>
@@ -504,25 +504,25 @@ export default function CrowdTestPage() {
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
               Pricing
             </div>
-            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
               Simple, transparent pricing.
             </h2>
           </div>
 
           <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
             {/* Quick */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8">
+            <div className="rounded-2xl border border-white/[0.06] bg-[#111] p-5 shadow-none sm:rounded-3xl sm:p-8">
               <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-sapphire)]">
                 Quick Test
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-gray-900">
+              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white">
                 Fast signal check
               </div>
               <div className="mt-3">
-                <span className="text-3xl font-extrabold tracking-tight text-gray-900">$49</span>
-                <span className="ml-1 text-sm text-gray-400">/session</span>
+                <span className="text-3xl font-extrabold tracking-tight text-white">$49</span>
+                <span className="ml-1 text-sm text-[#666]">/session</span>
               </div>
-              <ul className="mt-5 grid gap-2 text-sm text-gray-500">
+              <ul className="mt-5 grid gap-2 text-sm text-[#888]">
                 <li>50 synthetic personas</li>
                 <li>Basic sentiment breakdown</li>
                 <li>Top 3 objections</li>
@@ -537,21 +537,21 @@ export default function CrowdTestPage() {
             </div>
 
             {/* Deep */}
-            <div className="relative rounded-2xl border border-[var(--mv-sapphire)]/30 bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8">
+            <div className="relative rounded-2xl border border-[var(--mv-sapphire)]/30 bg-[#111] p-5 shadow-none sm:rounded-3xl sm:p-8">
               <div className="absolute -top-3 left-6 rounded-full bg-[var(--mv-sapphire)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                 Recommended
               </div>
               <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-sapphire)]">
                 Deep Analysis
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-gray-900">
+              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white">
                 Full strategic intelligence
               </div>
               <div className="mt-3">
-                <span className="text-3xl font-extrabold tracking-tight text-gray-900">$149</span>
-                <span className="ml-1 text-sm text-gray-400">/session</span>
+                <span className="text-3xl font-extrabold tracking-tight text-white">$149</span>
+                <span className="ml-1 text-sm text-[#666]">/session</span>
               </div>
-              <ul className="mt-5 grid gap-2 text-sm text-gray-500">
+              <ul className="mt-5 grid gap-2 text-sm text-[#888]">
                 <li>500 synthetic personas</li>
                 <li>Full sentiment distribution</li>
                 <li>All objections ranked by frequency</li>
@@ -571,16 +571,16 @@ export default function CrowdTestPage() {
       </Section>
 
       {/* ── CTA ── */}
-      <Section className="bg-gray-50">
+      <Section className="bg-[#111]">
         <Container>
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:rounded-3xl sm:p-12 md:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#111] p-6 shadow-none sm:rounded-3xl sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_110%,rgba(34,211,238,0.05),transparent)]" />
             <div className="relative mx-auto max-w-2xl text-center">
-              <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+              <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
                 Know what your customers think<br />
                 <span className="text-[var(--mv-sapphire)]">before they do.</span>
               </h2>
-              <p className="mx-auto mt-5 max-w-lg text-base text-gray-500">
+              <p className="mx-auto mt-5 max-w-lg text-base text-[#888]">
                 Stop guessing. Start simulating. Your first CrowdTest is just $49.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

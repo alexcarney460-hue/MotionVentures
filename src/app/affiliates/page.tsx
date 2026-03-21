@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function AffiliatePage() {
   return (
-    <div className="light-page min-h-screen">
+    <div className="min-h-screen">
       <SiteHeader />
 
       {/* Hero */}

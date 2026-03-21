@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function AssessmentPage() {
   return (
-    <div className="light-page min-h-screen">
+    <div className="min-h-screen">
       <SiteHeader ctaLabel="Assessment" ctaHref="/assessment" />
 
       <Section className="relative overflow-hidden">

@@ -62,12 +62,12 @@ const USE_CASES = [
 
 export default function ThinkTankPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <SiteHeader />
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--mv-mist),white_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#111_0%,#0a0a0a_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_40%_25%,rgba(168,85,247,0.06),transparent)]" />
 
         <Container>
@@ -78,12 +78,12 @@ export default function ThinkTankPage() {
                 Think Tank
               </div>
 
-              <h1 className="font-[var(--font-playfair)] text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-gray-900">
+              <h1 className="font-[var(--font-playfair)] text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white">
                 Your board of<br />
                 <span className="text-[var(--mv-primary)]">advisors, on demand.</span>
               </h1>
 
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-gray-500">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#888]">
                 We research real domain experts&mdash;their published positions,
                 their frameworks, their biases&mdash;then simulate a multi-round
                 adversarial debate on your strategic question. You get the kind of
@@ -110,10 +110,10 @@ export default function ThinkTankPage() {
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
               Example debate
             </div>
-            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
               See the experts argue.
             </h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-gray-500">
+            <p className="mx-auto mt-3 max-w-md text-sm text-[#888]">
               Sample from a Think Tank session on: &ldquo;Should we launch a
               subscription model for our DTC skincare line?&rdquo;
             </p>
@@ -196,10 +196,10 @@ export default function ThinkTankPage() {
               <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-emerald)]">
                 Research process
               </div>
-              <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+              <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
                 Why real experts matter.
               </h2>
-              <p className="mt-5 max-w-lg text-base leading-relaxed text-gray-500">
+              <p className="mt-5 max-w-lg text-base leading-relaxed text-[#888]">
                 We do not use generic AI personas. For every Think Tank session,
                 we research actual domain experts&mdash;their published papers,
                 interviews, known positions, and analytical frameworks. This
@@ -215,7 +215,7 @@ export default function ThinkTankPage() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center gap-3 text-sm text-gray-500"
+                    className="flex items-center gap-3 text-sm text-[#888]"
                   >
                     <span
                       className="h-px w-8 flex-shrink-0 rounded-full"
@@ -256,7 +256,7 @@ export default function ThinkTankPage() {
               ].map((item) => (
                 <div
                   key={item.step}
-                  className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+                  className="rounded-2xl border border-white/[0.06] bg-[#111] p-5 shadow-none"
                 >
                   <div className="flex items-center gap-3">
                     <span
@@ -270,8 +270,8 @@ export default function ThinkTankPage() {
                       {item.step}
                     </span>
                   </div>
-                  <div className="mt-2 text-sm font-semibold text-gray-900">{item.title}</div>
-                  <p className="mt-1 text-xs leading-relaxed text-gray-500">{item.desc}</p>
+                  <div className="mt-2 text-sm font-semibold text-white">{item.title}</div>
+                  <p className="mt-1 text-xs leading-relaxed text-[#888]">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -286,7 +286,7 @@ export default function ThinkTankPage() {
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
               Use cases
             </div>
-            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
               What will you debate?
             </h2>
           </div>
@@ -295,10 +295,10 @@ export default function ThinkTankPage() {
             {USE_CASES.map((uc) => (
               <div
                 key={uc.question}
-                className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md"
+                className="group rounded-2xl border border-white/[0.06] bg-[#111] p-5 shadow-none transition duration-300 hover:-translate-y-1 hover:border-white/10 hover:shadow-none"
               >
-                <h3 className="text-sm font-bold text-gray-700">{uc.question}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-gray-500">{uc.desc}</p>
+                <h3 className="text-sm font-bold text-[#ccc]">{uc.question}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-[#888]">{uc.desc}</p>
               </div>
             ))}
           </div>
@@ -321,25 +321,25 @@ export default function ThinkTankPage() {
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-[var(--mv-primary)]">
               Pricing
             </div>
-            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+            <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
               Expert intelligence, accessible pricing.
             </h2>
           </div>
 
           <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
             {/* Standard */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8">
+            <div className="rounded-2xl border border-white/[0.06] bg-[#111] p-5 shadow-none sm:rounded-3xl sm:p-8">
               <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-primary)]">
                 Standard
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-gray-900">
+              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white">
                 Strategic clarity session
               </div>
               <div className="mt-3">
-                <span className="text-3xl font-extrabold tracking-tight text-gray-900">$99</span>
-                <span className="ml-1 text-sm text-gray-400">/session</span>
+                <span className="text-3xl font-extrabold tracking-tight text-white">$99</span>
+                <span className="ml-1 text-sm text-[#666]">/session</span>
               </div>
-              <ul className="mt-5 grid gap-2 text-sm text-gray-500">
+              <ul className="mt-5 grid gap-2 text-sm text-[#888]">
                 <li>8 researched expert personas</li>
                 <li>3-round adversarial debate</li>
                 <li>Consensus & dissent mapping</li>
@@ -354,21 +354,21 @@ export default function ThinkTankPage() {
             </div>
 
             {/* Deep Research */}
-            <div className="relative rounded-2xl border border-[var(--mv-primary)]/30 bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8">
+            <div className="relative rounded-2xl border border-[var(--mv-primary)]/30 bg-[#111] p-5 shadow-none sm:rounded-3xl sm:p-8">
               <div className="absolute -top-3 left-6 rounded-full bg-[var(--mv-primary)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                 Recommended
               </div>
               <div className="text-xs font-semibold uppercase tracking-wide text-[var(--mv-primary)]">
                 Deep Research
               </div>
-              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-gray-900">
+              <div className="mt-2 font-[var(--font-sora)] text-xl font-bold tracking-tight text-white">
                 Comprehensive advisory
               </div>
               <div className="mt-3">
-                <span className="text-3xl font-extrabold tracking-tight text-gray-900">$299</span>
-                <span className="ml-1 text-sm text-gray-400">/session</span>
+                <span className="text-3xl font-extrabold tracking-tight text-white">$299</span>
+                <span className="ml-1 text-sm text-[#666]">/session</span>
               </div>
-              <ul className="mt-5 grid gap-2 text-sm text-gray-500">
+              <ul className="mt-5 grid gap-2 text-sm text-[#888]">
                 <li>12 deeply researched expert personas</li>
                 <li>4-round adversarial debate</li>
                 <li>Full consensus & dissent mapping</li>
@@ -388,16 +388,16 @@ export default function ThinkTankPage() {
       </Section>
 
       {/* ── CTA ── */}
-      <Section className="bg-gray-50">
+      <Section className="bg-[#111]">
         <Container>
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:rounded-3xl sm:p-12 md:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#111] p-6 shadow-none sm:rounded-3xl sm:p-12 md:p-16">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_110%,rgba(168,85,247,0.06),transparent)]" />
             <div className="relative mx-auto max-w-2xl text-center">
-              <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-gray-900 sm:text-4xl">
+              <h2 className="font-[var(--font-playfair)] text-3xl font-extrabold tracking-[-0.03em] text-white sm:text-4xl">
                 Stop deciding alone.<br />
                 <span className="text-[var(--mv-primary)]">Convene your Think Tank.</span>
               </h2>
-              <p className="mx-auto mt-5 max-w-lg text-base text-gray-500">
+              <p className="mx-auto mt-5 max-w-lg text-base text-[#888]">
                 The best decisions come from rigorous debate. Get yours for the
                 cost of a business lunch.
               </p>

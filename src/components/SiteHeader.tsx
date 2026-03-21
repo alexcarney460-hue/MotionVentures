@@ -49,7 +49,7 @@ export default function SiteHeader({
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-[var(--font-sora)] font-semibold tracking-tight text-[var(--mv-ink)]"
+            className="flex items-center gap-2 font-[var(--font-sora)] font-semibold tracking-tight text-white"
           >
             <Image
               src="/brand/logo-mv-192.png"
@@ -66,19 +66,19 @@ export default function SiteHeader({
           <div className="hidden items-center gap-6 text-sm sm:flex">
             <Link
               href="/intelligence"
-              className="text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+              className="text-[#888] transition hover:text-white"
             >
               Intelligence
             </Link>
             <Link
               href="/services"
-              className="text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+              className="text-[#888] transition hover:text-white"
             >
               Pricing
             </Link>
             <Link
               href="/blog"
-              className="text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+              className="text-[#888] transition hover:text-white"
             >
               Docs
             </Link>
@@ -96,18 +96,18 @@ export default function SiteHeader({
                   {user.email?.[0] || '?'}
                 </button>
                 {userMenuOpen && (
-                  <div className="absolute right-0 top-11 z-50 w-48 rounded-xl border border-gray-200 bg-white p-1.5 shadow-lg">
-                    <div className="px-3 py-2 text-xs text-gray-400 truncate">{user.email}</div>
+                  <div className="absolute right-0 top-11 z-50 w-48 rounded-xl border border-white/[0.06] bg-[#111] p-1.5 shadow-lg">
+                    <div className="px-3 py-2 text-xs text-[#666] truncate">{user.email}</div>
                     <Link
                       href="/admin/crm"
                       onClick={() => setUserMenuOpen(false)}
-                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
+                      className="block rounded-lg px-3 py-2 text-sm text-[#888] transition hover:bg-white/5 hover:text-white"
                     >
                       CRM Dashboard
                     </Link>
                     <button
                       onClick={handleSignOut}
-                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-red-500 transition hover:bg-red-50 hover:text-red-600"
+                      className="w-full rounded-lg px-3 py-2 text-left text-sm text-red-400 transition hover:bg-red-500/10 hover:text-red-300"
                     >
                       Sign Out
                     </button>
@@ -118,13 +118,13 @@ export default function SiteHeader({
               <>
                 <Link
                   href="/auth/login"
-                  className="text-sm text-[var(--mv-muted)] transition hover:text-[var(--mv-ink)]"
+                  className="text-sm text-[#888] transition hover:text-white"
                 >
                   Sign in
                 </Link>
                 <Link
                   href={ctaHref}
-                  className="inline-flex items-center rounded-full bg-gray-900 px-6 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
+                  className="inline-flex items-center rounded-full bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#38bdf8] px-6 py-2 text-sm font-medium text-white transition hover:opacity-90"
                 >
                   {ctaLabel} <span className="ml-1" aria-hidden="true">&rarr;</span>
                 </Link>
@@ -134,7 +134,7 @@ export default function SiteHeader({
 
           {/* Mobile: hamburger */}
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-500 transition hover:bg-gray-100 sm:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.06] bg-white/5 text-[#888] transition hover:bg-white/10 sm:hidden"
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((o) => !o)}
           >
@@ -153,7 +153,7 @@ export default function SiteHeader({
 
       {/* Mobile nav drawer */}
       {mobileOpen && (
-        <div className="mx-4 mt-2 rounded-2xl border border-gray-200 bg-white/95 shadow-lg backdrop-blur sm:hidden">
+        <div className="mx-4 mt-2 rounded-2xl border border-white/[0.06] bg-[#111]/95 shadow-lg backdrop-blur sm:hidden">
           <nav className="flex flex-col gap-1 p-4">
             {[
               { href: "/intelligence", label: "Intelligence" },
@@ -164,41 +164,41 @@ export default function SiteHeader({
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-900"
+                className="rounded-xl px-3 py-2.5 text-sm font-medium text-[#888] transition hover:bg-white/5 hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
             {user ? (
-              <div className="mt-2 space-y-1 border-t border-gray-100 pt-2">
-                <div className="px-3 py-2 text-xs text-gray-400 truncate">{user.email}</div>
+              <div className="mt-2 space-y-1 border-t border-white/[0.06] pt-2">
+                <div className="px-3 py-2 text-xs text-[#666] truncate">{user.email}</div>
                 <Link
                   href="/admin/crm"
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-xl px-3 py-2.5 text-sm font-medium text-gray-500 transition hover:bg-gray-50 hover:text-gray-900"
+                  className="block rounded-xl px-3 py-2.5 text-sm font-medium text-[#888] transition hover:bg-white/5 hover:text-white"
                 >
                   CRM Dashboard
                 </Link>
                 <button
                   onClick={() => { handleSignOut(); setMobileOpen(false); }}
-                  className="w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium text-red-500 transition hover:bg-red-50"
+                  className="w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium text-red-400 transition hover:bg-red-500/10"
                 >
                   Sign Out
                 </button>
               </div>
             ) : (
-              <div className="mt-2 flex gap-2 border-t border-gray-100 pt-3">
+              <div className="mt-2 flex gap-2 border-t border-white/[0.06] pt-3">
                 <Link
                   href="/auth/login"
                   onClick={() => setMobileOpen(false)}
-                  className="flex-1 rounded-xl border border-gray-200 bg-white py-2.5 text-center text-sm font-medium text-gray-600 transition hover:bg-gray-50"
+                  className="flex-1 rounded-xl border border-white/[0.06] bg-white/5 py-2.5 text-center text-sm font-medium text-[#888] transition hover:bg-white/10 hover:text-white"
                 >
                   Sign in
                 </Link>
                 <Link
                   href={ctaHref}
                   onClick={() => setMobileOpen(false)}
-                  className="flex-1 rounded-full bg-gray-900 py-2.5 text-center text-sm font-medium text-white transition hover:bg-gray-800"
+                  className="flex-1 rounded-full bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#38bdf8] py-2.5 text-center text-sm font-medium text-white transition hover:opacity-90"
                 >
                   {ctaLabel} &rarr;
                 </Link>

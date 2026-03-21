@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="light-page min-h-screen">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <SiteHeader />
 
       <Section className="relative overflow-hidden py-14 md:py-20">

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function TryPage() {
   return (
-    <div className="light-page min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <SiteHeader ctaLabel="Try Free" ctaHref="/try" />
       <FreeTrial />
       <SiteFooter />

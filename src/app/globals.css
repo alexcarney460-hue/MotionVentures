@@ -305,28 +305,3 @@ body {
   transform: scaleX(1);
 }
 
-/* Light page override for product pages */
-.light-page {
-  --background: #ffffff;
-  --foreground: #121212;
-  --mv-canvas: #ffffff;
-  --mv-surface: #f9fafb;
-  --mv-ink: #121212;
-  --mv-muted: #6b7280;
-  --mv-border: #e5e7eb;
-  --mv-primary: #121212;
-  --mv-primary-hover: #374151;
-  --mv-accent: #6366f1;
-  --mv-accent-hover: #818cf8;
-  --mv-mist: #f3f4f6;
-}
-
-.light-page .glass-nav {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(229, 231, 235, 0.6);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
-}
-
-.light-page ::-webkit-scrollbar-track { background: #f9fafb; }
-.light-page ::-webkit-scrollbar-thumb { background: #d1d5db; }
-.light-page ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
