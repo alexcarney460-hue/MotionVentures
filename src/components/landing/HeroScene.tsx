@@ -92,8 +92,13 @@ function ParticleSphere() {
     meshRef.current.rotation.y += mouse.current.x * 0.3;
     meshRef.current.rotation.x += mouse.current.y * 0.15;
 
-    // Breathing scale pulse
-    const scale = 1 + Math.sin(t * 0.5) * 0.03;
+    // Dramatic expand past viewer and contract back
+    // Cycle: contract to 0.8 → expand to 3.5 (past viewer) → contract back
+    const cycle = t * 0.15; // slow cycle
+    const breathe = Math.sin(cycle);
+    const scale = breathe > 0
+      ? 1 + breathe * 2.5  // expand up to 3.5x (past viewer)
+      : 1 + breathe * 0.2; // contract down to 0.8x
     meshRef.current.scale.setScalar(scale);
 
     // Keep lines in sync with particles

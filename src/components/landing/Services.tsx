@@ -43,8 +43,13 @@ export default function Services() {
     if (!sectionRef.current || !headingRef.current) return;
 
     const cards = sectionRef.current.querySelectorAll("[data-service-card]");
+    const isMobile = window.innerWidth < 768;
 
-    // Heading reveal
+    if (isMobile) {
+      // On mobile, skip scroll animations — just show everything
+      return;
+    }
+
     gsap.from(headingRef.current.children, {
       y: 40,
       opacity: 0,
@@ -53,20 +58,19 @@ export default function Services() {
       ease: "power3.out",
       scrollTrigger: {
         trigger: headingRef.current,
-        start: "top 80%",
+        start: "top 85%",
       },
     });
 
-    // Cards stagger in
     gsap.from(cards, {
-      y: 60,
+      y: 40,
       opacity: 0,
-      stagger: 0.12,
-      duration: 0.8,
+      stagger: 0.1,
+      duration: 0.7,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: cards[0],
-        start: "top 85%",
+        trigger: sectionRef.current,
+        start: "top 70%",
       },
     });
 
